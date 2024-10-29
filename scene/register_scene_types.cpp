@@ -133,6 +133,7 @@
 #include "scene/resources/mesh_data_tool.h"
 #include "scene/resources/mesh_texture.h"
 #include "scene/resources/multimesh.h"
+#include "scene/resources/sprite_frames.h"
 #if !defined(NAVIGATION_2D_DISABLED) || !defined(NAVIGATION_3D_DISABLED)
 #include "scene/resources/navigation_mesh.h"
 #endif // !defined(NAVIGATION_2D_DISABLED) || !defined(NAVIGATION_3D_DISABLED)
@@ -352,6 +353,11 @@ static Ref<ResourceFormatLoaderText> resource_loader_text;
 static Ref<ResourceFormatLoaderCompressedTexture2D> resource_loader_stream_texture;
 static Ref<ResourceFormatLoaderCompressedTextureLayered> resource_loader_texture_layered;
 static Ref<ResourceFormatLoaderCompressedTexture3D> resource_loader_texture_3d;
+static Ref<ResourceFormatLoaderSpriteFrames> resource_loader_sprite_frames;
+
+#ifndef DISABLE_DEPRECATED
+static Ref<ResourceFormatLoaderAnimatedTexture> resource_loader_animated_texture;
+#endif
 
 static Ref<ResourceFormatSaverShader> resource_saver_shader;
 static Ref<ResourceFormatLoaderShader> resource_loader_shader;
@@ -382,6 +388,18 @@ void register_scene_types() {
 		resource_loader_texture_3d.instantiate();
 		ResourceLoader::add_resource_format_loader(resource_loader_texture_3d);
 	}
+
+	if (GD_IS_CLASS_ENABLED(SpriteFrames)) {
+		resource_loader_sprite_frames.instantiate();
+		ResourceLoader::add_resource_format_loader(resource_loader_sprite_frames);
+	}
+
+#ifndef DISABLE_DEPRECATED
+	if (GD_IS_CLASS_ENABLED(AnimatedTexture)) {
+		resource_loader_animated_texture.instantiate();
+		ResourceLoader::add_resource_format_loader(resource_loader_animated_texture);
+	}
+#endif
 
 	resource_saver_text.instantiate();
 	ResourceSaver::add_resource_format_saver(resource_saver_text, true);
@@ -1392,6 +1410,18 @@ void unregister_scene_types() {
 		ResourceLoader::remove_resource_format_loader(resource_loader_texture_3d);
 		resource_loader_texture_3d.unref();
 	}
+
+	if (GD_IS_CLASS_ENABLED(SpriteFrames)) {
+		ResourceLoader::remove_resource_format_loader(resource_loader_sprite_frames);
+		resource_loader_sprite_frames.unref();
+	}
+
+#ifndef DISABLE_DEPRECATED
+	if (GD_IS_CLASS_ENABLED(AnimatedTexture)) {
+		ResourceLoader::remove_resource_format_loader(resource_loader_animated_texture);
+		resource_loader_animated_texture.unref();
+	}
+#endif
 
 	if (GD_IS_CLASS_ENABLED(CompressedTexture2D)) {
 		ResourceLoader::remove_resource_format_loader(resource_loader_stream_texture);

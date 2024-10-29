@@ -1,5 +1,5 @@
 /**************************************************************************/
-/*  animated_texture.h                                                    */
+/*  image_frames_loader.h                                                 */
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             REDOT ENGINE                               */
@@ -32,90 +32,74 @@
 
 #pragma once
 
+#include "core/io/file_access.h"
 #include "core/io/image_frames.h"
 #include "core/io/resource_loader.h"
-#include "scene/resources/texture.h"
+#include "core/string/ustring.h"
+#include "core/templates/list.h"
+#include "core/variant/binder_common.h"
 
-class AnimatedTexture : public Texture2D {
-	GDCLASS(AnimatedTexture, Texture2D);
+class ImageFramesLoader;
 
-	// Use readers writers lock for this, since its far more times read than written to.
-	RWLock rw_lock;
+class ImageFramesFormatLoader : public RefCounted {
+	GDCLASS(ImageFramesFormatLoader, RefCounted);
+
+	friend class ImageFramesLoader;
+	friend class ResourceFormatLoaderImageFrames;
 
 public:
-	enum {
-		MAX_FRAMES = 256
+	enum LoaderFlags {
+		FLAG_NONE = 0,
+		FLAG_FORCE_LINEAR = 1,
 	};
-
-private:
-	RID proxy_ph;
-	RID proxy;
-
-	struct Frame {
-		Ref<Texture2D> texture;
-		float duration = 1.0;
-	};
-
-	Frame frames[MAX_FRAMES];
-	int frame_count = 1.0;
-	int current_frame = 0;
-	bool pause = false;
-	bool one_shot = false;
-	float speed_scale = 1.0;
-
-	float time = 0.0;
-
-	uint64_t prev_ticks = 0;
-
-	void _update_proxy();
-	void _finish_non_thread_safe_setup();
 
 protected:
 	static void _bind_methods();
-	void _validate_property(PropertyInfo &p_property) const;
+
+	virtual Error load_image_frames(Ref<ImageFrames> p_image, Ref<FileAccess> p_fileaccess, BitField<ImageFramesFormatLoader::LoaderFlags> p_flags = FLAG_NONE, float p_scale = 1.0, int p_max_frames = 0) = 0;
+	virtual void get_recognized_extensions(List<String> *p_extensions) const = 0;
+	bool recognize(const String &p_extension) const;
 
 public:
-	void set_frames(int p_frames);
-	int get_frames() const;
-
-	void set_current_frame(int p_frame);
-	int get_current_frame() const;
-
-	void set_pause(bool p_pause);
-	bool get_pause() const;
-
-	void set_one_shot(bool p_one_shot);
-	bool get_one_shot() const;
-
-	void set_frame_texture(int p_frame, const Ref<Texture2D> &p_texture);
-	Ref<Texture2D> get_frame_texture(int p_frame) const;
-
-	void set_frame_duration(int p_frame, float p_duration);
-	float get_frame_duration(int p_frame) const;
-
-	void set_speed_scale(float p_scale);
-	float get_speed_scale() const;
-
-	virtual int get_width() const override;
-	virtual int get_height() const override;
-	virtual RID get_rid() const override;
-
-	virtual bool has_alpha() const override;
-
-	virtual Ref<Image> get_image() const override;
-
-	bool is_pixel_opaque(int p_x, int p_y) const override;
-
-	void set_from_image_frames(const Ref<ImageFrames> &p_image_frames);
-	static Ref<AnimatedTexture> create_from_image_frames(const Ref<ImageFrames> &p_image_frames);
-
-	Ref<ImageFrames> make_image_frames() const;
-
-	AnimatedTexture();
-	~AnimatedTexture();
+	virtual ~ImageFramesFormatLoader() {}
 };
 
-class ResourceFormatLoaderAnimatedTexture : public ResourceFormatLoader {
+VARIANT_BITFIELD_CAST(ImageFramesFormatLoader::LoaderFlags);
+
+class ImageFramesFormatLoaderExtension : public ImageFramesFormatLoader {
+	GDCLASS(ImageFramesFormatLoaderExtension, ImageFramesFormatLoader);
+
+protected:
+	static void _bind_methods();
+
+public:
+	virtual Error load_image_frames(Ref<ImageFrames> p_image, Ref<FileAccess> p_fileaccess, BitField<ImageFramesFormatLoader::LoaderFlags> p_flags = FLAG_NONE, float p_scale = 1.0, int p_max_frames = 0) override;
+	virtual void get_recognized_extensions(List<String> *p_extensions) const override;
+
+	void add_format_loader();
+	void remove_format_loader();
+
+	GDVIRTUAL0RC(PackedStringArray, _get_recognized_extensions);
+	GDVIRTUAL5R(Error, _load_image_frames, Ref<ImageFrames>, Ref<FileAccess>, BitField<ImageFramesFormatLoader::LoaderFlags>, float, int);
+};
+
+class ImageFramesLoader {
+	static Vector<Ref<ImageFramesFormatLoader>> loader;
+	friend class ResourceFormatLoaderImageFrames;
+
+protected:
+public:
+	static Error load_image_frames(const String &p_file, Ref<ImageFrames> p_image, Ref<FileAccess> p_custom = Ref<FileAccess>(), BitField<ImageFramesFormatLoader::LoaderFlags> p_flags = ImageFramesFormatLoader::FLAG_NONE, float p_scale = 1.0, int p_max_frames = 0);
+	static void get_recognized_extensions(List<String> *p_extensions);
+	static Ref<ImageFramesFormatLoader> recognize(const String &p_extension);
+
+	static void add_image_frames_format_loader(Ref<ImageFramesFormatLoader> p_loader);
+	static void remove_image_frames_format_loader(Ref<ImageFramesFormatLoader> p_loader);
+
+	static void cleanup();
+};
+
+class ResourceFormatLoaderImageFrames : public ResourceFormatLoader {
 public:
 	virtual Ref<Resource> load(const String &p_path, const String &p_original_path = "", Error *r_error = nullptr, bool p_use_sub_threads = false, float *r_progress = nullptr, CacheMode p_cache_mode = CACHE_MODE_REUSE) override;
 	virtual void get_recognized_extensions(List<String> *p_extensions) const override;
