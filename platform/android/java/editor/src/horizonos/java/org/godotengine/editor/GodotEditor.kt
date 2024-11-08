@@ -30,10 +30,10 @@
 /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                 */
 /**************************************************************************/
 
-package org.godotengine.editor
+package org.redotengine.editor
 
-import org.godotengine.godot.GodotLib
-import org.godotengine.godot.utils.isNativeXRDevice
+import org.redotengine.godot.GodotLib
+import org.redotengine.godot.utils.isNativeXRDevice
 
 /**
  * Primary window of the Godot Editor.

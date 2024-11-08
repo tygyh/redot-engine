@@ -35,7 +35,7 @@
  */
 @file:JvmName("DeviceUtils")
 
-package org.godotengine.godot.utils
+package org.redotengine.godot.utils
 
 import android.os.Build
 

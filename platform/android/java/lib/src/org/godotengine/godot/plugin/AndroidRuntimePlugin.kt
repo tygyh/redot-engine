@@ -30,9 +30,9 @@
 /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                 */
 /**************************************************************************/
 
-package org.godotengine.godot.plugin
+package org.redotengine.godot.plugin
 
-import org.godotengine.godot.Godot
+import org.redotengine.godot.Godot
 
 /**
  * Provides access to the Android runtime capabilities.
