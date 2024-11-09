@@ -56,7 +56,8 @@ void EngineUpdateLabel::_check_update() {
 	checked_update = true;
 
 	if (ratelimit_remaining == UINT64_MAX && ratelimit_reset == UINT64_MAX) {
-		Ref<FileAccess> gh_ratelimit_file = FileAccess::open(OS::get_singleton()->get_data_path().path_join("gh_ratelimit"), FileAccess::READ);
+		const String gh_ratelimit_path = OS::get_singleton()->get_data_path().path_join(OS::get_singleton()->get_godot_dir_name()).path_join("gh_ratelimit");
+		Ref<FileAccess> gh_ratelimit_file = FileAccess::open(gh_ratelimit_path, FileAccess::READ);
 		if (gh_ratelimit_file.is_valid() && gh_ratelimit_file->is_open()) {
 			ratelimit_remaining = gh_ratelimit_file->get_64();
 			ratelimit_reset = gh_ratelimit_file->get_64();
@@ -87,7 +88,7 @@ void EngineUpdateLabel::_http_request_completed(int p_result, int p_response_cod
 		}
 	}
 
-	const String gh_ratelimit_path = OS::get_singleton()->get_data_path().path_join("gh_ratelimit");
+	const String gh_ratelimit_path = OS::get_singleton()->get_data_path().path_join(OS::get_singleton()->get_godot_dir_name()).path_join("gh_ratelimit");
 	if (ratelimit_remaining == 0) {
 		Ref<FileAccess> gh_ratelimit_file = FileAccess::open(gh_ratelimit_path, FileAccess::WRITE);
 		if (gh_ratelimit_file.is_valid() && gh_ratelimit_file->is_open()) {
