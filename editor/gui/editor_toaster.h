@@ -33,8 +33,6 @@
 #ifndef EDITOR_TOASTER_H
 #define EDITOR_TOASTER_H
 
-#include "core/string/ustring.h"
-#include "core/templates/local_vector.h"
 #include "scene/gui/box_container.h"
 
 class Button;
@@ -78,6 +76,9 @@ private:
 		real_t remaining_time = 0.0;
 		bool popped = false;
 
+		// Buttons
+		Button *close_button = nullptr;
+
 		// Messages
 		String message;
 		String tooltip;
@@ -103,7 +104,7 @@ private:
 	void _set_notifications_enabled(bool p_enabled);
 	void _repop_old();
 	void _popup_str(const String &p_message, Severity p_severity, const String &p_tooltip);
-	void _close_button_theme_changed(Control *p_close_button);
+	void _toast_theme_changed(Control *p_control);
 
 protected:
 	static EditorToaster *singleton;

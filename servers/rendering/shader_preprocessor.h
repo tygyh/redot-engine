@@ -134,6 +134,7 @@ private:
 	struct Define {
 		Vector<String> arguments;
 		String body;
+		bool is_builtin = false;
 	};
 
 	struct Branch {
