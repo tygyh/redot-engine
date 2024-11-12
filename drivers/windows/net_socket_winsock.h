@@ -1,5 +1,5 @@
 /**************************************************************************/
-/*  net_socket_posix.h                                                    */
+/*  net_socket_winsock.h                                                  */
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             REDOT ENGINE                               */
@@ -30,25 +30,19 @@
 /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                 */
 /**************************************************************************/
 
-#ifndef NET_SOCKET_POSIX_H
-#define NET_SOCKET_POSIX_H
+#ifndef NET_SOCKET_WINSOCK_H
+#define NET_SOCKET_WINSOCK_H
+
+#ifdef WINDOWS_ENABLED
 
 #include "core/io/net_socket.h"
 
-#if defined(WINDOWS_ENABLED)
 #include <winsock2.h>
 #include <ws2tcpip.h>
-#define SOCKET_TYPE SOCKET
 
-#else
-#include <sys/socket.h>
-#define SOCKET_TYPE int
-
-#endif
-
-class NetSocketPosix : public NetSocket {
+class NetSocketWinSock : public NetSocket {
 private:
-	SOCKET_TYPE _sock; // NOLINT - the default value is defined in the .cpp
+	SOCKET _sock = INVALID_SOCKET;
 	IP::Type _ip_type = IP::TYPE_NONE;
 	bool _is_stream = false;
 
@@ -63,9 +57,8 @@ private:
 	};
 
 	NetError _get_socket_error() const;
-	void _set_socket(SOCKET_TYPE p_sock, IP::Type p_ip_type, bool p_is_stream);
+	void _set_socket(SOCKET p_sock, IP::Type p_ip_type, bool p_is_stream);
 	_FORCE_INLINE_ Error _change_multicast_group(IPAddress p_ip, String p_if_name, bool p_add);
-	_FORCE_INLINE_ void _set_close_exec_enabled(bool p_enabled);
 
 protected:
 	static NetSocket *_create_func();
@@ -78,33 +71,34 @@ public:
 	static void _set_ip_port(struct sockaddr_storage *p_addr, IPAddress *r_ip, uint16_t *r_port);
 	static size_t _set_addr_storage(struct sockaddr_storage *p_addr, const IPAddress &p_ip, uint16_t p_port, IP::Type p_ip_type);
 
-	virtual Error open(Type p_sock_type, IP::Type &ip_type);
-	virtual void close();
-	virtual Error bind(IPAddress p_addr, uint16_t p_port);
-	virtual Error listen(int p_max_pending);
-	virtual Error connect_to_host(IPAddress p_host, uint16_t p_port);
-	virtual Error poll(PollType p_type, int timeout) const;
-	virtual Error recv(uint8_t *p_buffer, int p_len, int &r_read);
-	virtual Error recvfrom(uint8_t *p_buffer, int p_len, int &r_read, IPAddress &r_ip, uint16_t &r_port, bool p_peek = false);
-	virtual Error send(const uint8_t *p_buffer, int p_len, int &r_sent);
-	virtual Error sendto(const uint8_t *p_buffer, int p_len, int &r_sent, IPAddress p_ip, uint16_t p_port);
-	virtual Ref<NetSocket> accept(IPAddress &r_ip, uint16_t &r_port);
+	virtual Error open(Type p_sock_type, IP::Type &ip_type) override;
+	virtual void close() override;
+	virtual Error bind(IPAddress p_addr, uint16_t p_port) override;
+	virtual Error listen(int p_max_pending) override;
+	virtual Error connect_to_host(IPAddress p_host, uint16_t p_port) override;
+	virtual Error poll(PollType p_type, int timeout) const override;
+	virtual Error recv(uint8_t *p_buffer, int p_len, int &r_read) override;
+	virtual Error recvfrom(uint8_t *p_buffer, int p_len, int &r_read, IPAddress &r_ip, uint16_t &r_port, bool p_peek = false) override;
+	virtual Error send(const uint8_t *p_buffer, int p_len, int &r_sent) override;
+	virtual Error sendto(const uint8_t *p_buffer, int p_len, int &r_sent, IPAddress p_ip, uint16_t p_port) override;
+	virtual Ref<NetSocket> accept(IPAddress &r_ip, uint16_t &r_port) override;
 
-	virtual bool is_open() const;
-	virtual int get_available_bytes() const;
-	virtual Error get_socket_address(IPAddress *r_ip, uint16_t *r_port) const;
+	virtual bool is_open() const override;
+	virtual int get_available_bytes() const override;
+	virtual Error get_socket_address(IPAddress *r_ip, uint16_t *r_port) const override;
 
-	virtual Error set_broadcasting_enabled(bool p_enabled);
-	virtual void set_blocking_enabled(bool p_enabled);
-	virtual void set_ipv6_only_enabled(bool p_enabled);
-	virtual void set_tcp_no_delay_enabled(bool p_enabled);
-	virtual void set_reuse_address_enabled(bool p_enabled);
-	virtual void set_reuse_port_enabled(bool p_enabled);
-	virtual Error join_multicast_group(const IPAddress &p_multi_address, const String &p_if_name);
-	virtual Error leave_multicast_group(const IPAddress &p_multi_address, const String &p_if_name);
+	virtual Error set_broadcasting_enabled(bool p_enabled) override;
+	virtual void set_blocking_enabled(bool p_enabled) override;
+	virtual void set_ipv6_only_enabled(bool p_enabled) override;
+	virtual void set_tcp_no_delay_enabled(bool p_enabled) override;
+	virtual void set_reuse_address_enabled(bool p_enabled) override;
+	virtual Error join_multicast_group(const IPAddress &p_multi_address, const String &p_if_name) override;
+	virtual Error leave_multicast_group(const IPAddress &p_multi_address, const String &p_if_name) override;
 
-	NetSocketPosix();
-	~NetSocketPosix();
+	NetSocketWinSock();
+	~NetSocketWinSock() override;
 };
 
-#endif // NET_SOCKET_POSIX_H
+#endif // WINDOWS_ENABLED
+
+#endif // NET_SOCKET_WINSOCK_H
