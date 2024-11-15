@@ -93,7 +93,7 @@ public:
 			if (Math::is_zero_approx(remain)) {
 				return 0;
 			}
-			return length - position;
+			return remain;
 		}
 	};
 
