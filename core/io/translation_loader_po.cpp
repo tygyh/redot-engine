@@ -110,7 +110,7 @@ Ref<Resource> TranslationLoaderPO::load_translation(Ref<FileAccess> f, Error *r_
 					// Record plural rule.
 					int p_start = config.find("Plural-Forms");
 					if (p_start != -1) {
-						int p_end = config.find("\n", p_start);
+						int p_end = config.find_char('\n', p_start);
 						translation->set_plural_rule(config.substr(p_start, p_end - p_start));
 					}
 				} else {
@@ -226,7 +226,7 @@ Ref<Resource> TranslationLoaderPO::load_translation(Ref<FileAccess> f, Error *r_
 					// Record plural rule.
 					int p_start = config.find("Plural-Forms");
 					if (p_start != -1) {
-						int p_end = config.find("\n", p_start);
+						int p_end = config.find_char('\n', p_start);
 						translation->set_plural_rule(config.substr(p_start, p_end - p_start));
 						plural_forms = translation->get_plural_forms();
 					}
@@ -326,7 +326,7 @@ Ref<Resource> TranslationLoaderPO::load_translation(Ref<FileAccess> f, Error *r_
 	Vector<String> configs = config.split("\n");
 	for (int i = 0; i < configs.size(); i++) {
 		String c = configs[i].strip_edges();
-		int p = c.find(":");
+		int p = c.find_char(':');
 		if (p == -1) {
 			continue;
 		}
