@@ -132,14 +132,14 @@ void EditorAssetInstaller::open_asset(const String &p_path, bool p_autoskip_topl
 
 		// Create intermediate directories if they aren't reported by unzip.
 		// We are only interested in subfolders, so skip the root slash.
-		int separator = source_name.find("/", 1);
+		int separator = source_name.find_char('/', 1);
 		while (separator != -1) {
 			String dir_name = source_name.substr(0, separator + 1);
 			if (!dir_name.is_empty() && !asset_files.has(dir_name)) {
 				asset_files.insert(dir_name);
 			}
 
-			separator = source_name.find("/", separator + 1);
+			separator = source_name.find_char('/', separator + 1);
 		}
 
 		if (!source_name.is_empty() && !asset_files.has(source_name)) {
@@ -216,7 +216,7 @@ void EditorAssetInstaller::_rebuild_source_tree() {
 
 		TreeItem *parent_item;
 
-		int separator = path.rfind("/");
+		int separator = path.rfind_char('/');
 		if (separator == -1) {
 			parent_item = root;
 		} else {
@@ -315,7 +315,7 @@ void EditorAssetInstaller::_rebuild_destination_tree() {
 
 		TreeItem *parent_item;
 
-		int separator = path.rfind("/");
+		int separator = path.rfind_char('/');
 		if (separator == -1) {
 			parent_item = root;
 		} else {
