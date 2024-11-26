@@ -1,5 +1,5 @@
 /**************************************************************************/
-/*  web_tools_editor_plugin.h                                             */
+/*  upnp_device_miniupnp.h                                                */
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             REDOT ENGINE                               */
@@ -30,35 +30,56 @@
 /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                 */
 /**************************************************************************/
 
-#ifndef WEB_TOOLS_EDITOR_PLUGIN_H
-#define WEB_TOOLS_EDITOR_PLUGIN_H
+#ifndef UPNP_DEVICE_MINIUPNP_H
+#define UPNP_DEVICE_MINIUPNP_H
 
-#if defined(TOOLS_ENABLED) && defined(WEB_ENABLED)
+#ifndef WEB_ENABLED
 
-#include "core/io/zip_io.h"
-#include "editor/plugins/editor_plugin.h"
+#include "upnp_device.h"
 
-class WebToolsEditorPlugin : public EditorPlugin {
-	GDCLASS(WebToolsEditorPlugin, EditorPlugin);
+class UPNPDeviceMiniUPNP : public UPNPDevice {
+	GDCLASS(UPNPDeviceMiniUPNP, UPNPDevice);
 
 private:
-	void _zip_file(String p_path, String p_base_path, zipFile p_zip);
-	void _zip_recursive(String p_path, String p_base_path, zipFile p_zip);
-	void _download_zip();
+	static UPNPDevice *_create(bool p_notify_postinitialize) { return static_cast<UPNPDevice *>(ClassDB::creator<UPNPDeviceMiniUPNP>(p_notify_postinitialize)); }
+
+	String description_url;
+	String service_type;
+	String igd_control_url;
+	String igd_service_type;
+	String igd_our_addr;
+	IGDStatus igd_status = IGD_STATUS_UNKNOWN_ERROR;
 
 public:
-	static void initialize();
+	static void make_default();
 
-	WebToolsEditorPlugin();
+	virtual void set_description_url(const String &url) override;
+	virtual String get_description_url() const override;
+
+	virtual void set_service_type(const String &type) override;
+	virtual String get_service_type() const override;
+
+	virtual void set_igd_control_url(const String &url) override;
+	virtual String get_igd_control_url() const override;
+
+	virtual void set_igd_service_type(const String &type) override;
+	virtual String get_igd_service_type() const override;
+
+	virtual void set_igd_our_addr(const String &addr) override;
+	virtual String get_igd_our_addr() const override;
+
+	virtual void set_igd_status(IGDStatus status) override;
+	virtual IGDStatus get_igd_status() const override;
+
+	virtual bool is_valid_gateway() const override;
+	virtual String query_external_address() const override;
+	virtual int add_port_mapping(int port, int port_internal = 0, String desc = "", String proto = "UDP", int duration = 0) const override;
+	virtual int delete_port_mapping(int port, String proto = "UDP") const override;
+
+	UPNPDeviceMiniUPNP() {}
+	virtual ~UPNPDeviceMiniUPNP() {}
 };
 
-#else
+#endif // WEB_ENABLED
 
-class WebToolsEditorPlugin {
-public:
-	static void initialize() {}
-};
-
-#endif // TOOLS_ENABLED && WEB_ENABLED
-
-#endif // WEB_TOOLS_EDITOR_PLUGIN_H
+#endif // UPNP_DEVICE_MINIUPNP_H
