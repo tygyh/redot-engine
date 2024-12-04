@@ -2,8 +2,8 @@
 /*  GodotActivity.kt                                                      */
 /**************************************************************************/
 /*                         This file is part of:                          */
-/*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                             REDOT ENGINE                               */
+/*                        https://redotengine.org                         */
 /**************************************************************************/
 /* Copyright (c) 2024-present Redot Engine contributors                   */
 /*                                          (see REDOT_AUTHORS.md)        */
@@ -30,7 +30,7 @@
 /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                 */
 /**************************************************************************/
 
-package org.godotengine.godot
+package org.redotengine.godot
 
 import android.app.Activity
 import android.content.Intent
@@ -40,8 +40,8 @@ import android.util.Log
 import androidx.annotation.CallSuper
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.FragmentActivity
-import org.godotengine.godot.utils.PermissionsUtil
-import org.godotengine.godot.utils.ProcessPhoenix
+import org.redotengine.godot.utils.PermissionsUtil
+import org.redotengine.godot.utils.ProcessPhoenix
 
 /**
  * Base abstract activity for Android apps intending to use Godot as the primary screen.

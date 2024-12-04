@@ -74,11 +74,11 @@ android {
     buildToolsVersion versions.buildTools
     ndkVersion versions.ndkVersion
 
-    namespace = "org.godotengine.editor"
+    namespace = "org.redotengine.editor"
 
     defaultConfig {
-        // The 'applicationId' suffix allows to install Godot 3.x(v3) and 4.x(v4) on the same device
-        applicationId "org.godotengine.editor.v4"
+        // The 'applicationId' suffix allows to install Redot 3.x(v3) and 4.x(v4) on the same device
+        applicationId "org.redotengine.editor.v4"
         versionCode generateVersionCode()
         versionName generateVersionName()
         minSdkVersion versions.minSdk
@@ -86,7 +86,7 @@ android {
 
         missingDimensionStrategy 'products', 'editor'
         manifestPlaceholders += [
-            editorAppName: "Godot Editor 4",
+            editorAppName: "Redot Editor 4",
             editorBuildSuffix: ""
         ]
     }

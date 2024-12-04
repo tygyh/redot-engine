@@ -2,8 +2,8 @@
 /*  BaseGodotEditor.kt                                                    */
 /**************************************************************************/
 /*                         This file is part of:                          */
-/*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                             REDOT ENGINE                               */
+/*                        https://redotengine.org                         */
 /**************************************************************************/
 /* Copyright (c) 2024-present Redot Engine contributors                   */
 /*                                          (see REDOT_AUTHORS.md)        */
@@ -30,7 +30,7 @@
 /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                 */
 /**************************************************************************/
 
-package org.godotengine.editor
+package org.redotengine.editor
 
 import android.Manifest
 import android.app.ActivityManager
@@ -47,15 +47,15 @@ import android.widget.Toast
 import androidx.annotation.CallSuper
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.window.layout.WindowMetricsCalculator
-import org.godotengine.editor.utils.signApk
-import org.godotengine.editor.utils.verifyApk
-import org.godotengine.godot.GodotActivity
-import org.godotengine.godot.GodotLib
-import org.godotengine.godot.error.Error
-import org.godotengine.godot.utils.PermissionsUtil
-import org.godotengine.godot.utils.ProcessPhoenix
-import org.godotengine.godot.utils.isHorizonOSDevice
-import org.godotengine.godot.utils.isNativeXRDevice
+import org.redotengine.editor.utils.signApk
+import org.redotengine.editor.utils.verifyApk
+import org.redotengine.godot.GodotActivity
+import org.redotengine.godot.GodotLib
+import org.redotengine.godot.error.Error
+import org.redotengine.godot.utils.PermissionsUtil
+import org.redotengine.godot.utils.ProcessPhoenix
+import org.redotengine.godot.utils.isHorizonOSDevice
+import org.redotengine.godot.utils.isNativeXRDevice
 import java.util.*
 import kotlin.math.min
 

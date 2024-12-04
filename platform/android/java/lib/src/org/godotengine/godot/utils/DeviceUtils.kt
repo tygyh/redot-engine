@@ -2,8 +2,8 @@
 /*  DeviceUtils.kt                                                        */
 /**************************************************************************/
 /*                         This file is part of:                          */
-/*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                             REDOT ENGINE                               */
+/*                        https://redotengine.org                         */
 /**************************************************************************/
 /* Copyright (c) 2024-present Redot Engine contributors                   */
 /*                                          (see REDOT_AUTHORS.md)        */
@@ -35,7 +35,7 @@
  */
 @file:JvmName("DeviceUtils")
 
-package org.godotengine.godot.utils
+package org.redotengine.godot.utils
 
 import android.os.Build
 

@@ -16,7 +16,7 @@
 		    print("Hello from the Redot Editor!")
 		[/gdscript]
 		[csharp]
-		using Redot;
+		using Godot;
 
 		[Tool]
 		public partial class HelloEditor : EditorScript
