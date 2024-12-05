@@ -140,7 +140,7 @@ EditorPropertyText::EditorPropertyText() {
 	add_focusable(text);
 	text->set_h_size_flags(SIZE_EXPAND_FILL);
 	text->connect(SceneStringName(text_changed), callable_mp(this, &EditorPropertyText::_text_changed));
-	text->connect("text_submitted", callable_mp(this, &EditorPropertyText::_text_submitted));
+	text->connect(SceneStringName(text_submitted), callable_mp(this, &EditorPropertyText::_text_submitted));
 }
 
 ///////////////////// MULTILINE TEXT /////////////////////////
@@ -380,7 +380,7 @@ EditorPropertyTextEnum::EditorPropertyTextEnum() {
 	custom_value_edit = memnew(LineEdit);
 	custom_value_edit->set_h_size_flags(SIZE_EXPAND_FILL);
 	edit_custom_layout->add_child(custom_value_edit);
-	custom_value_edit->connect("text_submitted", callable_mp(this, &EditorPropertyTextEnum::_custom_value_submitted));
+	custom_value_edit->connect(SceneStringName(text_submitted), callable_mp(this, &EditorPropertyTextEnum::_custom_value_submitted));
 
 	accept_button = memnew(Button);
 	accept_button->set_flat(true);
@@ -445,7 +445,7 @@ EditorPropertyLocale::EditorPropertyLocale() {
 	add_child(locale_hb);
 	locale = memnew(LineEdit);
 	locale_hb->add_child(locale);
-	locale->connect("text_submitted", callable_mp(this, &EditorPropertyLocale::_locale_selected));
+	locale->connect(SceneStringName(text_submitted), callable_mp(this, &EditorPropertyLocale::_locale_selected));
 	locale->connect(SceneStringName(focus_exited), callable_mp(this, &EditorPropertyLocale::_locale_focus_exited));
 	locale->set_h_size_flags(SIZE_EXPAND_FILL);
 
@@ -600,7 +600,7 @@ EditorPropertyPath::EditorPropertyPath() {
 	SET_DRAG_FORWARDING_CDU(path, EditorPropertyPath);
 	path->set_structured_text_bidi_override(TextServer::STRUCTURED_TEXT_FILE);
 	path_hb->add_child(path);
-	path->connect("text_submitted", callable_mp(this, &EditorPropertyPath::_path_selected));
+	path->connect(SceneStringName(text_submitted), callable_mp(this, &EditorPropertyPath::_path_selected));
 	path->connect(SceneStringName(focus_exited), callable_mp(this, &EditorPropertyPath::_path_focus_exited));
 	path->set_h_size_flags(SIZE_EXPAND_FILL);
 
@@ -2949,7 +2949,7 @@ EditorPropertyNodePath::EditorPropertyNodePath() {
 	edit->set_h_size_flags(SIZE_EXPAND_FILL);
 	edit->hide();
 	edit->connect(SceneStringName(focus_exited), callable_mp(this, &EditorPropertyNodePath::_accept_text));
-	edit->connect(SNAME("text_submitted"), callable_mp(this, &EditorPropertyNodePath::_text_submitted));
+	edit->connect(SceneStringName(text_submitted), callable_mp(this, &EditorPropertyNodePath::_text_submitted));
 	hbc->add_child(edit);
 }
 
@@ -3283,6 +3283,8 @@ void EditorPropertyResource::update_property() {
 				sub_inspector->set_keying(is_keying());
 				sub_inspector->set_read_only(is_read_only());
 				sub_inspector->set_use_folding(is_using_folding());
+
+				sub_inspector->set_draw_focus_border(false);
 
 				sub_inspector->set_mouse_filter(MOUSE_FILTER_STOP);
 				add_child(sub_inspector);

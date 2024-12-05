@@ -285,7 +285,7 @@ void DisplayServerMacOS::set_window_per_pixel_transparency_enabled(bool p_enable
 	}
 }
 
-void DisplayServerMacOS::_update_displays_arrangement() {
+void DisplayServerMacOS::_update_displays_arrangement() const {
 	origin = Point2i();
 
 	for (int i = 0; i < get_screen_count(); i++) {
@@ -311,7 +311,7 @@ Point2i DisplayServerMacOS::_get_screens_origin() const {
 	// to convert between macOS native screen coordinates and the ones expected by Godot.
 
 	if (displays_arrangement_dirty) {
-		const_cast<DisplayServerMacOS *>(this)->_update_displays_arrangement();
+		_update_displays_arrangement();
 	}
 
 	return origin;
@@ -472,7 +472,7 @@ void DisplayServerMacOS::_process_key_events() {
 	key_event_pos = 0;
 }
 
-void DisplayServerMacOS::_update_keyboard_layouts() {
+void DisplayServerMacOS::_update_keyboard_layouts() const {
 	kbd_layouts.clear();
 	current_layout = 0;
 
@@ -767,6 +767,7 @@ bool DisplayServerMacOS::has_feature(Feature p_feature) const {
 		case FEATURE_SCREEN_CAPTURE:
 		case FEATURE_STATUS_INDICATOR:
 		case FEATURE_NATIVE_HELP:
+		case FEATURE_WINDOW_DRAG:
 			return true;
 		default: {
 		}
@@ -1199,6 +1200,10 @@ Error DisplayServerMacOS::_file_dialog_with_options_show(const String &p_title, 
 	}
 
 	return OK;
+}
+
+void DisplayServerMacOS::beep() const {
+	NSBeep();
 }
 
 Error DisplayServerMacOS::dialog_input_text(String p_title, String p_description, String p_partial, const Callable &p_callback) {
@@ -2344,6 +2349,16 @@ bool DisplayServerMacOS::window_minimize_on_title_dbl_click() const {
 	return false;
 }
 
+void DisplayServerMacOS::window_start_drag(WindowID p_window) {
+	_THREAD_SAFE_METHOD_
+
+	ERR_FAIL_COND(!windows.has(p_window));
+	WindowData &wd = windows[p_window];
+
+	NSEvent *event = [NSEvent mouseEventWithType:NSEventTypeLeftMouseDown location:((NSWindow *)wd.window_object).mouseLocationOutsideOfEventStream modifierFlags:0 timestamp:[[NSProcessInfo processInfo] systemUptime] windowNumber:((NSWindow *)wd.window_object).windowNumber context:nil eventNumber:0 clickCount:1 pressure:1.0f];
+	[wd.window_object performWindowDragWithEvent:event];
+}
+
 void DisplayServerMacOS::window_set_window_buttons_offset(const Vector2i &p_offset, WindowID p_window) {
 	_THREAD_SAFE_METHOD_
 
@@ -2937,14 +2952,14 @@ bool DisplayServerMacOS::get_swap_cancel_ok() {
 
 int DisplayServerMacOS::keyboard_get_layout_count() const {
 	if (keyboard_layout_dirty) {
-		const_cast<DisplayServerMacOS *>(this)->_update_keyboard_layouts();
+		_update_keyboard_layouts();
 	}
 	return kbd_layouts.size();
 }
 
 void DisplayServerMacOS::keyboard_set_current_layout(int p_index) {
 	if (keyboard_layout_dirty) {
-		const_cast<DisplayServerMacOS *>(this)->_update_keyboard_layouts();
+		_update_keyboard_layouts();
 	}
 
 	ERR_FAIL_INDEX(p_index, kbd_layouts.size());
@@ -2974,7 +2989,7 @@ void DisplayServerMacOS::keyboard_set_current_layout(int p_index) {
 
 int DisplayServerMacOS::keyboard_get_current_layout() const {
 	if (keyboard_layout_dirty) {
-		const_cast<DisplayServerMacOS *>(this)->_update_keyboard_layouts();
+		_update_keyboard_layouts();
 	}
 
 	return current_layout;
@@ -2982,7 +2997,7 @@ int DisplayServerMacOS::keyboard_get_current_layout() const {
 
 String DisplayServerMacOS::keyboard_get_layout_language(int p_index) const {
 	if (keyboard_layout_dirty) {
-		const_cast<DisplayServerMacOS *>(this)->_update_keyboard_layouts();
+		_update_keyboard_layouts();
 	}
 
 	ERR_FAIL_INDEX_V(p_index, kbd_layouts.size(), "");
@@ -2991,7 +3006,7 @@ String DisplayServerMacOS::keyboard_get_layout_language(int p_index) const {
 
 String DisplayServerMacOS::keyboard_get_layout_name(int p_index) const {
 	if (keyboard_layout_dirty) {
-		const_cast<DisplayServerMacOS *>(this)->_update_keyboard_layouts();
+		_update_keyboard_layouts();
 	}
 
 	ERR_FAIL_INDEX_V(p_index, kbd_layouts.size(), "");

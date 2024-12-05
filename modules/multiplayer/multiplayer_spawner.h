@@ -51,7 +51,6 @@ public:
 private:
 	struct SpawnableScene {
 		String path;
-		String uid;
 		Ref<PackedScene> cache;
 	};
 

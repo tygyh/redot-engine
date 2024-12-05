@@ -41,6 +41,8 @@ void NavRegion::set_map(NavMap *p_map) {
 		return;
 	}
 
+	cancel_sync_request();
+
 	if (map) {
 		map->remove_region(this);
 	}
@@ -50,6 +52,7 @@ void NavRegion::set_map(NavMap *p_map) {
 
 	if (map) {
 		map->add_region(this);
+		request_sync();
 	}
 }
 
@@ -61,6 +64,8 @@ void NavRegion::set_enabled(bool p_enabled) {
 
 	// TODO: This should not require a full rebuild as the region has not really changed.
 	polygons_dirty = true;
+
+	request_sync();
 }
 
 void NavRegion::set_use_edge_connections(bool p_enabled) {
@@ -68,6 +73,8 @@ void NavRegion::set_use_edge_connections(bool p_enabled) {
 		use_edge_connections = p_enabled;
 		polygons_dirty = true;
 	}
+
+	request_sync();
 }
 
 void NavRegion::set_transform(Transform3D p_transform) {
@@ -76,6 +83,8 @@ void NavRegion::set_transform(Transform3D p_transform) {
 	}
 	transform = p_transform;
 	polygons_dirty = true;
+
+	request_sync();
 
 #ifdef DEBUG_ENABLED
 	if (map && Math::rad_to_deg(map->get_up().angle_to(transform.basis.get_column(1))) >= 90.0f) {
@@ -105,6 +114,8 @@ void NavRegion::set_navigation_mesh(Ref<NavigationMesh> p_navigation_mesh) {
 	}
 
 	polygons_dirty = true;
+
+	request_sync();
 }
 
 Vector3 NavRegion::get_closest_point_to_segment(const Vector3 &p_from, const Vector3 &p_to, bool p_use_collision) const {
@@ -221,4 +232,25 @@ void NavRegion::update_polygons() {
 	}
 
 	surface_area = _new_region_surface_area;
+}
+
+void NavRegion::request_sync() {
+	if (map && !sync_dirty_request_list_element.in_list()) {
+		map->add_region_sync_dirty_request(&sync_dirty_request_list_element);
+	}
+}
+
+void NavRegion::cancel_sync_request() {
+	if (map && sync_dirty_request_list_element.in_list()) {
+		map->remove_region_sync_dirty_request(&sync_dirty_request_list_element);
+	}
+}
+
+NavRegion::NavRegion() :
+		sync_dirty_request_list_element(this) {
+	type = NavigationUtilities::PathSegmentType::PATH_SEGMENT_TYPE_REGION;
+}
+
+NavRegion::~NavRegion() {
+	cancel_sync_request();
 }
