@@ -38,6 +38,7 @@
 #include "core/string/ustring.h"
 #include "core/templates/list.h"
 #include "core/templates/rb_map.h"
+#include "core/templates/safe_refcount.h"
 #include "core/typedefs.h"
 #include "core/variant/variant.h"
 #include "scene/resources/shader_include.h"
@@ -835,7 +836,7 @@ public:
 	static bool is_control_flow_keyword(String p_keyword);
 	static void get_builtin_funcs(List<String> *r_keywords);
 
-	static int instance_counter;
+	static SafeNumeric<int> instance_counter;
 
 	struct BuiltInInfo {
 		DataType type = TYPE_VOID;
