@@ -1429,7 +1429,7 @@ void EditorNode::save_resource_as(const Ref<Resource> &p_resource, const String 
 		if (p_resource->get_path().is_resource_file()) {
 			file->set_current_file(p_resource->get_path().get_file());
 		} else {
-			if (extensions.size()) {
+			if (!preferred.is_empty()) {
 				String resource_name_snake_case = p_resource->get_class().to_snake_case();
 				file->set_current_file("new_" + resource_name_snake_case + "." + preferred.front()->get().to_lower());
 			} else {
@@ -1438,18 +1438,15 @@ void EditorNode::save_resource_as(const Ref<Resource> &p_resource, const String 
 		}
 	} else if (!p_resource->get_path().is_empty()) {
 		file->set_current_path(p_resource->get_path());
-		if (extensions.size()) {
-			String ext = p_resource->get_path().get_extension().to_lower();
+		if (!extensions.is_empty()) {
+			const String ext = p_resource->get_path().get_extension().to_lower();
 			if (extensions.find(ext) == nullptr) {
 				file->set_current_path(p_resource->get_path().replacen("." + ext, "." + extensions.front()->get()));
 			}
 		}
-	} else if (preferred.size()) {
-		String existing;
-		if (extensions.size()) {
-			String resource_name_snake_case = p_resource->get_class().to_snake_case();
-			existing = "new_" + resource_name_snake_case + "." + preferred.front()->get().to_lower();
-		}
+	} else if (!preferred.is_empty()) {
+		const String resource_name_snake_case = p_resource->get_class().to_snake_case();
+		const String existing = "new_" + resource_name_snake_case + "." + preferred.front()->get().to_lower();
 		file->set_current_path(existing);
 	}
 	file->set_title(TTR("Save Resource As..."));
@@ -3446,6 +3443,11 @@ void EditorNode::_update_file_menu_closed() {
 	file_menu->set_item_disabled(file_menu->get_item_index(FILE_OPEN_PREV), false);
 }
 
+void EditorNode::_palette_quick_open_dialog() {
+	quick_open_color_palette->popup_dialog({ "ColorPalette" }, palette_file_selected_callback);
+	quick_open_color_palette->set_title(TTR("Quick Open Color Palette..."));
+}
+
 void EditorNode::replace_resources_in_object(Object *p_object, const Vector<Ref<Resource>> &p_source_resources, const Vector<Ref<Resource>> &p_target_resource) {
 	List<PropertyInfo> pi;
 	p_object->get_property_list(&pi);
@@ -3905,6 +3907,10 @@ void EditorNode::setup_color_picker(ColorPicker *p_picker) {
 
 	p_picker->set_color_mode((ColorPicker::ColorModeType)default_color_mode);
 	p_picker->set_picker_shape((ColorPicker::PickerShapeType)picker_shape);
+
+	p_picker->set_quick_open_callback(callable_mp(this, &EditorNode::_palette_quick_open_dialog));
+	p_picker->set_palette_saved_callback(callable_mp(EditorFileSystem::get_singleton(), &EditorFileSystem::update_file));
+	palette_file_selected_callback = callable_mp(p_picker, &ColorPicker::_quick_open_palette_file_selected);
 }
 
 bool EditorNode::is_scene_open(const String &p_path) {
@@ -7175,6 +7181,7 @@ EditorNode::EditorNode() {
 	main_menu = memnew(MenuBar);
 	main_menu->set_mouse_filter(Control::MOUSE_FILTER_STOP);
 	title_bar->add_child(main_menu);
+	main_menu->set_v_size_flags(Control::SIZE_SHRINK_CENTER);
 	main_menu->set_theme_type_variation("MainMenuBar");
 	main_menu->set_start_index(0); // Main menu, add to the start of global menu.
 	main_menu->set_prefer_global_menu(global_menu);
@@ -7873,6 +7880,9 @@ EditorNode::EditorNode() {
 
 	quick_open_dialog = memnew(EditorQuickOpenDialog);
 	gui_base->add_child(quick_open_dialog);
+
+	quick_open_color_palette = memnew(EditorQuickOpenDialog);
+	gui_base->add_child(quick_open_color_palette);
 
 	_update_recent_scenes();
 

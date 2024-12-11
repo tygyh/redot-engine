@@ -1,5 +1,5 @@
 /**************************************************************************/
-/*  editor_string_names.cpp                                               */
+/*  color_palette.h                                                       */
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             REDOT ENGINE                               */
@@ -30,13 +30,23 @@
 /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                 */
 /**************************************************************************/
 
-#include "editor_string_names.h"
+#ifndef COLOR_PALETTE_H
+#define COLOR_PALETTE_H
 
-EditorStringNames *EditorStringNames::singleton = nullptr;
+#include "core/io/resource.h"
 
-EditorStringNames::EditorStringNames() {
-	Editor = StaticCString::create("Editor");
-	EditorFonts = StaticCString::create("EditorFonts");
-	EditorIcons = StaticCString::create("EditorIcons");
-	EditorStyles = StaticCString::create("EditorStyles");
-}
+class ColorPalette : public Resource {
+	GDCLASS(ColorPalette, Resource)
+
+private:
+	PackedColorArray colors;
+
+protected:
+	static void _bind_methods();
+
+public:
+	void set_colors(const PackedColorArray &p_colors);
+	PackedColorArray get_colors() const;
+};
+
+#endif // COLOR_PALETTE_H
