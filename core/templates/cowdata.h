@@ -169,6 +169,15 @@ private:
 
 public:
 	void operator=(const CowData<T> &p_from) { _ref(p_from); }
+	void operator=(CowData<T> &&p_from) {
+		if (_ptr == p_from._ptr) {
+			return;
+		}
+
+		_unref();
+		_ptr = p_from._ptr;
+		p_from._ptr = nullptr;
+	}
 
 	_FORCE_INLINE_ T *ptrw() {
 		_copy_on_write();
@@ -243,7 +252,11 @@ public:
 
 	_FORCE_INLINE_ CowData() {}
 	_FORCE_INLINE_ ~CowData();
-	_FORCE_INLINE_ CowData(CowData<T> &p_from) { _ref(p_from); }
+	_FORCE_INLINE_ CowData(const CowData<T> &p_from) { _ref(p_from); }
+	_FORCE_INLINE_ CowData(CowData<T> &&p_from) {
+		_ptr = p_from._ptr;
+		p_from._ptr = nullptr;
+	}
 };
 
 template <typename T>

@@ -49,7 +49,8 @@ public:
 
 	enum SelectMode {
 		SELECT_SINGLE,
-		SELECT_MULTI
+		SELECT_MULTI,
+		SELECT_TOGGLE,
 	};
 
 private:
