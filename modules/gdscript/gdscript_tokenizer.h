@@ -180,6 +180,7 @@ public:
 		String source;
 
 		const char *get_name() const;
+		String get_debug_name() const;
 		bool can_precede_bin_op() const;
 		bool is_identifier() const;
 		bool is_node_name() const;

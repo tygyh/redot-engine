@@ -105,6 +105,14 @@ bool EditorSettings::_set_only(const StringName &p_name, const Variant &p_value)
 
 			builtin_action_overrides[action_name].clear();
 			for (int ev_idx = 0; ev_idx < events.size(); ev_idx++) {
+#ifndef DISABLE_DEPRECATED
+				// -3 was introduced in GH-97707 as a way to prevent a clash in device IDs, but as reported in GH-99243, this leads to problems.
+				// -3 was used during dev-releases, so this conversion helps to revert such affected editor shortcuts.
+				Ref<InputEvent> x = events[ev_idx];
+				if (x.is_valid() && x->get_device() == -3) {
+					x->set_device(-1);
+				}
+#endif // DISABLE_DEPRECATED
 				im->action_add_event(action_name, events[ev_idx]);
 				builtin_action_overrides[action_name].push_back(events[ev_idx]);
 			}
@@ -818,13 +826,13 @@ void EditorSettings::_load_defaults(Ref<ConfigFile> p_extra_config) {
 	// 3D: Navigation
 	_initial_set("editors/3d/navigation/invert_x_axis", false, true);
 	_initial_set("editors/3d/navigation/invert_y_axis", false, true);
-	EDITOR_SETTING_BASIC(Variant::INT, PROPERTY_HINT_ENUM, "editors/3d/navigation/navigation_scheme", 0, "Godot,Maya,Modo,Custom")
-	EDITOR_SETTING_BASIC(Variant::INT, PROPERTY_HINT_ENUM, "editors/3d/navigation/orbit_mouse_button", 1, "Left Mouse,Middle Mouse,Right Mouse")
-	EDITOR_SETTING_BASIC(Variant::INT, PROPERTY_HINT_ENUM, "editors/3d/navigation/pan_mouse_button", 1, "Left Mouse,Middle Mouse,Right Mouse")
-	EDITOR_SETTING_BASIC(Variant::INT, PROPERTY_HINT_ENUM, "editors/3d/navigation/zoom_mouse_button", 1, "Left Mouse,Middle Mouse,Right Mouse")
+	EDITOR_SETTING_BASIC(Variant::INT, PROPERTY_HINT_ENUM, "editors/3d/navigation/navigation_scheme", 0, "Godot:0,Maya:1,Modo:2,Tablet/Trackpad:4,Custom:3")
+	EDITOR_SETTING_BASIC(Variant::INT, PROPERTY_HINT_ENUM, "editors/3d/navigation/orbit_mouse_button", 1, "Left Mouse,Middle Mouse,Right Mouse,Mouse Button 4,Mouse Button 5")
+	EDITOR_SETTING_BASIC(Variant::INT, PROPERTY_HINT_ENUM, "editors/3d/navigation/pan_mouse_button", 1, "Left Mouse,Middle Mouse,Right Mouse,Mouse Button 4,Mouse Button 5")
+	EDITOR_SETTING_BASIC(Variant::INT, PROPERTY_HINT_ENUM, "editors/3d/navigation/zoom_mouse_button", 1, "Left Mouse,Middle Mouse,Right Mouse,Mouse Button 4,Mouse Button 5")
 	EDITOR_SETTING_BASIC(Variant::INT, PROPERTY_HINT_ENUM, "editors/3d/navigation/zoom_style", 0, "Vertical,Horizontal")
 
-	_initial_set("editors/3d/navigation/emulate_numpad", false, true);
+	_initial_set("editors/3d/navigation/emulate_numpad", true, true);
 	_initial_set("editors/3d/navigation/emulate_3_button_mouse", false, true);
 	_initial_set("editors/3d/navigation/warped_mouse_panning", true, true);
 

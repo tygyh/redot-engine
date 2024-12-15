@@ -2320,16 +2320,20 @@ void EditorNode::edit_item(Object *p_object, Object *p_editing_owner) {
 		active_plugins[owner_id].erase(plugin);
 	}
 
+	LocalVector<EditorPlugin *> to_over_edit;
+
 	// Send the edited object to the plugins.
 	for (EditorPlugin *plugin : available_plugins) {
 		if (active_plugins[owner_id].has(plugin)) {
-			// Plugin was already active, just change the object.
+			// Plugin was already active, just change the object and ensure it's visible.
+			plugin->make_visible(true);
 			plugin->edit(p_object);
 			continue;
 		}
 
 		if (active_plugins.has(plugin->get_instance_id())) {
 			// Plugin is already active, but as self-owning, so it needs a separate check.
+			plugin->make_visible(true);
 			plugin->edit(p_object);
 			continue;
 		}
@@ -2348,6 +2352,11 @@ void EditorNode::edit_item(Object *p_object, Object *p_editing_owner) {
 
 		// Activate previously inactive plugin and edit the object.
 		active_plugins[owner_id].insert(plugin);
+		// TODO: Call the function directly once a proper priority system is implemented.
+		to_over_edit.push_back(plugin);
+	}
+
+	for (EditorPlugin *plugin : to_over_edit) {
 		_plugin_over_edit(plugin, p_object);
 	}
 }
@@ -2783,9 +2792,7 @@ void EditorNode::_menu_option_confirm(int p_option, bool p_confirmed) {
 
 				const int saved = _save_external_resources(true);
 				if (saved > 0) {
-					show_accept(
-							vformat(TTR("The current scene has no root node, but %d modified external resource(s) and/or plugin data were saved anyway."), saved),
-							TTR("OK"));
+					EditorToaster::get_singleton()->popup_str(vformat(TTR("The current scene has no root node, but %d modified external resource(s) and/or plugin data were saved anyway."), saved), EditorToaster::SEVERITY_INFO);
 				} else if (p_option == FILE_SAVE_AS_SCENE) {
 					// Don't show this dialog when pressing Ctrl + S to avoid interfering with script saving.
 					show_accept(
@@ -4473,7 +4480,7 @@ void EditorNode::replace_history_reimported_nodes(Node *p_original_root_node, No
 	}
 }
 
-void EditorNode::open_request(const String &p_path) {
+void EditorNode::open_request(const String &p_path, bool p_set_inherited) {
 	if (!opening_prev) {
 		List<String>::Element *prev_scene_item = previous_scenes.find(p_path);
 		if (prev_scene_item != nullptr) {
@@ -4481,7 +4488,7 @@ void EditorNode::open_request(const String &p_path) {
 		}
 	}
 
-	load_scene(p_path); // As it will be opened in separate tab.
+	load_scene(p_path, false, p_set_inherited); // As it will be opened in separate tab.
 }
 
 bool EditorNode::has_previous_scenes() const {
@@ -5839,7 +5846,11 @@ PopupMenu *EditorNode::get_export_as_menu() {
 }
 
 void EditorNode::_dropped_files(const Vector<String> &p_files) {
-	String to_path = ProjectSettings::get_singleton()->globalize_path(FileSystemDock::get_singleton()->get_current_directory());
+	String to_path = FileSystemDock::get_singleton()->get_folder_path_at_mouse_position();
+	if (to_path.is_empty()) {
+		to_path = FileSystemDock::get_singleton()->get_current_directory();
+	}
+	to_path = ProjectSettings::get_singleton()->globalize_path(to_path);
 
 	_add_dropped_files_recursive(p_files, to_path);
 

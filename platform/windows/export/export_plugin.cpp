@@ -259,7 +259,7 @@ Error EditorExportPlatformWindows::export_project(const Ref<EditorExportPreset> 
 
 	// Setup temp folder.
 	String path = p_path;
-	String tmp_dir_path = EditorPaths::get_singleton()->get_cache_dir().path_join(pkg_name);
+	String tmp_dir_path = EditorPaths::get_singleton()->get_temp_dir().path_join(pkg_name);
 	Ref<DirAccess> tmp_app_dir = DirAccess::create_for_path(tmp_dir_path);
 	if (export_as_zip) {
 		if (tmp_app_dir.is_null()) {
@@ -503,7 +503,7 @@ Error EditorExportPlatformWindows::_rcedit_add_data(const Ref<EditorExportPreset
 		}
 	}
 
-	String tmp_icon_path = EditorPaths::get_singleton()->get_cache_dir().path_join("_rcedit.ico");
+	String tmp_icon_path = EditorPaths::get_singleton()->get_temp_dir().path_join("_rcedit.ico");
 	if (!icon_path.is_empty()) {
 		if (_process_icon(p_preset, icon_path, tmp_icon_path) != OK) {
 			add_message(EXPORT_MESSAGE_WARNING, TTR("Resources Modification"), vformat(TTR("Invalid icon file \"%s\"."), icon_path));
@@ -1006,7 +1006,7 @@ Error EditorExportPlatformWindows::run(const Ref<EditorExportPreset> &p_preset, 
 
 	EditorProgress ep("run", TTR("Running..."), 5);
 
-	const String dest = EditorPaths::get_singleton()->get_cache_dir().path_join("windows");
+	const String dest = EditorPaths::get_singleton()->get_temp_dir().path_join("windows");
 	Ref<DirAccess> da = DirAccess::create(DirAccess::ACCESS_FILESYSTEM);
 	if (!da->dir_exists(dest)) {
 		Error err = da->make_dir_recursive(dest);

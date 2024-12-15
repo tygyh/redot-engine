@@ -156,6 +156,7 @@ public:
 		FEATURE_NATIVE_DIALOG_FILE,
 		FEATURE_NATIVE_DIALOG_FILE_EXTRA,
 		FEATURE_WINDOW_DRAG,
+		FEATURE_SCREEN_EXCLUDE_FROM_CAPTURE,
 	};
 
 	virtual bool has_feature(Feature p_feature) const = 0;
@@ -348,6 +349,7 @@ public:
 	virtual float screen_get_refresh_rate(int p_screen = SCREEN_OF_MAIN_WINDOW) const = 0;
 	virtual Color screen_get_pixel(const Point2i &p_position) const { return Color(); }
 	virtual Ref<Image> screen_get_image(int p_screen = SCREEN_OF_MAIN_WINDOW) const { return Ref<Image>(); }
+	virtual Ref<Image> screen_get_image_rect(const Rect2i &p_rect) const { return Ref<Image>(); }
 	virtual bool is_touchscreen_available() const;
 
 	// Keep the ScreenOrientation enum values in sync with the `display/window/handheld/orientation`
@@ -389,6 +391,7 @@ public:
 		WINDOW_FLAG_EXTEND_TO_TITLE,
 		WINDOW_FLAG_MOUSE_PASSTHROUGH,
 		WINDOW_FLAG_SHARP_CORNERS,
+		WINDOW_FLAG_EXCLUDE_FROM_CAPTURE,
 		WINDOW_FLAG_MAX,
 	};
 
@@ -403,6 +406,7 @@ public:
 		WINDOW_FLAG_EXTEND_TO_TITLE_BIT = (1 << WINDOW_FLAG_EXTEND_TO_TITLE),
 		WINDOW_FLAG_MOUSE_PASSTHROUGH_BIT = (1 << WINDOW_FLAG_MOUSE_PASSTHROUGH),
 		WINDOW_FLAG_SHARP_CORNERS_BIT = (1 << WINDOW_FLAG_SHARP_CORNERS),
+		WINDOW_FLAG_EXCLUDE_FROM_CAPTURE_BIT = (1 << WINDOW_FLAG_EXCLUDE_FROM_CAPTURE),
 	};
 
 	virtual WindowID create_sub_window(WindowMode p_mode, VSyncMode p_vsync_mode, uint32_t p_flags, const Rect2i &p_rect = Rect2i(), bool p_exclusive = false, WindowID p_transient_parent = INVALID_WINDOW_ID);
