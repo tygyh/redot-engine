@@ -36,7 +36,6 @@ IPAddress::operator Variant() const {
 	return operator String();
 }*/
 
-#include <stdio.h>
 #include <string.h>
 
 IPAddress::operator String() const {

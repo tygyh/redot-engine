@@ -33,7 +33,6 @@
 #ifndef TEXTURE_STORAGE_DUMMY_H
 #define TEXTURE_STORAGE_DUMMY_H
 
-#include "servers/rendering/rendering_server_globals.h"
 #include "servers/rendering/storage/texture_storage.h"
 
 namespace RendererDummy {
