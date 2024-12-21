@@ -1,5 +1,5 @@
 /**************************************************************************/
-/*  gdextension_compat_hashes.h                                           */
+/*  ip_web.cpp                                                            */
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             REDOT ENGINE                               */
@@ -30,31 +30,21 @@
 /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                 */
 /**************************************************************************/
 
-#ifndef GDEXTENSION_COMPAT_HASHES_H
-#define GDEXTENSION_COMPAT_HASHES_H
+#include "ip_web.h"
 
-#ifndef DISABLE_DEPRECATED
+void IPWeb::_resolve_hostname(List<IPAddress> &r_addresses, const String &p_hostname, Type p_type) const {
+}
 
-#include "core/string/string_name.h"
-#include "core/templates/hash_map.h"
-#include "core/templates/local_vector.h"
+void IPWeb::get_local_interfaces(HashMap<String, Interface_Info> *r_interfaces) const {
+}
 
-class GDExtensionCompatHashes {
-	struct Mapping {
-		StringName method;
-		uint32_t legacy_hash;
-		uint32_t current_hash;
-	};
+void IPWeb::make_default() {
+	_create = _create_web;
+}
 
-	static HashMap<StringName, LocalVector<Mapping>> mappings;
+IP *IPWeb::_create_web() {
+	return memnew(IPWeb);
+}
 
-public:
-	static void initialize();
-	static void finalize();
-	static bool lookup_current_hash(const StringName &p_class, const StringName &p_method, uint32_t p_legacy_hash, uint32_t *r_current_hash);
-	static bool get_legacy_hashes(const StringName &p_class, const StringName &p_method, Array &r_hashes, bool p_check_valid = true);
-};
-
-#endif // DISABLE_DEPRECATED
-
-#endif // GDEXTENSION_COMPAT_HASHES_H
+IPWeb::IPWeb() {
+}

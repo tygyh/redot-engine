@@ -35,8 +35,6 @@
 #include "core/core_globals.h"
 #include "core/os/os.h"
 
-#include <stdio.h>
-
 static PrintHandlerList *print_handler_list = nullptr;
 
 void add_print_handler(PrintHandlerList *p_handler) {

@@ -40,7 +40,6 @@
 #include "core/os/os.h"
 #include "core/string/print_string.h"
 #include "core/string/translation_server.h"
-#include "core/templates/local_vector.h"
 #include "core/variant/typed_array.h"
 
 #ifdef DEBUG_ENABLED

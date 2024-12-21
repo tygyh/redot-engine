@@ -247,6 +247,7 @@ void GDExtension::_register_extension_class(GDExtensionClassLibraryPtr p_library
 		p_extension_funcs->is_abstract, // GDExtensionBool is_abstract;
 		true, // GDExtensionBool is_exposed;
 		false, // GDExtensionBool is_runtime;
+		nullptr, // GDExtensionConstStringPtr icon_path;
 		p_extension_funcs->set_func, // GDExtensionClassSet set_func;
 		p_extension_funcs->get_func, // GDExtensionClassGet get_func;
 		p_extension_funcs->get_property_list_func, // GDExtensionClassGetPropertyList get_property_list_func;
@@ -282,6 +283,7 @@ void GDExtension::_register_extension_class2(GDExtensionClassLibraryPtr p_librar
 		p_extension_funcs->is_abstract, // GDExtensionBool is_abstract;
 		p_extension_funcs->is_exposed, // GDExtensionBool is_exposed;
 		false, // GDExtensionBool is_runtime;
+		nullptr, // GDExtensionConstStringPtr icon_path;
 		p_extension_funcs->set_func, // GDExtensionClassSet set_func;
 		p_extension_funcs->get_func, // GDExtensionClassGet get_func;
 		p_extension_funcs->get_property_list_func, // GDExtensionClassGetPropertyList get_property_list_func;
@@ -317,6 +319,7 @@ void GDExtension::_register_extension_class3(GDExtensionClassLibraryPtr p_librar
 		p_extension_funcs->is_abstract, // GDExtensionBool is_abstract;
 		p_extension_funcs->is_exposed, // GDExtensionBool is_exposed;
 		p_extension_funcs->is_runtime, // GDExtensionBool is_runtime;
+		nullptr, // GDExtensionConstStringPtr icon_path;
 		p_extension_funcs->set_func, // GDExtensionClassSet set_func;
 		p_extension_funcs->get_func, // GDExtensionClassGet get_func;
 		p_extension_funcs->get_property_list_func, // GDExtensionClassGetPropertyList get_property_list_func;
@@ -458,6 +461,13 @@ void GDExtension::_register_extension_class_internal(GDExtensionClassLibraryPtr 
 #endif
 
 	ClassDB::register_extension_class(&extension->gdextension);
+
+	if (p_extension_funcs->icon_path != nullptr) {
+		const String icon_path = *reinterpret_cast<const String *>(p_extension_funcs->icon_path);
+		if (!icon_path.is_empty()) {
+			self->class_icon_paths[class_name] = icon_path;
+		}
+	}
 }
 
 void GDExtension::_register_extension_class_method(GDExtensionClassLibraryPtr p_library, GDExtensionConstStringNamePtr p_class_name, const GDExtensionClassMethodInfo *p_method_info) {

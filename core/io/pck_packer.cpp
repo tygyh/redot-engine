@@ -184,7 +184,7 @@ Error PCKPacker::flush(bool p_verbose) {
 	}
 
 	// write the index
-	file->store_32(files.size());
+	file->store_32(uint32_t(files.size()));
 
 	Ref<FileAccessEncrypted> fae;
 	Ref<FileAccess> fhead = file;
@@ -203,7 +203,7 @@ Error PCKPacker::flush(bool p_verbose) {
 		int string_len = files[i].path.utf8().length();
 		int pad = _get_pad(4, string_len);
 
-		fhead->store_32(string_len + pad);
+		fhead->store_32(uint32_t(string_len + pad));
 		fhead->store_buffer((const uint8_t *)files[i].path.utf8().get_data(), string_len);
 		for (int j = 0; j < pad; j++) {
 			fhead->store_8(0);
@@ -233,7 +233,7 @@ Error PCKPacker::flush(bool p_verbose) {
 		file->store_8(0);
 	}
 
-	int64_t file_base = file->get_position();
+	uint64_t file_base = file->get_position();
 	file->seek(file_base_ofs);
 	file->store_64(file_base); // update files base
 	file->seek(file_base);
