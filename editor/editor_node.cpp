@@ -7467,10 +7467,7 @@ EditorNode::EditorNode() {
 		help_menu->add_icon_shortcut(theme->get_icon(SNAME("Godot"), EditorStringName(EditorIcons)), ED_SHORTCUT_AND_COMMAND("editor/about", TTRC("About Engine...")), HELP_ABOUT);
 	}
 
-	/*
-	TODO: Change to be NOT DONATION focused. Removing for now.
 	help_menu->add_icon_shortcut(theme->get_icon(SNAME("Heart"), EditorStringName(EditorIcons)), ED_SHORTCUT_AND_COMMAND("editor/support_development", TTRC("Support Engine Development")), HELP_SUPPORT_GODOT_DEVELOPMENT);
-	*/
 
 	// Spacer to center 2D / 3D / Script buttons.
 	Control *right_spacer = memnew(Control);
