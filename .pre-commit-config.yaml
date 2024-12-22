@@ -74,6 +74,40 @@ repos:
           )
         additional_dependencies: [tomli]
 
+      - id: codespell
+        name: codespell-redot-docs
+        args:
+          - -D
+          - custom_dict.txt
+          - --ignore-regex
+          - |
+              (?x)(
+                Godot\.\w|
+                Godot;|
+                Godot\ Shader\ Language|
+                highlight=Godot%20Engine%3%docs|
+                highlight=Godot\ Engine:docs|
+                github\.com\/godotengine\/godot|
+                not\ Godot\ (Shaders|shaders)|
+                Godot\ [3|4](\.[0-9x])?|
+                project\.godot|
+                logs\/godot\.log|
+                \.godot\/|
+                org\.godot\.example:my-plugin:0\.0\.0|
+                Godot\ version\ 4\.1\ compatibility|
+                file\ extension\ must\ be\ \[code\]\.godot\[\/code\]|
+                directory\ \(\[code\]\.?godot\[\/code\]\)|
+                \[code\]\.godot\[\/code\]\ folder|
+                Godot's\ donor|
+                donor\ names\ for\ Godot|
+                info\]\ for\ Godot's|
+                in\ relation\ to\ Godot|
+                Godot\ Physics|
+                \[code\]godot\.\[\/code\]\ are\ reserved\ for\ engine\ internals|
+                Godot's\ own\ color\ palette\ for\ editor\ icons
+              )
+        files: ^(doc/classes|.*/doc_classes)/.*\.xml$
+
   ### Requires Docker; look into alternative implementation.
   # - repo: https://github.com/comkieffer/pre-commit-xmllint.git
   #   rev: 1.0.0
