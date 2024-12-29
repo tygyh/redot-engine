@@ -34,7 +34,6 @@
 
 #include "core/config/project_settings.h"
 #include "core/debugger/engine_debugger.h"
-#include "core/string/translation.h"
 #include "core/templates/pair.h"
 #include "core/templates/sort_array.h"
 #include "scene/2d/audio_listener_2d.h"
@@ -129,7 +128,7 @@ int ViewportTexture::get_width() const {
 		_err_print_viewport_not_set();
 		return 0;
 	}
-	return vp->size.width;
+	return get_size().width;
 }
 
 int ViewportTexture::get_height() const {
@@ -137,7 +136,7 @@ int ViewportTexture::get_height() const {
 		_err_print_viewport_not_set();
 		return 0;
 	}
-	return vp->size.height;
+	return get_size().height;
 }
 
 Size2 ViewportTexture::get_size() const {
@@ -145,7 +144,8 @@ Size2 ViewportTexture::get_size() const {
 		_err_print_viewport_not_set();
 		return Size2();
 	}
-	return vp->size;
+	float scale = MIN(vp->get_screen_transform().get_scale().width, vp->get_screen_transform().get_scale().height);
+	return Size2(vp->size.width * scale, vp->size.height * scale).ceil();
 }
 
 RID ViewportTexture::get_rid() const {
@@ -315,10 +315,8 @@ void Viewport::_sub_window_update(Window *p_window) {
 	SubWindow &sw = gui.sub_windows.write[index];
 	sw.pending_window_update = false;
 
-	Transform2D pos;
-	pos.set_origin(p_window->get_position());
 	RS::get_singleton()->canvas_item_clear(sw.canvas_item);
-	Rect2i r = Rect2i(p_window->get_position(), sw.window->get_size());
+	Rect2i r = Rect2i(p_window->get_position(), p_window->get_size());
 
 	if (!p_window->get_flag(Window::FLAG_BORDERLESS)) {
 		Ref<StyleBox> panel = gui.subwindow_focused == p_window ? p_window->theme_cache.embedded_border : p_window->theme_cache.embedded_unfocused_border;
@@ -994,6 +992,7 @@ void Viewport::update_canvas_items() {
 		for (Viewport::SubWindow w : gui.sub_windows) {
 			if (w.window && !w.pending_window_update) {
 				w.pending_window_update = true;
+				w.window->_update_viewport_size();
 				callable_mp(this, &Viewport::_sub_window_update).call_deferred(w.window);
 			}
 		}

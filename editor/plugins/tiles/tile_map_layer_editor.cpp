@@ -41,9 +41,7 @@
 #include "editor/multi_node_edit.h"
 #include "editor/plugins/canvas_item_editor_plugin.h"
 #include "editor/themes/editor_scale.h"
-#include "scene/2d/camera_2d.h"
 #include "scene/2d/tile_map_layer.h"
-#include "scene/gui/center_container.h"
 #include "scene/gui/split_container.h"
 
 #include "core/input/input.h"
@@ -3682,6 +3680,11 @@ void TileMapLayerEditor::_node_change(Node *p_node) {
 
 void TileMapLayerEditor::_notification(int p_what) {
 	switch (p_what) {
+		case NOTIFICATION_READY: {
+			toggle_grid_button->set_pressed_no_signal(EDITOR_GET("editors/tiles_editor/display_grid"));
+			toggle_highlight_selected_layer_button->set_pressed_no_signal(EDITOR_GET("editors/tiles_editor/highlight_selected_layer"));
+		} break;
+
 		case NOTIFICATION_ENTER_TREE: {
 			get_tree()->connect("node_added", callable_mp(this, &TileMapLayerEditor::_node_change));
 			get_tree()->connect("node_removed", callable_mp(this, &TileMapLayerEditor::_node_change));
@@ -4491,7 +4494,6 @@ TileMapLayerEditor::TileMapLayerEditor() {
 	toggle_highlight_selected_layer_button = memnew(Button);
 	toggle_highlight_selected_layer_button->set_theme_type_variation(SceneStringName(FlatButton));
 	toggle_highlight_selected_layer_button->set_toggle_mode(true);
-	toggle_highlight_selected_layer_button->set_pressed(true);
 	toggle_highlight_selected_layer_button->connect(SceneStringName(toggled), callable_mp(this, &TileMapLayerEditor::_highlight_selected_layer_button_toggled));
 	toggle_highlight_selected_layer_button->set_tooltip_text(TTR("Highlight Selected TileMap Layer"));
 	tile_map_toolbar->add_child(toggle_highlight_selected_layer_button);
