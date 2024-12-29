@@ -32,7 +32,6 @@
 
 #include "navigation_link_3d.h"
 
-#include "mesh_instance_3d.h"
 #include "servers/navigation_server_3d.h"
 
 #ifdef DEBUG_ENABLED

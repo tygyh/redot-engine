@@ -41,7 +41,6 @@
 #include "scene/2d/sprite_2d.h"
 #include "scene/3d/sprite_3d.h"
 #include "scene/animation/animation_player.h"
-#include "scene/resources/text_line.h"
 #include "servers/audio/audio_stream.h"
 
 /// BOOL ///

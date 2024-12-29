@@ -37,9 +37,6 @@
 #include "core/os/time.h"
 #include "editor/editor_settings.h"
 #include "editor/editor_string_names.h"
-#include "editor/themes/editor_scale.h"
-#include "scene/gui/box_container.h"
-#include "scene/gui/button.h"
 #include "scene/main/http_request.h"
 
 bool EngineUpdateLabel::_can_check_updates() const {
