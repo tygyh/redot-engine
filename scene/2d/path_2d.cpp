@@ -41,7 +41,7 @@
 
 #ifdef DEBUG_ENABLED
 Rect2 Path2D::_edit_get_rect() const {
-	if (!curve.is_valid() || curve->get_point_count() == 0) {
+	if (curve.is_null() || curve->get_point_count() == 0) {
 		return Rect2(0, 0, 0, 0);
 	}
 
@@ -92,7 +92,7 @@ void Path2D::_notification(int p_what) {
 	switch (p_what) {
 		// Draw the curve if path debugging is enabled.
 		case NOTIFICATION_DRAW: {
-			if (!curve.is_valid()) {
+			if (curve.is_null()) {
 				break;
 			}
 
@@ -222,7 +222,7 @@ void PathFollow2D::_update_transform() {
 	}
 
 	Ref<Curve2D> c = path->get_curve();
-	if (!c.is_valid()) {
+	if (c.is_null()) {
 		return;
 	}
 
