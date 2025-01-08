@@ -34,19 +34,14 @@
 
 #include "core/crypto/crypto_core.h"
 #include "core/io/dir_access.h"
+#include "core/io/plist.h"
+#include "editor/editor_paths.h"
 #include "lipo.h"
 #include "macho.h"
 
-#include "core/io/plist.h"
-#include "editor/editor_paths.h"
-
-#include "modules/modules_enabled.gen.h" // For regex.
+#include "modules/regex/regex.h"
 
 #include <ctime>
-
-#ifdef MODULE_REGEX_ENABLED
-
-#include "modules/regex/regex.h"
 
 /*************************************************************************/
 /* CodeSignCodeResources                                                 */
@@ -1573,5 +1568,3 @@ Error CodeSign::codesign(bool p_use_hardened_runtime, bool p_force, const String
 		ERR_FAIL_V_MSG(FAILED, "CodeSign: Unknown object type.");
 	}
 }
-
-#endif // MODULE_REGEX_ENABLED

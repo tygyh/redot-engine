@@ -200,7 +200,7 @@ Error JSON::_get_token(const char32_t *p_str, int &index, int p_len, Token &r_to
 				String str;
 				while (true) {
 					if (p_str[index] == 0) {
-						r_err_str = "Unterminated String";
+						r_err_str = "Unterminated string";
 						return ERR_PARSE_ERROR;
 					} else if (p_str[index] == '"') {
 						index++;
@@ -210,7 +210,7 @@ Error JSON::_get_token(const char32_t *p_str, int &index, int p_len, Token &r_to
 						index++;
 						char32_t next = p_str[index];
 						if (next == 0) {
-							r_err_str = "Unterminated String";
+							r_err_str = "Unterminated string";
 							return ERR_PARSE_ERROR;
 						}
 						char32_t res = 0;
@@ -236,7 +236,7 @@ Error JSON::_get_token(const char32_t *p_str, int &index, int p_len, Token &r_to
 								for (int j = 0; j < 4; j++) {
 									char32_t c = p_str[index + j + 1];
 									if (c == 0) {
-										r_err_str = "Unterminated String";
+										r_err_str = "Unterminated string";
 										return ERR_PARSE_ERROR;
 									}
 									if (!is_hex_digit(c)) {
@@ -272,7 +272,7 @@ Error JSON::_get_token(const char32_t *p_str, int &index, int p_len, Token &r_to
 									for (int j = 0; j < 4; j++) {
 										char32_t c = p_str[index + j + 1];
 										if (c == 0) {
-											r_err_str = "Unterminated String";
+											r_err_str = "Unterminated string";
 											return ERR_PARSE_ERROR;
 										}
 										if (!is_hex_digit(c)) {
@@ -315,7 +315,7 @@ Error JSON::_get_token(const char32_t *p_str, int &index, int p_len, Token &r_to
 								res = next;
 							} break;
 							default: {
-								r_err_str = "Invalid escape sequence.";
+								r_err_str = "Invalid escape sequence";
 								return ERR_PARSE_ERROR;
 							}
 						}
@@ -363,19 +363,20 @@ Error JSON::_get_token(const char32_t *p_str, int &index, int p_len, Token &r_to
 					r_token.value = id;
 					return OK;
 				} else {
-					r_err_str = "Unexpected character.";
+					r_err_str = "Unexpected character";
 					return ERR_PARSE_ERROR;
 				}
 			}
 		}
 	}
 
+	r_err_str = "Unknown error getting token";
 	return ERR_PARSE_ERROR;
 }
 
 Error JSON::_parse_value(Variant &value, Token &token, const char32_t *p_str, int &index, int p_len, int &line, int p_depth, String &r_err_str) {
 	if (p_depth > Variant::MAX_RECURSION_DEPTH) {
-		r_err_str = "JSON structure is too deep. Bailing.";
+		r_err_str = "JSON structure is too deep";
 		return ERR_OUT_OF_MEMORY;
 	}
 
@@ -402,7 +403,7 @@ Error JSON::_parse_value(Variant &value, Token &token, const char32_t *p_str, in
 		} else if (id == "null") {
 			value = Variant();
 		} else {
-			r_err_str = "Expected 'true','false' or 'null', got '" + id + "'.";
+			r_err_str = vformat("Expected 'true', 'false', or 'null', got '%s'", id);
 			return ERR_PARSE_ERROR;
 		}
 	} else if (token.type == TK_NUMBER) {
@@ -410,7 +411,7 @@ Error JSON::_parse_value(Variant &value, Token &token, const char32_t *p_str, in
 	} else if (token.type == TK_STRING) {
 		value = token.value;
 	} else {
-		r_err_str = "Expected value, got " + String(tk_name[token.type]) + ".";
+		r_err_str = vformat("Expected value, got '%s'", String(tk_name[token.type]));
 		return ERR_PARSE_ERROR;
 	}
 

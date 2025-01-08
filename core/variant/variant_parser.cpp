@@ -280,7 +280,7 @@ Error VariantParser::get_token(Stream *p_stream, Token &r_token, int &line, Stri
 					char32_t ch = p_stream->get_char();
 
 					if (ch == 0) {
-						r_err_str = "Unterminated String";
+						r_err_str = "Unterminated string";
 						r_token.type = TK_ERROR;
 						return ERR_PARSE_ERROR;
 					} else if (ch == '"') {
@@ -289,7 +289,7 @@ Error VariantParser::get_token(Stream *p_stream, Token &r_token, int &line, Stri
 						//escaped characters...
 						char32_t next = p_stream->get_char();
 						if (next == 0) {
-							r_err_str = "Unterminated String";
+							r_err_str = "Unterminated string";
 							r_token.type = TK_ERROR;
 							return ERR_PARSE_ERROR;
 						}
@@ -319,7 +319,7 @@ Error VariantParser::get_token(Stream *p_stream, Token &r_token, int &line, Stri
 									char32_t c = p_stream->get_char();
 
 									if (c == 0) {
-										r_err_str = "Unterminated String";
+										r_err_str = "Unterminated string";
 										r_token.type = TK_ERROR;
 										return ERR_PARSE_ERROR;
 									}
@@ -506,7 +506,7 @@ Error VariantParser::get_token(Stream *p_stream, Token &r_token, int &line, Stri
 					r_token.value = id.as_string();
 					return OK;
 				} else {
-					r_err_str = "Unexpected character.";
+					r_err_str = "Unexpected character";
 					r_token.type = TK_ERROR;
 					return ERR_PARSE_ERROR;
 				}
@@ -514,6 +514,7 @@ Error VariantParser::get_token(Stream *p_stream, Token &r_token, int &line, Stri
 		}
 	}
 
+	r_err_str = "Unknown error getting token";
 	r_token.type = TK_ERROR;
 	return ERR_PARSE_ERROR;
 }
@@ -1009,7 +1010,7 @@ Error VariantParser::parse_value(Token &token, Variant &value, Stream *p_stream,
 			Object *obj = ClassDB::instantiate(type);
 
 			if (!obj) {
-				r_err_str = "Can't instantiate Object() of type: " + type;
+				r_err_str = vformat("Can't instantiate Object() of type '%s'", type);
 				return ERR_PARSE_ERROR;
 			}
 
@@ -1027,7 +1028,7 @@ Error VariantParser::parse_value(Token &token, Variant &value, Stream *p_stream,
 
 			while (true) {
 				if (p_stream->is_eof()) {
-					r_err_str = "Unexpected End of File while parsing Object()";
+					r_err_str = "Unexpected EOF while parsing Object()";
 					return ERR_FILE_CORRUPT;
 				}
 
@@ -1125,7 +1126,7 @@ Error VariantParser::parse_value(Token &token, Variant &value, Stream *p_stream,
 					String path = token.value;
 					Ref<Resource> res = ResourceLoader::load(path);
 					if (res.is_null()) {
-						r_err_str = "Can't load resource at path: '" + path + "'.";
+						r_err_str = "Can't load resource at path: " + path;
 						return ERR_PARSE_ERROR;
 					}
 
@@ -1137,7 +1138,7 @@ Error VariantParser::parse_value(Token &token, Variant &value, Stream *p_stream,
 
 					value = res;
 				} else {
-					r_err_str = "Expected string as argument for Resource().";
+					r_err_str = "Expected string as argument for Resource()";
 					return ERR_PARSE_ERROR;
 				}
 			}
@@ -1573,7 +1574,7 @@ Error VariantParser::parse_value(Token &token, Variant &value, Stream *p_stream,
 
 			value = arr;
 		} else {
-			r_err_str = "Unexpected identifier: '" + id + "'.";
+			r_err_str = vformat("Unexpected identifier '%s'", id);
 			return ERR_PARSE_ERROR;
 		}
 
@@ -1592,7 +1593,7 @@ Error VariantParser::parse_value(Token &token, Variant &value, Stream *p_stream,
 		value = token.value;
 		return OK;
 	} else {
-		r_err_str = "Expected value, got " + String(tk_name[token.type]) + ".";
+		r_err_str = vformat("Expected value, got '%s'", String(tk_name[token.type]));
 		return ERR_PARSE_ERROR;
 	}
 }
@@ -1603,7 +1604,7 @@ Error VariantParser::_parse_array(Array &array, Stream *p_stream, int &line, Str
 
 	while (true) {
 		if (p_stream->is_eof()) {
-			r_err_str = "Unexpected End of File while parsing array";
+			r_err_str = "Unexpected EOF while parsing array";
 			return ERR_FILE_CORRUPT;
 		}
 
@@ -1645,7 +1646,7 @@ Error VariantParser::_parse_dictionary(Dictionary &object, Stream *p_stream, int
 
 	while (true) {
 		if (p_stream->is_eof()) {
-			r_err_str = "Unexpected End of File while parsing dictionary";
+			r_err_str = "Unexpected EOF while parsing dictionary";
 			return ERR_FILE_CORRUPT;
 		}
 
@@ -1777,7 +1778,7 @@ Error VariantParser::_parse_tag(Token &token, Stream *p_stream, int &line, Strin
 
 	while (true) {
 		if (p_stream->is_eof()) {
-			r_err_str = "Unexpected End of File while parsing tag: " + r_tag.name;
+			r_err_str = vformat("Unexpected EOF while parsing tag '%s'", r_tag.name);
 			return ERR_FILE_CORRUPT;
 		}
 
@@ -1797,7 +1798,7 @@ Error VariantParser::_parse_tag(Token &token, Stream *p_stream, int &line, Strin
 		}
 
 		if (token.type != TK_IDENTIFIER) {
-			r_err_str = "Expected Identifier";
+			r_err_str = "Expected identifier";
 			return ERR_PARSE_ERROR;
 		}
 
@@ -1810,6 +1811,7 @@ Error VariantParser::_parse_tag(Token &token, Stream *p_stream, int &line, Strin
 
 		get_token(p_stream, token, line, r_err_str);
 		if (token.type != TK_EQUAL) {
+			r_err_str = "Expected '=' after identifier";
 			return ERR_PARSE_ERROR;
 		}
 

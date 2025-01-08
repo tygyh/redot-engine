@@ -125,6 +125,7 @@ class EditorResourcePreview : public Node {
 	void _update_thumbnail_sizes();
 
 protected:
+	void _notification(int p_what);
 	static void _bind_methods();
 
 public:

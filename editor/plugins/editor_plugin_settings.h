@@ -35,6 +35,7 @@
 
 #include "editor/plugins/plugin_config_dialog.h"
 
+class TextureRect;
 class Tree;
 
 class EditorPluginSettings : public VBoxContainer {
@@ -56,6 +57,7 @@ class EditorPluginSettings : public VBoxContainer {
 	};
 
 	PluginConfigDialog *plugin_config_dialog = nullptr;
+	TextureRect *recovery_mode_icon = nullptr;
 	Tree *plugin_list = nullptr;
 	bool updating = false;
 

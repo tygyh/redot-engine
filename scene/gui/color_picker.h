@@ -267,7 +267,6 @@ private:
 		Ref<Texture2D> picker_cursor;
 		Ref<Texture2D> wheel_picker_cursor;
 		Ref<Texture2D> color_hue;
-		Ref<Texture2D> color_okhsl_hue;
 
 		/* Mode buttons */
 		Ref<StyleBox> mode_button_normal;
