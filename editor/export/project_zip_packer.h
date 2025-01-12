@@ -1,5 +1,5 @@
 /**************************************************************************/
-/*  joypad_ios.h                                                          */
+/*  project_zip_packer.h                                                  */
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             REDOT ENGINE                               */
@@ -30,23 +30,19 @@
 /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                 */
 /**************************************************************************/
 
-#import <GameController/GameController.h>
+#ifndef PROJECT_ZIP_PACKER_H
+#define PROJECT_ZIP_PACKER_H
 
-@interface JoypadIOSObserver : NSObject
+#include "core/io/zip_io.h"
+#include "core/variant/variant.h"
 
-- (void)startObserving;
-- (void)startProcessing;
-- (void)finishObserving;
-
-@end
-
-class JoypadIOS {
-private:
-	JoypadIOSObserver *observer;
+class ProjectZIPPacker {
+	static void _zip_file(const String &p_path, const String &p_base_path, zipFile p_zip);
+	static void _zip_recursive(const String &p_path, const String &p_base_path, zipFile p_zip);
 
 public:
-	JoypadIOS();
-	~JoypadIOS();
-
-	void start_processing();
+	static String get_project_zip_safe_name();
+	static void pack_project_zip(const String &p_path);
 };
+
+#endif // PROJECT_ZIP_PACKER_H

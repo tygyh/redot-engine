@@ -102,6 +102,8 @@ public:
 
 	struct ShaderSpecialization {
 		union {
+			uint32_t packed_0;
+
 			struct {
 				uint32_t use_forward_gi : 1;
 				uint32_t use_light_projector : 1;
@@ -116,19 +118,17 @@ public:
 				uint32_t directional_soft_shadow_samples : 6;
 				uint32_t directional_penumbra_shadow_samples : 6;
 			};
-
-			uint32_t packed_0;
 		};
 
 		union {
+			uint32_t packed_1;
+
 			struct {
 				uint32_t multimesh : 1;
 				uint32_t multimesh_format_2d : 1;
 				uint32_t multimesh_has_color : 1;
 				uint32_t multimesh_has_custom_data : 1;
 			};
-
-			uint32_t packed_1;
 		};
 
 		uint32_t packed_2;
@@ -136,11 +136,11 @@ public:
 
 	struct UbershaderConstants {
 		union {
+			uint32_t packed_0;
+
 			struct {
 				uint32_t cull_mode : 2;
 			};
-
-			uint32_t packed_0;
 		};
 	};
 

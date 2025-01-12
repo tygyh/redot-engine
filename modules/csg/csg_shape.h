@@ -171,6 +171,8 @@ public:
 	Ref<ArrayMesh> bake_static_mesh();
 	Ref<ConcavePolygonShape3D> bake_collision_shape();
 
+	virtual Ref<TriangleMesh> generate_triangle_mesh() const override;
+
 	CSGShape3D();
 	~CSGShape3D();
 };

@@ -620,7 +620,7 @@ Point2i DisplayServer::ime_get_selection() const {
 }
 
 String DisplayServer::ime_get_text() const {
-	ERR_FAIL_V_MSG(String(), "IME or NOTIFICATION_WM_IME_UPDATEnot supported by this display server.");
+	ERR_FAIL_V_MSG(String(), "IME or NOTIFICATION_WM_IME_UPDATE not supported by this display server.");
 }
 
 void DisplayServer::virtual_keyboard_show(const String &p_existing_text, const Rect2 &p_screen_rect, VirtualKeyboardType p_type, int p_max_length, int p_cursor_start, int p_cursor_end) {
@@ -723,6 +723,9 @@ Key DisplayServer::keyboard_get_keycode_from_physical(Key p_keycode) const {
 
 Key DisplayServer::keyboard_get_label_from_physical(Key p_keycode) const {
 	ERR_FAIL_V_MSG(p_keycode, "Not supported by this display server.");
+}
+
+void DisplayServer::show_emoji_and_symbol_picker() const {
 }
 
 void DisplayServer::force_process_and_drop_events() {
@@ -1031,6 +1034,8 @@ void DisplayServer::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("keyboard_get_keycode_from_physical", "keycode"), &DisplayServer::keyboard_get_keycode_from_physical);
 	ClassDB::bind_method(D_METHOD("keyboard_get_label_from_physical", "keycode"), &DisplayServer::keyboard_get_label_from_physical);
 
+	ClassDB::bind_method(D_METHOD("show_emoji_and_symbol_picker"), &DisplayServer::show_emoji_and_symbol_picker);
+
 	ClassDB::bind_method(D_METHOD("process_events"), &DisplayServer::process_events);
 	ClassDB::bind_method(D_METHOD("force_process_and_drop_events"), &DisplayServer::force_process_and_drop_events);
 
@@ -1088,6 +1093,7 @@ void DisplayServer::_bind_methods() {
 	BIND_ENUM_CONSTANT(FEATURE_SCREEN_EXCLUDE_FROM_CAPTURE);
 	BIND_ENUM_CONSTANT(FEATURE_WINDOW_EMBEDDING);
 	BIND_ENUM_CONSTANT(FEATURE_NATIVE_DIALOG_FILE_MIME);
+	BIND_ENUM_CONSTANT(FEATURE_EMOJI_AND_SYMBOL_PICKER);
 
 	BIND_ENUM_CONSTANT(MOUSE_MODE_VISIBLE);
 	BIND_ENUM_CONSTANT(MOUSE_MODE_HIDDEN);
@@ -1270,8 +1276,8 @@ Input::CursorShape DisplayServer::_input_get_current_cursor_shape() {
 	return (Input::CursorShape)singleton->cursor_get_shape();
 }
 
-void DisplayServer::_input_set_custom_mouse_cursor_func(const Ref<Resource> &p_image, Input::CursorShape p_shape, const Vector2 &p_hostspot) {
-	singleton->cursor_set_custom_image(p_image, (CursorShape)p_shape, p_hostspot);
+void DisplayServer::_input_set_custom_mouse_cursor_func(const Ref<Resource> &p_image, Input::CursorShape p_shape, const Vector2 &p_hotspot) {
+	singleton->cursor_set_custom_image(p_image, (CursorShape)p_shape, p_hotspot);
 }
 
 bool DisplayServer::can_create_rendering_device() {
