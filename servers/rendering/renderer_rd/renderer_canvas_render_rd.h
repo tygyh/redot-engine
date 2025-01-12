@@ -118,11 +118,11 @@ class RendererCanvasRenderRD : public RendererCanvasRender {
 
 	struct ShaderSpecialization {
 		union {
+			uint32_t packed_0;
+
 			struct {
 				uint32_t use_lighting : 1;
 			};
-
-			uint32_t packed_0;
 		};
 	};
 

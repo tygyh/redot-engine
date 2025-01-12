@@ -276,7 +276,7 @@ public:
 	MTLFormatType getFormatType(DataFormat p_format);
 
 	/** Returns the format type corresponding to the specified Metal MTLPixelFormat, */
-	MTLFormatType getFormatType(MTLPixelFormat p_formt);
+	MTLFormatType getFormatType(MTLPixelFormat p_format);
 
 	/**
 	 * Returns the Metal MTLPixelFormat corresponding to the specified Redot pixel
