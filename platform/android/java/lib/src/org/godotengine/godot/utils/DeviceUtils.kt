@@ -37,13 +37,14 @@
 
 package org.redotengine.godot.utils
 
+import android.content.Context
 import android.os.Build
 
 /**
  * Returns true if running on Meta Horizon OS.
  */
-fun isHorizonOSDevice(): Boolean {
-	return "Oculus".equals(Build.BRAND, true)
+fun isHorizonOSDevice(context: Context): Boolean {
+	return context.packageManager.hasSystemFeature("oculus.hardware.standalone_vr")
 }
 
 /**
@@ -56,6 +57,6 @@ fun isPicoOSDevice(): Boolean {
 /**
  * Returns true if running on a native Android XR device.
  */
-fun isNativeXRDevice(): Boolean {
-	return isHorizonOSDevice() || isPicoOSDevice()
+fun isNativeXRDevice(context: Context): Boolean {
+	return isHorizonOSDevice(context) || isPicoOSDevice()
 }

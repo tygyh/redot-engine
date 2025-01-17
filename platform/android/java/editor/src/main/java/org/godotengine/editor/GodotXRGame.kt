@@ -61,8 +61,8 @@ open class GodotXRGame: GodotGame() {
 	override fun getProjectPermissionsToEnable(): MutableList<String> {
 		val permissionsToEnable = super.getProjectPermissionsToEnable()
 
-		val openxrEnabled = GodotLib.getGlobal("xr/openxr/enabled").toBoolean()
-		if (openxrEnabled) {
+		val xrRuntimePermission = getXRRuntimePermissions()
+		if (xrRuntimePermission.isNotEmpty() && GodotLib.getGlobal("xr/openxr/enabled").toBoolean()) {
 			// We only request permissions when the `automatically_request_runtime_permissions`
 			// project setting is enabled.
 			// If the project setting is not defined, we fall-back to the default behavior which is
@@ -71,7 +71,7 @@ open class GodotXRGame: GodotGame() {
 			val automaticPermissionsRequestEnabled = automaticallyRequestPermissionsSetting.isNullOrEmpty() ||
 				automaticallyRequestPermissionsSetting.toBoolean()
 			if (automaticPermissionsRequestEnabled) {
-				permissionsToEnable.addAll(USE_SCENE_PERMISSIONS)
+				permissionsToEnable.addAll(xrRuntimePermission)
 			}
 		}
 
