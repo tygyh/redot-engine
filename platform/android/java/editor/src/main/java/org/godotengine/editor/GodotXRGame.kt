@@ -42,7 +42,7 @@ open class GodotXRGame: GodotGame() {
 
 	override fun overrideOrientationRequest() = true
 
-	override fun updateCommandLineParams(args: List<String>) {
+	override fun updateCommandLineParams(args: Array<String>) {
 		val updatedArgs = ArrayList<String>()
 		if (!args.contains(XRMode.OPENXR.cmdLineArg)) {
 			updatedArgs.add(XRMode.OPENXR.cmdLineArg)
@@ -53,7 +53,7 @@ open class GodotXRGame: GodotGame() {
 		}
 		updatedArgs.addAll(args)
 
-		super.updateCommandLineParams(updatedArgs)
+		super.updateCommandLineParams(updatedArgs.toTypedArray())
 	}
 
 	override fun getEditorWindowInfo() = XR_RUN_GAME_INFO
