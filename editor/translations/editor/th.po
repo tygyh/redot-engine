@@ -1,5 +1,4 @@
-# Thai translation of the Redot Engine editor interface.
-# Copyright (c) 2024-present Redot Engine contributors.
+# Thai translation of the Godot Engine editor interface.
 # Copyright (c) 2014-present Godot Engine contributors.
 # Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
 # This file is distributed under the same license as the Godot source code.
@@ -24,8 +23,8 @@
 # Suvijak Nopparatcharoensuk <guy.suvijak@hotmail.com>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: Redot Engine editor interface\n"
-"Report-Msgid-Bugs-To: https://github.com/Redot-Engine/redot-engine\n"
+"Project-Id-Version: Godot Engine editor interface\n"
+"Report-Msgid-Bugs-To: https://github.com/godotengine/godot\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2025-01-29 20:50+0000\n"
 "Last-Translator: Suvijak Nopparatcharoensuk <guy.suvijak@hotmail.com>\n"
@@ -1424,11 +1423,11 @@ msgstr "การใช้เครื่องหมายทับในชื
 msgid "Double-click to open in browser."
 msgstr "ดับเบิลคลิกเพื่อเปิดในเบราว์เซอร์"
 
-msgid "Thanks from the Redot community!"
-msgstr "ขอขอบคุณจากชุมชนผู้ใช้ Redot!"
+msgid "Thanks from the Godot community!"
+msgstr "ขอขอบคุณจากชุมชนผู้ใช้ Godot!"
 
-msgid "Redot Engine contributors"
-msgstr "ผู้ช่วยพัฒนา Redot Engine"
+msgid "Godot Engine contributors"
+msgstr "ผู้ช่วยพัฒนา Godot Engine"
 
 msgid "Project Founders"
 msgstr "ผู้ริเริ่มโครงการ"
@@ -1470,12 +1469,12 @@ msgid "Third-party Licenses"
 msgstr "สัญญาอนุญาตจากบุคคลที่สาม"
 
 msgid ""
-"Redot Engine relies on a number of third-party free and open source "
+"Godot Engine relies on a number of third-party free and open source "
 "libraries, all compatible with the terms of its MIT license. The following is "
 "an exhaustive list of all such third-party components with their respective "
 "copyright statements and license terms."
 msgstr ""
-"Redot Engine อาศัยไลบรารีต่าง ๆ ที่นำมาใช้ได้อย่างเสรีและเปิดเผยโค้ดเป็นจำนวนมาก "
+"Godot Engine อาศัยไลบรารีต่าง ๆ ที่นำมาใช้ได้อย่างเสรีและเปิดเผยโค้ดเป็นจำนวนมาก "
 "ซึ่งเข้ากันได้กับสัญญาอนุญาต MIT ต่อไปนี้เป็นรายชื่อของไลบรารีทั้งหมดของบุคคลที่สาม "
 "รวมถึงข้อความลิขสิทธิ์ และข้อกำหนดการใช้งานของแต่ละไลบรารี"
 
@@ -1909,8 +1908,8 @@ msgstr "สร้าง หรือนำเข้าโปรไฟล์ก�
 msgid "New profile name:"
 msgstr "ชื่อโปรไฟล์ใหม่:"
 
-msgid "Redot Feature Profile"
-msgstr "รายละเอียดคุณสมบัติ Redot"
+msgid "Godot Feature Profile"
+msgstr "รายละเอียดคุณสมบัติ Godot"
 
 msgid "Import Profile(s)"
 msgstr "นำเข้าโปรไฟล์"
@@ -2649,8 +2648,8 @@ msgstr "ถอนการติดตั้ง"
 msgid "Select Template File"
 msgstr "เลือกไฟล์เทมเพลต"
 
-msgid "Redot Export Templates"
-msgstr "เทมเพลตการส่งออก Redot"
+msgid "Godot Export Templates"
+msgstr "เทมเพลตการส่งออก Godot"
 
 msgid "Runnable"
 msgstr "สามารถรันได้"
@@ -4852,7 +4851,7 @@ msgstr "บันทึกธีมเป็น"
 msgid "Online Docs"
 msgstr "คู่มือ"
 
-msgid "Open Redot online documentation."
+msgid "Open Godot online documentation."
 msgstr "เปิดคู่มือออนไลน์"
 
 msgid "%s Class Reference"
@@ -5845,11 +5844,11 @@ msgid ""
 msgstr "(โหมดแฟรกเมนต์/แสง เท่านั้น) (เวกเตอร์) ผลรวมของอนุพันธ์สัมบูรณ์ใน 'x' และ 'y'"
 
 msgid ""
-"Custom Redot Shader Language expression, with custom amount of input and "
+"Custom Godot Shader Language expression, with custom amount of input and "
 "output ports. This is a direct injection of code into the vertex/fragment/"
 "light function, do not use it to write the function declarations inside."
 msgstr ""
-"นิพจน์ภาษาเชดเดอร์ Redot แบบกำหนดเอง พร้อมจำนวนพอร์ตอินพุตและเอาต์พุตที่กำหนดเอง "
+"นิพจน์ภาษาเชดเดอร์ Godot แบบกำหนดเอง พร้อมจำนวนพอร์ตอินพุตและเอาต์พุตที่กำหนดเอง "
 "จำทำการแทรกโค้ดลงในฟังก์ชันเวอร์เทก / แฟรกเมนต์ / แสง "
 "ห้ามใช้เพื่อเขียนการประกาศฟังก์ชันภายใน"
 
@@ -5863,18 +5862,18 @@ msgid "Are you sure to run %d projects at once?"
 msgstr "ยืนยันการรันโปรเจกต์ %d โปรเจกต์ทีเดียว?"
 
 msgid ""
-"The selected project \"%s\" does not specify its supported Redot version in "
+"The selected project \"%s\" does not specify its supported Godot version in "
 "its configuration file (\"project.godot\").\n"
 "\n"
 "Project path: %s\n"
 "\n"
-"If you proceed with opening it, it will be converted to Redot's current "
+"If you proceed with opening it, it will be converted to Godot's current "
 "configuration file format.\n"
 "\n"
 "Warning: You won't be able to open the project with previous versions of the "
 "engine anymore."
 msgstr ""
-"โปรเจกต์ที่เลือก \"%s\" ไม่ได้ระบุเวอร์ชั่น Redot ที่ซัพพอร์ตเอาไว้ในไฟล์การตั้งค่า (\"project."
+"โปรเจกต์ที่เลือก \"%s\" ไม่ได้ระบุเวอร์ชั่น Godot ที่ซัพพอร์ตเอาไว้ในไฟล์การตั้งค่า (\"project."
 "godot\")\n"
 "\n"
 "ตำแหน่งโปรเจกต์: %s\n"
@@ -6792,9 +6791,6 @@ msgstr "Object ของประเภท '%s' ไม่สามารถ Inde
 
 msgid "Invalid base type for increment/decrement operator."
 msgstr "Base Type ของ Increment/Decrement Operator ไม่ถูกต้อง"
-
-msgid "Invalid use of increment/decrement operator in a constant expression."
-msgstr "การใช้ Increment/Decrement Operator สำหรับ Constant Expression ไม่ถูกต้อง"
 
 msgid "Invalid token for the operator: '%s'."
 msgstr "Token สำหรับ Operator ไม่ถูกต้อง: '%s'"

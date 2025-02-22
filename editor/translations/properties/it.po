@@ -1,5 +1,4 @@
 # Italian translation of the Godot Engine properties.
-# Copyright (c) 2024-present Redot Engine contributors.
 # Copyright (c) 2014-present Godot Engine contributors.
 # Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
 # This file is distributed under the same license as the Godot source code.
@@ -92,8 +91,8 @@
 # Dark Space <darkspace.lvcnr@gmail.com>, 2024.
 msgid ""
 msgstr ""
-"Project-Id-Version: Redot Engine properties\n"
-"Report-Msgid-Bugs-To: https://github.com/Redot-Engine/redot-engine\n"
+"Project-Id-Version: Godot Engine properties\n"
+"Report-Msgid-Bugs-To: https://github.com/godotengine/godot\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2024-12-28 01:45+0000\n"
 "Last-Translator: Micky <micheledevita2@gmail.com>\n"
@@ -2838,14 +2837,14 @@ msgstr "Offset della posizione dei suggerimenti"
 msgid "Show Image"
 msgstr "Mostra immagine"
 
-msgid "Image"
-msgstr "Immagine"
-
 msgid "Fullsize"
 msgstr "Dimensioni intere"
 
 msgid "Use Filter"
 msgstr "Usa filtro"
+
+msgid "Image"
+msgstr "Immagine"
 
 msgid "Minimum Display Time"
 msgstr "Tempo minimo di visualizzazione"
@@ -3372,8 +3371,8 @@ msgstr "Articolazioni"
 msgid "Roots"
 msgstr "Radici"
 
-msgid "Redot Bone Node"
-msgstr "Nodo d'osso di Redot"
+msgid "Godot Bone Node"
+msgstr "Nodo d'osso di Godot"
 
 msgid "Skin Root"
 msgstr "Radice della Skin"
@@ -3381,8 +3380,8 @@ msgstr "Radice della Skin"
 msgid "Non Joints"
 msgstr "Non articolazioni"
 
-msgid "Redot Skin"
-msgstr "Skin Redot"
+msgid "Godot Skin"
+msgstr "Skin Godot"
 
 msgid "Src Image"
 msgstr "Immagine sorgente"
@@ -7440,23 +7439,14 @@ msgstr "Contatti visualizzati massimi"
 msgid "Draw 2D Outlines"
 msgstr "Disegna contorni 2D"
 
-msgid "Anti Aliasing"
-msgstr "Antialiasing"
-
-msgid "MSAA 2D"
-msgstr "2D MSAA"
-
-msgid "MSAA 3D"
-msgstr "3D MSAA"
-
 msgid "Viewport"
 msgstr "Viewport"
 
 msgid "Transparent Background"
 msgstr "Sfondo trasparente"
 
-msgid "HDR 2D"
-msgstr "Alta gamma dinamica 2D (HDR)"
+msgid "Anti Aliasing"
+msgstr "Antialiasing"
 
 msgid "Screen Space AA"
 msgstr "Antialiasing nello spazio dello schermo"
@@ -7499,9 +7489,6 @@ msgstr "Ombre posizionali"
 
 msgid "Atlas Size"
 msgstr "Grandezza dell'atlante"
-
-msgid "Atlas 16 Bits"
-msgstr "Atlante a 16 bit"
 
 msgid "Atlas Quadrant 0 Subdiv"
 msgstr "Suddivisione del quadrante n.0 nell'atlante"
@@ -7556,6 +7543,12 @@ msgstr "Sfondo trasparente"
 
 msgid "Handle Input Locally"
 msgstr "Gestisci gli input localmente"
+
+msgid "MSAA 2D"
+msgstr "2D MSAA"
+
+msgid "MSAA 3D"
+msgstr "3D MSAA"
 
 msgid "Debug Draw"
 msgstr "Disegno per debug"
@@ -10335,6 +10328,9 @@ msgstr "Usa unità di luce fisica"
 msgid "Soft Shadow Filter Quality"
 msgstr "Qualità del filtro di ombre morbide"
 
+msgid "Atlas 16 Bits"
+msgstr "Atlante a 16 bit"
+
 msgid "Shadow Atlas"
 msgstr "Atlas delle ombre"
 
@@ -10433,6 +10429,9 @@ msgstr "Dissolvenza da"
 
 msgid "Fadeout To"
 msgstr "Dissolvenza a"
+
+msgid "HDR 2D"
+msgstr "Alta gamma dinamica 2D (HDR)"
 
 msgid "Screen Space Roughness Limiter"
 msgstr "Limitatore di rugosità nello spazio dello schermo"

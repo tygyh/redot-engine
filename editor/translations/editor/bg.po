@@ -1,5 +1,4 @@
-# Bulgarian translation of the Redot Engine editor interface.
-# Copyright (c) 2024-present Redot Engine contributors.
+# Bulgarian translation of the Godot Engine editor interface.
 # Copyright (c) 2014-present Godot Engine contributors.
 # Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
 # This file is distributed under the same license as the Godot source code.
@@ -24,8 +23,8 @@
 # "П@₿€л" <pavel.veselinov.georgiev@gmail.com>, 2024.
 msgid ""
 msgstr ""
-"Project-Id-Version: Redot Engine editor interface\n"
-"Report-Msgid-Bugs-To: https://github.com/Redot-Engine/redot-engine\n"
+"Project-Id-Version: Godot Engine editor interface\n"
+"Report-Msgid-Bugs-To: https://github.com/godotengine/godot\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2024-10-02 07:34+0000\n"
 "Last-Translator: \"П@₿€л\" <pavel.veselinov.georgiev@gmail.com>\n"
@@ -1135,19 +1134,8 @@ msgstr "Наистина ли искате да изтриете %d елемен
 msgid "Show Dependencies"
 msgstr "Показване на зависимостите"
 
-<<<<<<< HEAD
-msgid "Could not create folder."
-msgstr "Папката не може да бъде създадена."
-
-msgid "Create Folder"
-msgstr "Създаване на папка"
-
-msgid "Thanks from the Redot community!"
-msgstr "Благодарности от общността на Redot!"
-=======
 msgid "Thanks from the Godot community!"
 msgstr "Благодарности от общността на Godot!"
->>>>>>> ad9abe841d9bb47a397c5e1a314ced1c5abc1ccd
 
 msgid "Project Founders"
 msgstr "Основатели на проекта"
@@ -1976,8 +1964,8 @@ msgstr "Деинсталиране на шаблона"
 msgid "Select Template File"
 msgstr "Избор на шаблонен файл"
 
-msgid "Redot Export Templates"
-msgstr "Шаблони за изнасяне на Redot"
+msgid "Godot Export Templates"
+msgstr "Шаблони за изнасяне на Godot"
 
 msgid "Resources to export:"
 msgstr "Ресурси за изнасяне:"
@@ -2075,12 +2063,6 @@ msgstr "Изнасяне на всичко…"
 msgid "ZIP File"
 msgstr "Файл ZIP"
 
-<<<<<<< HEAD
-msgid "Redot Project Pack"
-msgstr "Проектен пакет на Redot"
-
-=======
->>>>>>> ad9abe841d9bb47a397c5e1a314ced1c5abc1ccd
 msgid "Export templates for this platform are missing:"
 msgstr "Шаблоните за изнасяне за тази система липсват:"
 
@@ -3805,8 +3787,8 @@ msgstr "Грешка при запазването"
 msgid "Save Theme As..."
 msgstr "Запазване на темата като..."
 
-msgid "Open Redot online documentation."
-msgstr "Отваряне на документацията на Redot в Интернет."
+msgid "Open Godot online documentation."
+msgstr "Отваряне на документацията на Godot в Интернет."
 
 msgid "Find Next"
 msgstr "Търсене напред"

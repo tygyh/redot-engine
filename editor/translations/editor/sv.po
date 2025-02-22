@@ -1,5 +1,4 @@
-# Swedish translation of the Redot Engine editor interface.
-# Copyright (c) 2024-present Redot Engine contributors.
+# Swedish translation of the Godot Engine editor interface.
 # Copyright (c) 2014-present Godot Engine contributors.
 # Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
 # This file is distributed under the same license as the Godot source code.
@@ -47,8 +46,8 @@
 # Muhammad <muhammadshamaeem@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: Redot Engine editor interface\n"
-"Report-Msgid-Bugs-To: https://github.com/Redot-Engine/redot-engine\n"
+"Project-Id-Version: Godot Engine editor interface\n"
+"Report-Msgid-Bugs-To: https://github.com/godotengine/godot\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2025-01-20 18:26+0000\n"
 "Last-Translator: Muhammad <muhammadshamaeem@gmail.com>\n"
@@ -1965,26 +1964,11 @@ msgstr "Mappnamnet är giltigt."
 msgid "Double-click to open in browser."
 msgstr "Dubbelklicka för att öppna i webbläsare."
 
-msgid "Thanks from the Redot community!"
-msgstr "Tack från Redot-gemenskapen!"
+msgid "Thanks from the Godot community!"
+msgstr "Tack från Godot-gemenskapen!"
 
-<<<<<<< HEAD
-msgid "(unknown)"
-msgstr "(okänd)"
-
-msgid ""
-"Git commit date: %s\n"
-"Click to copy the version number."
-msgstr ""
-"Git commit datum: %s\n"
-"Klicka för att kopiera versionsnummer."
-
-msgid "Redot Engine contributors"
-msgstr "Redot Engine bidragare"
-=======
 msgid "Godot Engine contributors"
 msgstr "Godot Engine-bidragsgivare"
->>>>>>> ad9abe841d9bb47a397c5e1a314ced1c5abc1ccd
 
 msgid "Project Founders"
 msgstr "Projektgrundare"
@@ -2036,22 +2020,15 @@ msgid "Third-party Licenses"
 msgstr "Tredje-partslicens"
 
 msgid ""
-"Redot Engine relies on a number of third-party free and open source "
+"Godot Engine relies on a number of third-party free and open source "
 "libraries, all compatible with the terms of its MIT license. The following is "
 "an exhaustive list of all such third-party components with their respective "
 "copyright statements and license terms."
 msgstr ""
-<<<<<<< HEAD
-"Redot Engine förlitar sig på ett antal av tredje parts gratis och öppen "
-"källkods-bibliotek, alla kompatibla med MIT-licensen. Följande är en "
-"fullständig lista av alla sådana tredje parts komponenter med deras "
-"respektive upphovsrätts uttalanden och licensvillkor."
-=======
 "Godot Engine förlitar sig på ett antal gratis och öppen källkod- tredje-parts "
 "kodbibliotek. Alla dessa är kompatibla med Godot Engine:s MIT-licens. "
 "Följande lista är en komplett förteckning över alla sådana tredje-"
 "partskomponenter med deras respektive copyright-information och licensvillkor."
->>>>>>> ad9abe841d9bb47a397c5e1a314ced1c5abc1ccd
 
 msgid "All Components"
 msgstr "Alla komponenter"
@@ -2526,16 +2503,11 @@ msgstr "[tom]"
 msgid "[unsaved]"
 msgstr "[osparad]"
 
-<<<<<<< HEAD
-msgid "%s - Redot Engine"
-msgstr "%s - Redot Engine"
-=======
 msgid "Move this dock right one tab."
 msgstr "Flytta den här fliken åt höger."
 
 msgid "Move this dock left one tab."
 msgstr "Flytta den här fliken åt vänster."
->>>>>>> ad9abe841d9bb47a397c5e1a314ced1c5abc1ccd
 
 msgid "Dock Position"
 msgstr "Flikposition"
@@ -2683,8 +2655,8 @@ msgstr ""
 msgid "New profile name:"
 msgstr "Nytt profilnamn:"
 
-msgid "Redot Feature Profile"
-msgstr "Redot funktions profil"
+msgid "Godot Feature Profile"
+msgstr "Godot funktions profil"
 
 msgid "Import Profile(s)"
 msgstr "Importera profil(er)"
@@ -3329,18 +3301,13 @@ msgstr "Saknar filen \"%s\" eller någon av dess beroenden."
 
 msgid ""
 "File '%s' is saved in a format that is newer than the formats supported by "
-"this version of Redot, so it can't be opened."
+"this version of Godot, so it can't be opened."
 msgstr ""
-<<<<<<< HEAD
-"Filen \"%s\" har sparats i ett nyare format än vad som stöds i denna version "
-"av Redot och kan därför inte öppnas."
-=======
 "Filen \"%s\" är sparad i ett format av en nyare version än den här Godot-"
 "versionen stödjer och kan därför inte öppnas."
 
 msgid "Error while loading file '%s'."
 msgstr "Fel när filen \"%s\" lästes in."
->>>>>>> ad9abe841d9bb47a397c5e1a314ced1c5abc1ccd
 
 msgid "Saving Scene"
 msgstr "Spara scen"
@@ -3944,13 +3911,8 @@ msgstr "Skicka dokumentations-återkoppling"
 msgid "About Godot..."
 msgstr "Om Godot..."
 
-<<<<<<< HEAD
-msgid "Support Redot Development"
-msgstr "Supporta utvecklingen av Redot"
-=======
 msgid "Support Godot Development"
 msgstr "Stöd utvecklingen av Godot"
->>>>>>> ad9abe841d9bb47a397c5e1a314ced1c5abc1ccd
 
 msgid ""
 "Choose a rendering method.\n"
@@ -4700,13 +4662,8 @@ msgstr "Avinstallera mall"
 msgid "Select Template File"
 msgstr "Välj mallfil"
 
-<<<<<<< HEAD
-msgid "Redot Export Templates"
-msgstr "Redot Exportmallar"
-=======
 msgid "Godot Export Templates"
 msgstr "Godot-exportmallar"
->>>>>>> ad9abe841d9bb47a397c5e1a314ced1c5abc1ccd
 
 msgid ""
 "The templates will continue to download.\n"
@@ -4906,28 +4863,19 @@ msgstr "Exportera PCK/ZIP..."
 
 msgid ""
 "Export the project resources as a PCK or ZIP package. This is not a playable "
-"build, only the project data without a Redot executable."
+"build, only the project data without a Godot executable."
 msgstr ""
-<<<<<<< HEAD
-"Exportera projektresurserna som ett PCK- eller ZIP-paket. Det är inte ett "
-"spelbart bygge utan bara projektdatan utan en körbar Redot-fil."
-=======
 "Exportera projektresurserna som ett PCK- eller ZIP-arkiv. Det här är inte ett "
 "körbart bygge, bara projektets data utan en körbar Godot-fil."
->>>>>>> ad9abe841d9bb47a397c5e1a314ced1c5abc1ccd
 
 msgid "Export Project..."
 msgstr "Exportera projekt…"
 
 msgid ""
-"Export the project as a playable build (Redot executable and project data) "
+"Export the project as a playable build (Godot executable and project data) "
 "for the selected preset."
 msgstr ""
-<<<<<<< HEAD
-"Exportera projektet som ett spelbart bygge (Körbar Redot-fil och projektdata) "
-=======
 "Exportera projektet som ett körbart bygge (körbar Godot-fil och projektdata) "
->>>>>>> ad9abe841d9bb47a397c5e1a314ced1c5abc1ccd
 "för den valda förinställningen."
 
 msgid "Export All"
@@ -9820,10 +9768,6 @@ msgstr "Öppna i onlinedokumentation"
 msgid "Online Docs"
 msgstr "Onlinedokumentation"
 
-<<<<<<< HEAD
-msgid "Open Redot online documentation."
-msgstr "Öppna Redot online dokumentation."
-=======
 msgid "Open Godot online documentation."
 msgstr "Öppna Godots onlinedokumentation."
 
@@ -9832,7 +9776,6 @@ msgstr "Osparad fil."
 
 msgid "%s Class Reference"
 msgstr "%s-klassreferens"
->>>>>>> ad9abe841d9bb47a397c5e1a314ced1c5abc1ccd
 
 msgid "Find Next"
 msgstr "Nästa"
@@ -13382,48 +13325,33 @@ msgstr ""
 "\n"
 
 msgid ""
-"Warning: This project uses C#, but this build of Redot does not have\n"
+"Warning: This project uses C#, but this build of Godot does not have\n"
 "the Mono module. If you proceed you will not be able to use any C# scripts.\n"
 "\n"
 msgstr ""
-<<<<<<< HEAD
-"Varning: Detta projekt använder C#, men detta bygge av Redot har inte\n"
-"Mono modulen. Om du fortsätter så kommer du inte kunna använda några C# "
-=======
 "Varning: Det här projektet använder C#, men det här Godot-bygget har inte\n"
 "Mono-modulen. Om du fortsätter kommer du inte att kunna använda några C#-"
->>>>>>> ad9abe841d9bb47a397c5e1a314ced1c5abc1ccd
 "skript.\n"
 "\n"
 
 msgid ""
-"Warning: This project was last edited in Redot %s. Opening will change it to "
-"Redot %s.\n"
+"Warning: This project was last edited in Godot %s. Opening will change it to "
+"Godot %s.\n"
 "\n"
 msgstr ""
-<<<<<<< HEAD
-"Varning: Detta projekt var senast editerat i Redot %s. Att öppna det kommer "
-"att ändra det till Redot %s.\n"
-=======
 "Varning: Projektet redigerades senast i Godot %s. Att öppna det kommer att "
 "ändra det till Godot %s.\n"
->>>>>>> ad9abe841d9bb47a397c5e1a314ced1c5abc1ccd
 "\n"
 
 msgid ""
 "Warning: This project uses the following features not supported by this build "
-"of Redot:\n"
+"of Godot:\n"
 "\n"
 "%s\n"
 "\n"
 msgstr ""
-<<<<<<< HEAD
-"Varning: Detta projekt använder följande funktioner som ej stöds av detta "
-"bygget av Redot:\n"
-=======
 "Varning: Det här projektet använder följande funktioner som inte stöds i det "
 "här Godot-bygget:\n"
->>>>>>> ad9abe841d9bb47a397c5e1a314ced1c5abc1ccd
 "\n"
 "%s\n"
 "\n"
@@ -13706,18 +13634,13 @@ msgid "Warning: This folder is not empty"
 msgstr "Varning: Den här mappen är inte tom"
 
 msgid ""
-"You are about to create a Redot project in a non-empty folder.\n"
+"You are about to create a Godot project in a non-empty folder.\n"
 "The entire contents of this folder will be imported as project resources!\n"
 "\n"
 "Are you sure you wish to continue?"
 msgstr ""
-<<<<<<< HEAD
-"Du kommer att skapa ett Redot projekt i en icke tom mapp.\n"
-"Allt innehåll i denna mapp kommer att importeras som projektresurser!\n"
-=======
 "Du håller på att skapa ett Godot-projekt i en mapp som inte är tom.\n"
 "Allt innehåll i mappen kommer att importeras som projektresurser!\n"
->>>>>>> ad9abe841d9bb47a397c5e1a314ced1c5abc1ccd
 "\n"
 "Vill du verkligen fortsätta?"
 

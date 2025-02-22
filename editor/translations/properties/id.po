@@ -1,5 +1,4 @@
 # Indonesian translation of the Godot Engine properties.
-# Copyright (c) 2024-present Redot Engine contributors.
 # Copyright (c) 2014-present Godot Engine contributors.
 # Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
 # This file is distributed under the same license as the Godot source code.
@@ -56,8 +55,8 @@
 # Fakhri Roihan <archerlimit1@gmail.com>, 2024.
 msgid ""
 msgstr ""
-"Project-Id-Version: Redot Engine properties\n"
-"Report-Msgid-Bugs-To: https://github.com/Redot-Engine/redot-engine\n"
+"Project-Id-Version: Godot Engine properties\n"
+"Report-Msgid-Bugs-To: https://github.com/godotengine/godot\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2024-12-07 12:00+0000\n"
 "Last-Translator: Fakhri Roihan <archerlimit1@gmail.com>\n"
@@ -2533,14 +2532,14 @@ msgstr "Offset Posisi Tooltip"
 msgid "Show Image"
 msgstr "Tampilkan Gambar"
 
-msgid "Image"
-msgstr "Gambar"
-
 msgid "Fullsize"
 msgstr "Ukuran penuh"
 
 msgid "Use Filter"
 msgstr "Gunakan Filter"
+
+msgid "Image"
+msgstr "Gambar"
 
 msgid "Minimum Display Time"
 msgstr "Waktu Tampilan Minimal"
@@ -2938,8 +2937,8 @@ msgstr "Sendi"
 msgid "Roots"
 msgstr "Root"
 
-msgid "Redot Bone Node"
-msgstr "Node Tulang Redot"
+msgid "Godot Bone Node"
+msgstr "Node Tulang Godot"
 
 msgid "Skin Root"
 msgstr "Root Skin"
@@ -2950,8 +2949,8 @@ msgstr "Sendi Asli"
 msgid "Non Joints"
 msgstr "Non Sendi"
 
-msgid "Redot Skin"
-msgstr "Skin Redot"
+msgid "Godot Skin"
+msgstr "Skin Godot"
 
 msgid "Src Image"
 msgstr "Gambar Sumber"
@@ -6685,20 +6684,14 @@ msgstr "Kontak Maks Ditampilkan"
 msgid "Draw 2D Outlines"
 msgstr "Gambar Garis Besar 2D"
 
-msgid "Anti Aliasing"
-msgstr "Anti Alias"
-
-msgid "MSAA 2D"
-msgstr "MSAA 2D"
-
-msgid "MSAA 3D"
-msgstr "MSAA 3D"
-
 msgid "Viewport"
 msgstr "Viewport"
 
 msgid "Transparent Background"
 msgstr "Latar Belakang Transparan"
+
+msgid "Anti Aliasing"
+msgstr "Anti Alias"
 
 msgid "Screen Space AA"
 msgstr "Ruang Layar AA"
@@ -6741,9 +6734,6 @@ msgstr "Bayangan Posisi"
 
 msgid "Atlas Size"
 msgstr "Ukuran Atlas"
-
-msgid "Atlas 16 Bits"
-msgstr "Atlas 16 Bit"
 
 msgid "Atlas Quadrant 0 Subdiv"
 msgstr "Subdivisi Kuadran 0 Atlas"
@@ -6798,6 +6788,12 @@ msgstr "BG transparan"
 
 msgid "Handle Input Locally"
 msgstr "Tangani Input Secara Lokal"
+
+msgid "MSAA 2D"
+msgstr "MSAA 2D"
+
+msgid "MSAA 3D"
+msgstr "MSAA 3D"
 
 msgid "Debug Draw"
 msgstr "Debug Gambar"
@@ -9264,6 +9260,9 @@ msgstr "Gunakan Satuan Cahaya Fisik"
 
 msgid "Soft Shadow Filter Quality"
 msgstr "Kualitas Filter Bayangan Lembut"
+
+msgid "Atlas 16 Bits"
+msgstr "Atlas 16 Bit"
 
 msgid "Shadow Atlas"
 msgstr "Atlas Bayangan"

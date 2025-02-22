@@ -1,5 +1,4 @@
-# Spanish (Argentina) translation of the Redot Engine editor interface.
-# Copyright (c) 2024-present Redot Engine contributors.
+# Spanish (Argentina) translation of the Godot Engine editor interface.
 # Copyright (c) 2014-present Godot Engine contributors.
 # Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
 # This file is distributed under the same license as the Godot source code.
@@ -36,8 +35,8 @@
 # LCDF <lcdf1001@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: Redot Engine editor interface\n"
-"Report-Msgid-Bugs-To: https://github.com/Redot-Engine/redot-engine\n"
+"Project-Id-Version: Godot Engine editor interface\n"
+"Report-Msgid-Bugs-To: https://github.com/godotengine/godot\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2025-01-29 23:00+0000\n"
 "Last-Translator: LCDF <lcdf1001@gmail.com>\n"
@@ -1378,22 +1377,11 @@ msgstr "Es Dueño De"
 msgid "Resources Without Explicit Ownership:"
 msgstr "Recursos Sin Propietario Explícito:"
 
-<<<<<<< HEAD
-msgid "Could not create folder."
-msgstr "No se pudo crear la carpeta."
-
-msgid "Create Folder"
-msgstr "Crear Carpeta"
-
-msgid "Thanks from the Redot community!"
-msgstr "Gracias de parte de la comunidad Redot!"
-=======
 msgid "Thanks from the Godot community!"
 msgstr "Gracias de parte de la comunidad Godot!"
->>>>>>> ad9abe841d9bb47a397c5e1a314ced1c5abc1ccd
 
-msgid "Redot Engine contributors"
-msgstr "Colaboradores de Redot Engine"
+msgid "Godot Engine contributors"
+msgstr "Colaboradores de Godot Engine"
 
 msgid "Project Founders"
 msgstr "Fundadores del Proyecto"
@@ -1426,12 +1414,12 @@ msgid "Third-party Licenses"
 msgstr "Licencia de Terceros"
 
 msgid ""
-"Redot Engine relies on a number of third-party free and open source "
+"Godot Engine relies on a number of third-party free and open source "
 "libraries, all compatible with the terms of its MIT license. The following is "
 "an exhaustive list of all such third-party components with their respective "
 "copyright statements and license terms."
 msgstr ""
-"Redot Engine se basa en una serie de librerías libres y de código abierto de "
+"Godot Engine se basa en una serie de librerías libres y de código abierto de "
 "terceros, todas ellas compatibles con los términos de su licencia MIT. La "
 "siguiente es una lista exhaustiva de todos estos componentes de terceros con "
 "sus respectivas declaraciones de derechos de autor y términos de licencia."
@@ -1793,8 +1781,8 @@ msgstr ""
 msgid "New profile name:"
 msgstr "Nuevo nombre de perfil:"
 
-msgid "Redot Feature Profile"
-msgstr "Perfil de Características de Redot"
+msgid "Godot Feature Profile"
+msgstr "Perfil de Características de Godot"
 
 msgid "Import Profile(s)"
 msgstr "Importar Perfil(es)"
@@ -2338,8 +2326,8 @@ msgstr "Sugerir una Feature"
 msgid "Send Docs Feedback"
 msgstr "Enviar comentarios sobre la documentación"
 
-msgid "Support Redot Development"
-msgstr "Apoyar el desarrollo de Redot"
+msgid "Support Godot Development"
+msgstr "Apoyar el desarrollo de Godot"
 
 msgid "Update Continuously"
 msgstr "Actualizar Continuamente"
@@ -2781,8 +2769,8 @@ msgstr "Desinstalar Plantilla"
 msgid "Select Template File"
 msgstr "Elegir Archivo de Plantilla"
 
-msgid "Redot Export Templates"
-msgstr "Plantillas de Exportación de Redot"
+msgid "Godot Export Templates"
+msgstr "Plantillas de Exportación de Godot"
 
 msgid ""
 "The templates will continue to download.\n"
@@ -5236,8 +5224,8 @@ msgstr "Guardar Tema Como..."
 msgid "Online Docs"
 msgstr "Documentación Online"
 
-msgid "Open Redot online documentation."
-msgstr "Abrir la documentación en línea de Redot."
+msgid "Open Godot online documentation."
+msgstr "Abrir la documentación en línea de Godot."
 
 msgid "%s Class Reference"
 msgstr "%s Referencia de Clase"
@@ -6687,11 +6675,11 @@ msgstr ""
 "(Sólo modo Fragmento/Luz) (Vector) Suma de la derivada absoluta en 'x' e 'y'."
 
 msgid ""
-"Custom Redot Shader Language expression, with custom amount of input and "
+"Custom Godot Shader Language expression, with custom amount of input and "
 "output ports. This is a direct injection of code into the vertex/fragment/"
 "light function, do not use it to write the function declarations inside."
 msgstr ""
-"Expresión personalizada del lenguaje de shaders de Redot, con una cantidad "
+"Expresión personalizada del lenguaje de shaders de Godot, con una cantidad "
 "determinada de puertos de entrada y salida. Esta es una inyección directa de "
 "código en la función vertex/fragment/light, no la uses para escribir "
 "declaraciones de funciones en su interior."

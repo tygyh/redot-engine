@@ -1,5 +1,4 @@
-# Esperanto translation of the Redot Engine editor interface.
-# Copyright (c) 2024-present Redot Engine contributors.
+# Esperanto translation of the Godot Engine editor interface.
 # Copyright (c) 2014-present Godot Engine contributors.
 # Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
 # This file is distributed under the same license as the Godot source code.
@@ -26,17 +25,10 @@
 # programutox <programutox@disroot.org>, 2024.
 msgid ""
 msgstr ""
-<<<<<<< HEAD
-"Project-Id-Version: Redot Engine editor interface\n"
-"Report-Msgid-Bugs-To: https://github.com/Redot-Engine/redot-engine\n"
-"PO-Revision-Date: 2024-02-26 06:02+0000\n"
-"Last-Translator: casuallyblue <sierra@casuallyblue.dev>\n"
-=======
 "Project-Id-Version: Godot Engine editor interface\n"
 "Report-Msgid-Bugs-To: https://github.com/godotengine/godot\n"
 "PO-Revision-Date: 2024-09-27 03:18+0000\n"
 "Last-Translator: programutox <programutox@disroot.org>\n"
->>>>>>> ad9abe841d9bb47a397c5e1a314ced1c5abc1ccd
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/godot-engine/"
 "godot/eo/>\n"
 "Language: eo\n"
@@ -1289,22 +1281,11 @@ msgstr "Posede"
 msgid "Resources Without Explicit Ownership:"
 msgstr "Risurcoj sen eksplicita proprieto:"
 
-<<<<<<< HEAD
-msgid "Could not create folder."
-msgstr "Ne povis krei dosierujon."
-
-msgid "Create Folder"
-msgstr "Krei dosierujon"
-
-msgid "Thanks from the Redot community!"
-msgstr "Dankon de la komunumo de Redot!"
-=======
 msgid "Thanks from the Godot community!"
 msgstr "Dankon de la komunumo de Godot!"
->>>>>>> ad9abe841d9bb47a397c5e1a314ced1c5abc1ccd
 
-msgid "Redot Engine contributors"
-msgstr "Kontribuantoj de Redot Engine"
+msgid "Godot Engine contributors"
+msgstr "Kontribuantoj de Godot Engine"
 
 msgid "Project Founders"
 msgstr "Fondintoj de la Projekto"
@@ -1337,12 +1318,12 @@ msgid "Third-party Licenses"
 msgstr "Permesiloj de eksteraj liverantoj"
 
 msgid ""
-"Redot Engine relies on a number of third-party free and open source "
+"Godot Engine relies on a number of third-party free and open source "
 "libraries, all compatible with the terms of its MIT license. The following is "
 "an exhaustive list of all such third-party components with their respective "
 "copyright statements and license terms."
 msgstr ""
-"Redot Engine fidas al multe liberaj kaj malfermitkodaj bibliotekoj de ekstera "
+"Godot Engine fidas al multe liberaj kaj malfermitkodaj bibliotekoj de ekstera "
 "liveranto, ĉio kongruas kun la kondiĉoj de ĝia MIT-permesilo. La jenoj estas "
 "elĉerpa listo de ĉiom tiaj komponantoj de ekstera liveranto kun iliaj "
 "kopirajtaj atentigoj kaj permesilaj kondiĉoj respektive."
@@ -1695,8 +1676,8 @@ msgstr ""
 msgid "New profile name:"
 msgstr "Nomo de nova profilo:"
 
-msgid "Redot Feature Profile"
-msgstr "Profilo de funkciaro de Redot"
+msgid "Godot Feature Profile"
+msgstr "Profilo de funkciaro de Godot"
 
 msgid "Import Profile(s)"
 msgstr "Enporti profilo(j)n"
@@ -2167,8 +2148,8 @@ msgstr "Raporti cimon"
 msgid "Send Docs Feedback"
 msgstr "Sendi rimarkojn pri la dokumentaro"
 
-msgid "Support Redot Development"
-msgstr "Subteni Redot ellaboradon"
+msgid "Support Godot Development"
+msgstr "Subteni Godot ellaboradon"
 
 msgid "Update Continuously"
 msgstr "Ĝisdatigi kontinue"
@@ -2431,8 +2412,8 @@ msgstr "Malinstali"
 msgid "Select Template File"
 msgstr "Elekti ŝablonan dosieron"
 
-msgid "Redot Export Templates"
-msgstr "Eksportajn ŝablonojn de Redot"
+msgid "Godot Export Templates"
+msgstr "Eksportajn ŝablonojn de Godot"
 
 msgid "Duplicate"
 msgstr "Duobligi"
@@ -3860,8 +3841,8 @@ msgstr "Konservi etoson kiel..."
 msgid "Online Docs"
 msgstr "Enreta Dokumentaro"
 
-msgid "Open Redot online documentation."
-msgstr "Malfermi enretan dokumentaron de Redot."
+msgid "Open Godot online documentation."
+msgstr "Malfermi enretan dokumentaron de Godot."
 
 msgid "Find Next"
 msgstr "Trovu Sekva"

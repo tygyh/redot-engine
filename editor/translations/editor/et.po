@@ -1,5 +1,4 @@
-# Estonian translation of the Redot Engine editor interface.
-# Copyright (c) 2024-present Redot Engine contributors.
+# Estonian translation of the Godot Engine editor interface.
 # Copyright (c) 2014-present Godot Engine contributors.
 # Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
 # This file is distributed under the same license as the Godot source code.
@@ -14,8 +13,8 @@
 # Andreas Kuuskaru <andrku@tlu.ee>, 2023.
 msgid ""
 msgstr ""
-"Project-Id-Version: Redot Engine editor interface\n"
-"Report-Msgid-Bugs-To: https://github.com/Redot-Engine/redot-engine\n"
+"Project-Id-Version: Godot Engine editor interface\n"
+"Report-Msgid-Bugs-To: https://github.com/godotengine/godot\n"
 "PO-Revision-Date: 2023-09-29 19:03+0000\n"
 "Last-Translator: Andreas Kuuskaru <andrku@tlu.ee>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/godot-engine/"
@@ -1054,11 +1053,11 @@ msgstr "Kaldkriipsude kasutamine kaustanimedes loob alamkaustad rekursiivselt."
 msgid "Folder name is valid."
 msgstr "Kausta nimi on kehtiv."
 
-msgid "Thanks from the Redot community!"
-msgstr "Suur tänu Redot kogukonnalt!"
+msgid "Thanks from the Godot community!"
+msgstr "Suur tänu Godot kogukonnalt!"
 
-msgid "Redot Engine contributors"
-msgstr "Redot mängumootori panustajad"
+msgid "Godot Engine contributors"
+msgstr "Godot mängumootori panustajad"
 
 msgid "Project Founders"
 msgstr "Projekti asutajad"
@@ -1095,12 +1094,12 @@ msgid "Third-party Licenses"
 msgstr "Kolmanda osapoole litsents"
 
 msgid ""
-"Redot Engine relies on a number of third-party free and open source "
+"Godot Engine relies on a number of third-party free and open source "
 "libraries, all compatible with the terms of its MIT license. The following is "
 "an exhaustive list of all such third-party components with their respective "
 "copyright statements and license terms."
 msgstr ""
-"Redot mängumootor tugineb mitmetele kolmandate osapoolte tasuta ja avatud "
+"Godot mängumootor tugineb mitmetele kolmandate osapoolte tasuta ja avatud "
 "lähtekoodiga teekidele, mis kõik on kooskõlas MIT-litsentsi tingimustega. "
 "Järgnev on kõigi selliste kolmandate osapoolte komponentide täielik loetelu "
 "koos vastavate autoriõiguste avalduste ja litsentsitingimustega."
@@ -1345,8 +1344,8 @@ msgstr "[tühi]"
 msgid "[unsaved]"
 msgstr "[salvestamata]"
 
-msgid "%s - Redot Engine"
-msgstr "%s - Redot Engine"
+msgid "%s - Godot Engine"
+msgstr "%s - Godot Engine"
 
 msgid "Dock Position"
 msgstr "Doki asukoht"
@@ -1484,8 +1483,8 @@ msgstr ""
 msgid "New profile name:"
 msgstr "Uus profiilinimi:"
 
-msgid "Redot Feature Profile"
-msgstr "Redoti funktsiooniprofiil"
+msgid "Godot Feature Profile"
+msgstr "Godoti funktsiooniprofiil"
 
 msgid "Import Profile(s)"
 msgstr "Impordi profiil(id)"
@@ -2309,8 +2308,8 @@ msgstr "Funktsionaalsuse Soovitamine"
 msgid "Send Docs Feedback"
 msgstr "Saada dokumentatsioonide tagasiside"
 
-msgid "Support Redot Development"
-msgstr "Toeta Redot'i Arendamist"
+msgid "Support Godot Development"
+msgstr "Toeta Godot'i Arendamist"
 
 msgid "Update Continuously"
 msgstr "Värskenda Pidevalt"
@@ -2795,8 +2794,8 @@ msgstr "Desinstallige mall"
 msgid "Select Template File"
 msgstr "Valige Malli Fail"
 
-msgid "Redot Export Templates"
-msgstr "Redoti Ekspordi mallid"
+msgid "Godot Export Templates"
+msgstr "Godoti Ekspordi mallid"
 
 msgid ""
 "The templates will continue to download.\n"
@@ -2957,12 +2956,6 @@ msgstr "Ekspordi Kõik..."
 msgid "ZIP File"
 msgstr "ZIP Fail"
 
-<<<<<<< HEAD
-msgid "Redot Project Pack"
-msgstr "Redoti Projekti Pakk"
-
-=======
->>>>>>> ad9abe841d9bb47a397c5e1a314ced1c5abc1ccd
 msgid "Export templates for this platform are missing:"
 msgstr "Selle platvormi ekspordimallid puuduvad:"
 
@@ -6497,8 +6490,8 @@ msgstr "Salvesta teema kui..."
 msgid "Online Docs"
 msgstr "Veebidokumentatsioonid"
 
-msgid "Open Redot online documentation."
-msgstr "Ava Redot Interneti Dokumentatisoon."
+msgid "Open Godot online documentation."
+msgstr "Ava Godot Interneti Dokumentatisoon."
 
 msgid "Unsaved file."
 msgstr "Salvestamata fail."

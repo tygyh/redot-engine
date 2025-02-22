@@ -1,5 +1,4 @@
 # Korean translation of the Godot Engine properties.
-# Copyright (c) 2024-present Redot Engine contributors.
 # Copyright (c) 2014-present Godot Engine contributors.
 # Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
 # This file is distributed under the same license as the Godot source code.
@@ -56,8 +55,8 @@
 # Amdid <changwha.com@gmail.com>, 2024.
 msgid ""
 msgstr ""
-"Project-Id-Version: Redot Engine properties\n"
-"Report-Msgid-Bugs-To: https://github.com/Redot-Engine/redot-engine\n"
+"Project-Id-Version: Godot Engine properties\n"
+"Report-Msgid-Bugs-To: https://github.com/godotengine/godot\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2024-11-26 19:03+0000\n"
 "Last-Translator: Amdid <changwha.com@gmail.com>\n"
@@ -2557,14 +2556,14 @@ msgstr "툴팁 위치 오프셋"
 msgid "Show Image"
 msgstr "이미지 표시"
 
-msgid "Image"
-msgstr "영상"
-
 msgid "Fullsize"
 msgstr "전체 크기"
 
 msgid "Use Filter"
 msgstr "필터 사용"
+
+msgid "Image"
+msgstr "영상"
 
 msgid "Minimum Display Time"
 msgstr "최소 표시 시간"
@@ -2950,8 +2949,8 @@ msgstr "관절"
 msgid "Roots"
 msgstr "루트"
 
-msgid "Redot Bone Node"
-msgstr "Redot 본 노드"
+msgid "Godot Bone Node"
+msgstr "Godot 본 노드"
 
 msgid "Skin Root"
 msgstr "스킨 루트"
@@ -2962,8 +2961,8 @@ msgstr "관절 원본"
 msgid "Non Joints"
 msgstr "비 관절"
 
-msgid "Redot Skin"
-msgstr "Redot 스킨"
+msgid "Godot Skin"
+msgstr "Godot 스킨"
 
 msgid "Src Image"
 msgstr "SRC 이미지"
@@ -6127,20 +6126,14 @@ msgstr "표시할 최대 접촉 수"
 msgid "Draw 2D Outlines"
 msgstr "2D 윤곽선 그리기"
 
-msgid "Anti Aliasing"
-msgstr "안티 앨리어싱"
-
-msgid "MSAA 2D"
-msgstr "MSAA 2D"
-
-msgid "MSAA 3D"
-msgstr "MSAA 3D"
-
 msgid "Viewport"
 msgstr "뷰포트"
 
 msgid "Transparent Background"
 msgstr "투명한 배경색"
+
+msgid "Anti Aliasing"
+msgstr "안티 앨리어싱"
 
 msgid "Screen Space AA"
 msgstr "화면공간 AA"
@@ -6180,6 +6173,12 @@ msgstr "빛과 그림자"
 
 msgid "SDF"
 msgstr "SDF"
+
+msgid "MSAA 2D"
+msgstr "MSAA 2D"
+
+msgid "MSAA 3D"
+msgstr "MSAA 3D"
 
 msgid "Audio Listener"
 msgstr "오디오 리스너"

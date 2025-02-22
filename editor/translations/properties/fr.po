@@ -1,5 +1,4 @@
 # French translation of the Godot Engine properties.
-# Copyright (c) 2024-present Redot Engine contributors.
 # Copyright (c) 2014-present Godot Engine contributors.
 # Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
 # This file is distributed under the same license as the Godot source code.
@@ -142,8 +141,8 @@
 # trobador <gbrosset@proton.me>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: Redot Engine properties\n"
-"Report-Msgid-Bugs-To: https://github.com/Redot-Engine/redot-engine\n"
+"Project-Id-Version: Godot Engine properties\n"
+"Report-Msgid-Bugs-To: https://github.com/godotengine/godot\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2025-01-31 16:34+0000\n"
 "Last-Translator: trobador <gbrosset@proton.me>\n"
@@ -2932,14 +2931,14 @@ msgstr "Décalage de la position des info-bulles"
 msgid "Show Image"
 msgstr "Afficher l'image"
 
-msgid "Image"
-msgstr "Image"
-
 msgid "Fullsize"
 msgstr "Pleine taille"
 
 msgid "Use Filter"
 msgstr "Utiliser le filtrage"
+
+msgid "Image"
+msgstr "Image"
 
 msgid "Minimum Display Time"
 msgstr "Temps d'affichage minimum"
@@ -3475,8 +3474,8 @@ msgstr "Jointures"
 msgid "Roots"
 msgstr "Racines"
 
-msgid "Redot Bone Node"
-msgstr "Nœud d'os de Redot"
+msgid "Godot Bone Node"
+msgstr "Nœud d'os de Godot"
 
 msgid "Skin Root"
 msgstr "Racine de l'enveloppe"
@@ -3487,8 +3486,8 @@ msgstr "Jointure à l'original"
 msgid "Non Joints"
 msgstr "Non jointures"
 
-msgid "Redot Skin"
-msgstr "Enveloppe Redot"
+msgid "Godot Skin"
+msgstr "Enveloppe Godot"
 
 msgid "Src Image"
 msgstr "Image source"
@@ -7501,20 +7500,14 @@ msgstr "Contacts affichés maximum"
 msgid "Draw 2D Outlines"
 msgstr "Dessiner les contours 2D"
 
-msgid "Anti Aliasing"
-msgstr "Anticrénelage"
-
-msgid "MSAA 2D"
-msgstr "2D MSAA"
-
-msgid "MSAA 3D"
-msgstr "3D MSAA"
-
 msgid "Viewport"
 msgstr "Fenêtre d'affichage"
 
 msgid "Transparent Background"
 msgstr "Transparence d'arrière-plan"
+
+msgid "Anti Aliasing"
+msgstr "Anticrénelage"
 
 msgid "Screen Space AA"
 msgstr "Écran d'espace AA"
@@ -7554,9 +7547,6 @@ msgstr "Ombre positionnelle"
 
 msgid "Atlas Size"
 msgstr "Taille de l'Atlas"
-
-msgid "Atlas 16 Bits"
-msgstr "Atlas 16 bits"
 
 msgid "SDF"
 msgstr "CDS"
@@ -7599,6 +7589,12 @@ msgstr "Arrière-plan transparent"
 
 msgid "Handle Input Locally"
 msgstr "Gérer les entrées localement"
+
+msgid "MSAA 2D"
+msgstr "2D MSAA"
+
+msgid "MSAA 3D"
+msgstr "3D MSAA"
 
 msgid "Debug Draw"
 msgstr "Déboguer appel de dessin"
@@ -10014,6 +10010,9 @@ msgstr "Utiliser les unités de lumière physique"
 
 msgid "Soft Shadow Filter Quality"
 msgstr "Filtre de qualité d'ombre douce"
+
+msgid "Atlas 16 Bits"
+msgstr "Atlas 16 bits"
 
 msgid "Shadow Atlas"
 msgstr "Atlas d'ombres"
