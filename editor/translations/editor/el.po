@@ -1,5 +1,4 @@
-# Greek translation of the Redot Engine editor interface.
-# Copyright (c) 2024-present Redot Engine contributors.
+# Greek translation of the Godot Engine editor interface.
 # Copyright (c) 2014-present Godot Engine contributors.
 # Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
 # This file is distributed under the same license as the Godot source code.
@@ -34,8 +33,8 @@
 # Giannis Krommydas <john1052004@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: Redot Engine editor interface\n"
-"Report-Msgid-Bugs-To: https://github.com/Redot-Engine/redot-engine\n"
+"Project-Id-Version: Godot Engine editor interface\n"
+"Report-Msgid-Bugs-To: https://github.com/godotengine/godot\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2025-01-11 17:09+0000\n"
 "Last-Translator: Giannis Krommydas <john1052004@gmail.com>\n"
@@ -1539,11 +1538,11 @@ msgstr "Πόροι χωρίς ρητή ιδιοκτησία:"
 msgid "Folder name cannot be empty."
 msgstr "Ήδη υπαρκτό όνομα κίνησης."
 
-msgid "Thanks from the Redot community!"
-msgstr "Ευχαριστίες από την κοινότητα της Redot!"
+msgid "Thanks from the Godot community!"
+msgstr "Ευχαριστίες από την κοινότητα της Godot!"
 
-msgid "Redot Engine contributors"
-msgstr "Συνεισφέροντες στην Redot Engine"
+msgid "Godot Engine contributors"
+msgstr "Συνεισφέροντες στην Godot Engine"
 
 msgid "Project Founders"
 msgstr "Ιδρυτές του έργου"
@@ -1576,12 +1575,12 @@ msgid "Third-party Licenses"
 msgstr "Άδειες τρίτων κατασκευαστών"
 
 msgid ""
-"Redot Engine relies on a number of third-party free and open source "
+"Godot Engine relies on a number of third-party free and open source "
 "libraries, all compatible with the terms of its MIT license. The following is "
 "an exhaustive list of all such third-party components with their respective "
 "copyright statements and license terms."
 msgstr ""
-"Η μηχανή Redot βασίζεται σε μια σειρά από δωρεάν και ανοιχτού κώδικα "
+"Η μηχανή Godot βασίζεται σε μια σειρά από δωρεάν και ανοιχτού κώδικα "
 "βιβλιοθήκες τρίτων κατασκευαστών, όλες συμβατές με τους όρους της άδειας MIT. "
 "Ακολουθεί μία εκτενής λίστα με όλα τα σχετικά συστατικά της μηχανής μαζί με "
 "όλες τις αντοίστοιχες δηλώσεις προστασίας πνευματικών δικαιωμάτων και τους "
@@ -1909,8 +1908,8 @@ msgstr "Επιπλέον Επιλογές:"
 msgid "New profile name:"
 msgstr "Νέο όνομα προφίλ:"
 
-msgid "Redot Feature Profile"
-msgstr "Προφίλ Χαρακτηριστικών του Redot"
+msgid "Godot Feature Profile"
+msgstr "Προφίλ Χαρακτηριστικών του Godot"
 
 msgid "Import Profile(s)"
 msgstr "Εισαγωγή Προφίλ"
@@ -2508,8 +2507,8 @@ msgstr "Αναφορά Σφάλματος"
 msgid "Send Docs Feedback"
 msgstr "Αποστολή Σχολίων Τεκμηρίωσης"
 
-msgid "Support Redot Development"
-msgstr "Υποστηρίξτε την ανάπτυξη του Redot"
+msgid "Support Godot Development"
+msgstr "Υποστηρίξτε την ανάπτυξη του Godot"
 
 msgid "Update Continuously"
 msgstr "Συνεχόμενη Ανανέωση"
@@ -2852,8 +2851,8 @@ msgstr "Λήψη από:"
 msgid "Select Template File"
 msgstr "Επιλογή Αρχείου Προτύπων"
 
-msgid "Redot Export Templates"
-msgstr "Προτύπων Εξαγωγής Redot"
+msgid "Godot Export Templates"
+msgstr "Προτύπων Εξαγωγής Godot"
 
 msgid "Runnable"
 msgstr "Εκτελέσιμο"
@@ -5186,8 +5185,8 @@ msgstr "Αποθήκευση θέματος ως..."
 msgid "Online Docs"
 msgstr "Ηλεκτρονική τεκμηρίωση"
 
-msgid "Open Redot online documentation."
-msgstr "Άνοιγμα ηλεκτρονικής τεκμηρίωσης της Redot."
+msgid "Open Godot online documentation."
+msgstr "Άνοιγμα ηλεκτρονικής τεκμηρίωσης της Godot."
 
 msgid "%s Class Reference"
 msgstr "Αναφορά Κλάσης %s"
@@ -6347,11 +6346,11 @@ msgstr ""
 "«x» και «y»."
 
 msgid ""
-"Custom Redot Shader Language expression, with custom amount of input and "
+"Custom Godot Shader Language expression, with custom amount of input and "
 "output ports. This is a direct injection of code into the vertex/fragment/"
 "light function, do not use it to write the function declarations inside."
 msgstr ""
-"Προσαρμοσμένη έκφραση γλώσσας σκίασης της Redot, με προσαρμοσμένο αριθμό "
+"Προσαρμοσμένη έκφραση γλώσσας σκίασης της Godot, με προσαρμοσμένο αριθμό "
 "εισόδων και εξόδων. Αυτό είναι μία άμεση παρεμβολή κώδικα στην συνάρτηση "
 "κορυφής/τμήματος/φωτός, μην γράψετε μέσα ορισμούς συναρτήσεων."
 

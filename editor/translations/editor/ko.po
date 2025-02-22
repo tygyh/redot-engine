@@ -1,5 +1,4 @@
-# Korean translation of the Redot Engine editor interface.
-# Copyright (c) 2024-present Redot Engine contributors.
+# Korean translation of the Godot Engine editor interface.
 # Copyright (c) 2014-present Godot Engine contributors.
 # Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
 # This file is distributed under the same license as the Godot source code.
@@ -74,13 +73,15 @@
 # haha <pilsang0512@gmail.com>, 2024.
 # diswib <diswib@gmail.com>, 2024.
 # KyungHyungSo <valentine92exp@gmail.com>, 2025.
+# 백치현 <bagjob@gmail.com>, 2025.
+# Ji Yong Jeung <thomasjeung@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: Redot Engine editor interface\n"
-"Report-Msgid-Bugs-To: https://github.com/Redot-Engine/redot-engine\n"
+"Project-Id-Version: Godot Engine editor interface\n"
+"Report-Msgid-Bugs-To: https://github.com/godotengine/godot\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-01-05 13:01+0000\n"
-"Last-Translator: KyungHyungSo <valentine92exp@gmail.com>\n"
+"PO-Revision-Date: 2025-02-17 06:44+0000\n"
+"Last-Translator: Ji Yong Jeung <thomasjeung@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/godot-engine/godot/"
 "ko/>\n"
 "Language: ko\n"
@@ -88,7 +89,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.10\n"
 
 msgid "Main Thread"
 msgstr "메인 스레드"
@@ -446,6 +447,9 @@ msgstr "숨긴 항목"
 msgid "Swap Input Direction"
 msgstr "입력 방향 변환"
 
+msgid "Start Unicode Character Input"
+msgstr "유니코드 입력 시작"
+
 msgid "Invalid input %d (not passed) in expression"
 msgstr "표현식의 입력 %d (전달되지 않음) 이(가) 올바르지 않습니다"
 
@@ -685,6 +689,34 @@ msgstr "애니메이션 길이 바꾸기"
 
 msgid "Change Animation Loop"
 msgstr "애니메이션 루프 바꾸기"
+
+msgid ""
+"Can't change loop mode on animation instanced from an imported scene.\n"
+"\n"
+"To change this animation's loop mode, navigate to the scene's Advanced Import "
+"settings and select the animation.\n"
+"You can then change the loop mode from the inspector menu."
+msgstr ""
+"가져온 장면에서 인스턴스화된 애니메이션의 루프 모드는 변경할 수 없습니다.\n"
+"\n"
+"이 애니메이션의 루프 모드를 수정하려면, 해당 장면의 고급 가져오기 메뉴에서 애"
+"니메이션을 선택하세요.\n"
+"그런 다음 인스펙터 메뉴에서 루프 모드를 원하는 대로 변경할 수 있습니다."
+
+msgid "Can't change loop mode on animation instanced from an imported resource."
+msgstr ""
+"가져온 리소스에서 인스턴스화된 애니메이션의 루프 모드를 변경할 수 없습니다."
+
+msgid ""
+"Can't change loop mode on animation embedded in another scene.\n"
+"\n"
+"You must open this scene and change the animation's loop mode from there."
+msgstr ""
+"다른 씬에 임베드된 애니메이션의 루프 모드를 변경할 수 없습니다.\n"
+"이 씬을 열어 애니메이션의 루프 모드를 거기서 변경해야 합니다."
+
+msgid "Can't change loop mode on animation embedded in another resource."
+msgstr "다른 리소스에 임베드된 애니메이션의 루프 모드를 변경할 수 없습니다."
 
 msgid "Property Track..."
 msgstr "속성 트랙..."
@@ -1079,6 +1111,15 @@ msgstr "트리에서 선택한 노드만 트랙에 표시됩니다."
 msgid "Group tracks by node or display them as plain list."
 msgstr "노드 별로 트랙을 묶어서 보거나, 묶지 않고 나열해서 볼 수 있습니다."
 
+msgid "Apply snapping to timeline cursor."
+msgstr "타임라인 커서에 스냅 적용."
+
+msgid "Apply snapping to selected key(s)."
+msgstr "선택된 키에 스냅 적용."
+
+msgid "Apply snapping to the nearest integer FPS."
+msgstr "가장 가까운 정수 FPS에 스냅 적용."
+
 msgid "Animation step value."
 msgstr "애니메이션 단계 값입니다."
 
@@ -1299,11 +1340,73 @@ msgstr "모두 선택/해제"
 msgid "Animation Change Keyframe Time"
 msgstr "애니메이션 키 프레임 시간 바꾸기"
 
+msgid "Marker name is read-only in the inspector."
+msgstr "인스펙터에서 마커 이름은 읽기 전용입니다."
+
+msgid ""
+"A marker's name can only be changed by right-clicking it in the animation "
+"editor and selecting \"Rename Marker\", in order to make sure that marker "
+"names are all unique."
+msgstr ""
+"모든 마커 이름들을 서로 다르게 하기 위해, 마커 이름은 애니메이션 편집기에서 오"
+"른쪽 클릭 후 \"마커 이름 변경\" 으로만 변경할 수 있다."
+
+msgid "Insert Marker..."
+msgstr "마커 삽입..."
+
+msgid "Rename Marker"
+msgstr "마커 이름 변경"
+
+msgid "Delete Marker(s)"
+msgstr "마커 삭제"
+
+msgid "Show All Marker Names"
+msgstr "모든 마커 이름 보이기"
+
+msgid "Marker:"
+msgstr "마커:"
+
+msgid "Animation Move Markers"
+msgstr "애니메이션 이동 마커"
+
+msgid "Animation Delete Markers"
+msgstr "애니메이션 삭제 마커"
+
+msgid "Marker '%s' already exists!"
+msgstr "'%s' 마커가 이미 있습니다!"
+
+msgid "Add Marker Key"
+msgstr "마커 키 추가"
+
+msgid "Empty marker names are not allowed."
+msgstr "빈 마커 이름은 허용되지 않습니다."
+
+msgid "Insert Marker"
+msgstr "마커 삽입"
+
+msgid "Marker Name"
+msgstr "마커 이름"
+
+msgid "Marker Color"
+msgstr "마커 색상"
+
 msgid "Close"
 msgstr "닫기"
 
 msgid "Error!"
 msgstr "오류!"
+
+msgid "Change Marker Name:"
+msgstr "마커 이름 변경:"
+
+msgid "Edit Marker Color"
+msgstr "마커 색상 변경"
+
+msgid "Multi Edit Marker Color"
+msgstr "여러 마커 색상 변경"
+
+msgid "Animation Change Marker Time"
+msgstr "애니메이션 변경 마커 시간"
 
 msgid "Add Audio Track Clip"
 msgstr "오디오 트랙 클립 추가"
@@ -1333,6 +1436,12 @@ msgstr[0] "%d개 일치"
 msgid "%d of %d match"
 msgid_plural "%d of %d matches"
 msgstr[0] "%d 중 %d 일치"
+
+msgid "Hide Replace"
+msgstr "바꾸기 숨기기"
+
+msgid "Show Replace"
+msgstr "변화를 표시"
 
 msgid "Find"
 msgstr "찾기"
@@ -1389,6 +1498,13 @@ msgstr "경고"
 
 msgid "Zoom factor"
 msgstr "줌 배율"
+
+msgid ""
+"%sMouse wheel, %s/%s: Finetune\n"
+"%s: Reset"
+msgstr ""
+"%s마우스 휠,%s/%s: 세부 조정\n"
+"%s: 초기화"
 
 msgid "Line and column numbers."
 msgstr "행 및 열 번호."
@@ -1550,6 +1666,12 @@ msgstr "새 %s 만들기"
 msgid "No results for \"%s\"."
 msgstr "\"%s\"에 대한 결과가 없습니다."
 
+msgid "Script path: %s"
+msgstr "스크립트 경로: %s"
+
+msgid "The script will run in the editor."
+msgstr "이 스크립트는 에디터에서 실행됩니다."
+
 msgid "This class is marked as deprecated."
 msgstr "이 클래스는 더 이상 사용되지 않는 것으로 표시되어 있습니다."
 
@@ -1580,6 +1702,9 @@ msgstr "설명:"
 msgid "Remote %s:"
 msgstr "원격 %s:"
 
+msgid "Session %d"
+msgstr "세션 %d"
+
 msgid "Debugger"
 msgstr "디버거"
 
@@ -1609,6 +1734,15 @@ msgstr ""
 
 msgid "Toggle Visibility"
 msgstr "가시성 토글"
+
+msgid "Expression to evaluate"
+msgstr "평가할 수식"
+
+msgid "Clear on Run"
+msgstr "실행시 지우기"
+
+msgid "Evaluate"
+msgstr "평가"
 
 msgid "Clear"
 msgstr "지우기"
@@ -1654,6 +1788,9 @@ msgstr "정지"
 
 msgid "Start"
 msgstr "시작"
+
+msgid "Autostart"
+msgstr "자동 시작"
 
 msgid "Measure:"
 msgstr "측정:"
@@ -1811,6 +1948,9 @@ msgstr "모두 펼치기"
 msgid "Collapse All"
 msgstr "모두 접기"
 
+msgid "Evaluator"
+msgstr "식의 평가"
+
 msgid "Profiler"
 msgstr "프로파일러"
 
@@ -1935,6 +2075,9 @@ msgstr ""
 msgid "Cannot remove:"
 msgstr "제거할 수 없음:"
 
+msgid "Dependencies of files to be deleted:"
+msgstr "삭제될 파일의 의존성:"
+
 msgid "Error loading:"
 msgstr "불러오기 오류:"
 
@@ -1971,6 +2114,9 @@ msgstr "명확한 소유 관계가 없는 리소스:"
 msgid "Name cannot be empty."
 msgstr "이름은 비워둘 수 없습니다."
 
+msgid "File name cannot be empty."
+msgstr "파일 이름은 비어있을 수 없습니다."
+
 msgid "Folder name cannot be empty."
 msgstr "폴더 이름은 비워둘 수 없습니다."
 
@@ -1996,26 +2142,11 @@ msgstr "폴더 이름이 올바릅니다."
 msgid "Double-click to open in browser."
 msgstr "더블 클릭하여 브라우저에서 엽니다."
 
-msgid "Thanks from the Redot community!"
-msgstr "Redot 커뮤니티에서 감사드립니다!"
+msgid "Thanks from the Godot community!"
+msgstr "Godot 커뮤니티에서 감사드립니다!"
 
-<<<<<<< HEAD
-msgid "(unknown)"
-msgstr "(알 수 없음)"
-
-msgid ""
-"Git commit date: %s\n"
-"Click to copy the version number."
-msgstr ""
-"Git 커밋 일자: %s\n"
-"버전 값을 복사하려면 클릭하세요."
-
-msgid "Redot Engine contributors"
-msgstr "Redot Engine 기여자"
-=======
 msgid "Godot Engine contributors"
 msgstr "Godot Engine 기여자"
->>>>>>> ad9abe841d9bb47a397c5e1a314ced1c5abc1ccd
 
 msgid "Project Founders"
 msgstr "프로젝트 창립자"
@@ -2067,12 +2198,12 @@ msgid "Third-party Licenses"
 msgstr "제 3자 라이선스"
 
 msgid ""
-"Redot Engine relies on a number of third-party free and open source "
+"Godot Engine relies on a number of third-party free and open source "
 "libraries, all compatible with the terms of its MIT license. The following is "
 "an exhaustive list of all such third-party components with their respective "
 "copyright statements and license terms."
 msgstr ""
-"Redot Engine은 MIT 라이선스와 호환되는 수많은 제 3자 자유 오픈소스 라이브러리"
+"Godot Engine은 MIT 라이선스와 호환되는 수많은 제 3자 자유 오픈소스 라이브러리"
 "에 의존합니다. 다음은 그러한 제 3자 구성 요소의 전체 목록과 이에 대응하는 저작"
 "권 선언문 및 라이선스입니다."
 
@@ -2545,8 +2676,8 @@ msgstr "[비었음]"
 msgid "[unsaved]"
 msgstr "[저장되지 않음]"
 
-msgid "%s - Redot Engine"
-msgstr "%s - Redot 엔진"
+msgid "%s - Godot Engine"
+msgstr "%s - Godot 엔진"
 
 msgid "Move this dock right one tab."
 msgstr "이 독을 오른쪽으로 한 탭 이동합니다."
@@ -2621,6 +2752,9 @@ msgstr ""
 
 msgid "Provides an overview of the editor's and each scene's undo history."
 msgstr "편집기 및 각 씬의 실행 취소 기록에 대한 개요를 제공합니다."
+
+msgid "Provides tools for selecting and debugging nodes at runtime."
+msgstr "런타임 시 노드를 선택하고 디버깅하는 데 필요한 도구를 제공합니다."
 
 msgid "(current)"
 msgstr "(현재)"
@@ -2700,14 +2834,17 @@ msgstr "사용 가능한 클래스와 속성을 편집하려면 프로필을 만
 msgid "New profile name:"
 msgstr "새 프로필 이름:"
 
-msgid "Redot Feature Profile"
-msgstr "Redot 기능 프로필"
+msgid "Godot Feature Profile"
+msgstr "Godot 기능 프로필"
 
 msgid "Import Profile(s)"
 msgstr "프로필 가져오기"
 
 msgid "Manage Editor Feature Profiles"
 msgstr "에디터 기능 프로필 관리"
+
+msgid "Initializing plugins..."
+msgstr "플러그인을 초기화중..."
 
 msgid "Some extensions need the editor to restart to take effect."
 msgstr "변경사항을 반영하려면 에디터를 다시 시작해야 합니다."
@@ -2731,8 +2868,14 @@ msgstr ""
 msgid "(Re)Importing Assets"
 msgstr "애셋 (다시) 가져오는 중"
 
+msgid "Executing pre-reimport operations..."
+msgstr "다시 가져오기 전 작업을 실행 중..."
+
 msgid "Import resources of type: %s"
 msgstr "가져올 리소스의 타입: %s"
+
+msgid "Finalizing Asset Import..."
+msgstr "에셋 불러오기 마무리 중..."
 
 msgid "This method supports a variable number of arguments."
 msgstr "이 메서드는 다양한 인수를 지원합니다."
@@ -3336,9 +3479,9 @@ msgstr "'%s' 파일 또는 연관 항목을 찾을 수 없습니다."
 
 msgid ""
 "File '%s' is saved in a format that is newer than the formats supported by "
-"this version of Redot, so it can't be opened."
+"this version of Godot, so it can't be opened."
 msgstr ""
-"파일 '%s'은(는) 이 버전의 Redot에서 지원하는 형식보다 새로운 형식으로 저장되"
+"파일 '%s'은(는) 이 버전의 Godot에서 지원하는 형식보다 새로운 형식으로 저장되"
 "어 있으므로 열 수 없습니다."
 
 msgid "Error while loading file '%s'."
@@ -3902,11 +4045,11 @@ msgstr "기능 제안"
 msgid "Send Docs Feedback"
 msgstr "문서 피드백 보내기"
 
-msgid "About Redot..."
-msgstr "Redot 정보..."
+msgid "About Godot..."
+msgstr "Godot 정보..."
 
-msgid "Support Redot Development"
-msgstr "Redot 개발 지원"
+msgid "Support Godot Development"
+msgstr "Godot 개발 지원"
 
 msgid ""
 "Choose a rendering method.\n"
@@ -4652,8 +4795,8 @@ msgstr "템플릿 제거"
 msgid "Select Template File"
 msgstr "템플릿 파일 선택"
 
-msgid "Redot Export Templates"
-msgstr "Redot 내보내기 템플릿"
+msgid "Godot Export Templates"
+msgstr "Godot 내보내기 템플릿"
 
 msgid ""
 "The templates will continue to download.\n"
@@ -4853,19 +4996,19 @@ msgstr "PCK/ZIP 내보내기..."
 
 msgid ""
 "Export the project resources as a PCK or ZIP package. This is not a playable "
-"build, only the project data without a Redot executable."
+"build, only the project data without a Godot executable."
 msgstr ""
 "프로젝트의 리소스들을 PCK 또는 ZIP 패키지로 내보냅니다. 이것은 단독으로 실행"
-"할 수 없으며, Redot 실행 파일 없이 오직 프로젝트 데이터만을 포함합니다."
+"할 수 없으며, Godot 실행 파일 없이 오직 프로젝트 데이터만을 포함합니다."
 
 msgid "Export Project..."
 msgstr "프로젝트 내보내기..."
 
 msgid ""
-"Export the project as a playable build (Redot executable and project data) "
+"Export the project as a playable build (Godot executable and project data) "
 "for the selected preset."
 msgstr ""
-"선택된 프리셋을 이용해 프로젝트를 실행할 수 있는 빌드 (Redot 실행 파일 및 프로"
+"선택된 프리셋을 이용해 프로젝트를 실행할 수 있는 빌드 (Godot 실행 파일 및 프로"
 "젝트 데이터)로 내보냅니다."
 
 msgid "Export All"
@@ -4880,12 +5023,6 @@ msgstr "모두 내보내기..."
 msgid "ZIP File"
 msgstr "ZIP 파일"
 
-<<<<<<< HEAD
-msgid "Redot Project Pack"
-msgstr "Redot 프로젝트 팩"
-
-=======
->>>>>>> ad9abe841d9bb47a397c5e1a314ced1c5abc1ccd
 msgid "Export templates for this platform are missing:"
 msgstr "이 플랫폼에 대한 내보내기 템플릿이 누락됨:"
 
@@ -9623,8 +9760,8 @@ msgstr "온라인 문서에서 열기"
 msgid "Online Docs"
 msgstr "온라인 문서"
 
-msgid "Open Redot online documentation."
-msgstr "Redot 온라인 문서를 엽니다."
+msgid "Open Godot online documentation."
+msgstr "Godot 온라인 문서를 엽니다."
 
 msgid "Unsaved file."
 msgstr "저장되지 않은 파일입니다."
@@ -12209,8 +12346,8 @@ msgstr "불리언 상수입니다."
 msgid "Boolean parameter."
 msgstr "불리언 매개변수입니다."
 
-msgid "Translated to '%s' in Redot Shading Language."
-msgstr "Redot Shading Language에서 '%s'로 번역됩니다."
+msgid "Translated to '%s' in Godot Shading Language."
+msgstr "Godot Shading Language에서 '%s'로 번역됩니다."
 
 msgid "'%s' input parameter for all shader modes."
 msgstr "모든 셰이더 모드에 대한 '%s' 입력 매개변수입니다."
@@ -12916,29 +13053,25 @@ msgid "4D vector parameter."
 msgstr "4D 벡터 매개변수."
 
 msgid ""
-<<<<<<< HEAD
-"Custom Redot Shader Language expression, with custom amount of input and "
-=======
 "A rectangular area with a description string for better graph organization."
 msgstr "그래프 조직을 개선하기 위한 설명 문자열이 포함된 직사각형 영역입니다."
 
 msgid ""
 "Custom Godot Shader Language expression, with custom amount of input and "
->>>>>>> ad9abe841d9bb47a397c5e1a314ced1c5abc1ccd
 "output ports. This is a direct injection of code into the vertex/fragment/"
 "light function, do not use it to write the function declarations inside."
 msgstr ""
-"커스텀 입력 및 출력 포트로 이루어진 커스텀 Redot Shader Language 표현식입니"
+"커스텀 입력 및 출력 포트로 이루어진 커스텀 Godot Shader Language 표현식입니"
 "다. 꼭짓점/프래그먼트/라이트 함수에 직접 코드를 넣는 것이므로 코드 안에 함수 "
 "선언을 작성하는 용도로 쓸 수 없습니다."
 
 msgid ""
-"Custom Redot Shader Language expression, which is placed on top of the "
+"Custom Godot Shader Language expression, which is placed on top of the "
 "resulted shader. You can place various function definitions inside and call "
 "it later in the Expressions. You can also declare varyings, parameters and "
 "constants."
 msgstr ""
-"결과 셰이더 위에 배치되는 커스텀 Redot 셰이더 언어 표현식입니다. 안에 다양한 "
+"결과 셰이더 위에 배치되는 커스텀 Godot 셰이더 언어 표현식입니다. 안에 다양한 "
 "함수 선언을 작성하고 표현식에서 호출할 수 있습니다. Varying, 매개 변수, 상수"
 "도 선언할 수 있습니다."
 
@@ -12986,6 +13119,22 @@ msgid "Are you sure to run %d projects at once?"
 msgstr "%d개의 프로젝트를 동시에 실행할까요?"
 
 msgid ""
+"Can't run project: Project has no main scene defined.\n"
+"Please edit the project and set the main scene in the Project Settings under "
+"the \"Application\" category."
+msgstr ""
+"프로젝트를 실행할 수 없음: 메인 씬을 정의하지 않았습니다.\n"
+"프로젝트를 편집하여 프로젝트 설정의 \"애플리케이션\" 카테고리에서 메인 씬을 지"
+"정해주세요."
+
+msgid ""
+"Can't run project: Assets need to be imported first.\n"
+"Please edit the project to trigger the initial import."
+msgstr ""
+"프로젝트를 실행할 수 없음: 애셋을 먼저 가져와야 합니다.\n"
+"최초 가져오기가 수행되도록 프로젝트를 편집하세요."
+
+msgid ""
 "Can't open project at '%s'.\n"
 "Project file doesn't exist or is inaccessible."
 msgstr ""
@@ -13007,29 +13156,29 @@ msgstr ""
 "엔진 버전 호환성에 대한 일반적인 체크를 건너뛸 것이니 주의하세요."
 
 msgid ""
-"The selected project \"%s\" does not specify its supported Redot version in "
+"The selected project \"%s\" does not specify its supported Godot version in "
 "its configuration file (\"project.godot\").\n"
 "\n"
 "Project path: %s\n"
 "\n"
-"If you proceed with opening it, it will be converted to Redot's current "
+"If you proceed with opening it, it will be converted to Godot's current "
 "configuration file format.\n"
 "\n"
 "Warning: You won't be able to open the project with previous versions of the "
 "engine anymore."
 msgstr ""
-"선택된 프로젝트 \"%s\"가 지원되는 Redot 버전 정보를 그 설정 파일(\"project."
+"선택된 프로젝트 \"%s\"가 지원되는 Godot 버전 정보를 그 설정 파일(\"project."
 "godot\") 내에 명시하지 않았습니다.\n"
 "\n"
 "프로젝트 경로: %s\n"
 "\n"
-"파일 열기를 계속한다면, 현재 Redot의 구성 파일 형식으로 변환될 것입니다.\n"
+"파일 열기를 계속한다면, 현재 Godot의 구성 파일 형식으로 변환될 것입니다.\n"
 "\n"
 "경고: 더 이상 이 프로젝트를 이전 버전의 엔진에서 열 수 없을 것입니다."
 
 msgid ""
-"The selected project \"%s\" was generated by Redot 3.x, and needs to be "
-"converted for Redot 4.x.\n"
+"The selected project \"%s\" was generated by Godot 3.x, and needs to be "
+"converted for Godot 4.x.\n"
 "\n"
 "Project path: %s\n"
 "\n"
@@ -13043,7 +13192,7 @@ msgid ""
 "Warning: If you select a conversion option, you won't be able to open the "
 "project with previous versions of the engine anymore."
 msgstr ""
-"선택된 프로젝트 \"%s\"는 Redot 3.x 버전에서 만들어졌으며, Redot 4.x에 맞게 변"
+"선택된 프로젝트 \"%s\"는 Godot 3.x 버전에서 만들어졌으며, Godot 4.x에 맞게 변"
 "환되어야 합니다.\n"
 "\n"
 "프로젝트 경로: %s\n"
@@ -13101,42 +13250,42 @@ msgstr ""
 
 msgid ""
 "Warning: This project uses double precision floats, but this version of\n"
-"Redot uses single precision floats. Opening this project may cause data "
+"Godot uses single precision floats. Opening this project may cause data "
 "loss.\n"
 "\n"
 msgstr ""
 "경고: 이 프로젝트는 배정밀도 부동소수점(double precision float)을 사용하지"
 "만,\n"
-"이 버전의 Redot은 단정밀도 부동소수점(single precision float)을 사용합니다.\n"
+"이 버전의 Godot은 단정밀도 부동소수점(single precision float)을 사용합니다.\n"
 "프로젝트를 열면 데이터 손실이 발생할 수도 있습니다.\n"
 "\n"
 
 msgid ""
-"Warning: This project uses C#, but this build of Redot does not have\n"
+"Warning: This project uses C#, but this build of Godot does not have\n"
 "the Mono module. If you proceed you will not be able to use any C# scripts.\n"
 "\n"
 msgstr ""
-"경고: 이 프로젝트는 C#을 사용하지만, 이 빌드의 Redot은 Mono 모듈을\n"
+"경고: 이 프로젝트는 C#을 사용하지만, 이 빌드의 Godot은 Mono 모듈을\n"
 "지원하지 않습니다. 계속 진행할 경우 C# 스크립트를 사용할 수 없습니다.\n"
 "\n"
 
 msgid ""
-"Warning: This project was last edited in Redot %s. Opening will change it to "
-"Redot %s.\n"
+"Warning: This project was last edited in Godot %s. Opening will change it to "
+"Godot %s.\n"
 "\n"
 msgstr ""
-"경고: 이 프로젝트는 Redot %s에서 최종 편집되었습니다.\n"
-"프로젝트를 열면 Redot %s로 변경됩니다.\n"
+"경고: 이 프로젝트는 Godot %s에서 최종 편집되었습니다.\n"
+"프로젝트를 열면 Godot %s로 변경됩니다.\n"
 "\n"
 
 msgid ""
 "Warning: This project uses the following features not supported by this build "
-"of Redot:\n"
+"of Godot:\n"
 "\n"
 "%s\n"
 "\n"
 msgstr ""
-"경고: 이 프로젝트는 이 빌드의 Redot에서 지원하지 않는 다음과 같은 기능들을 사"
+"경고: 이 프로젝트는 이 빌드의 Godot에서 지원하지 않는 다음과 같은 기능들을 사"
 "용합니다:\n"
 "\n"
 "%s\n"
@@ -13274,16 +13423,16 @@ msgstr "프로젝트 전체 변환"
 
 msgid ""
 "This option will perform full project conversion, updating scenes, resources "
-"and scripts from Redot 3 to work in Redot 4.\n"
+"and scripts from Godot 3 to work in Godot 4.\n"
 "\n"
 "Note that this is a best-effort conversion, i.e. it makes upgrading the "
 "project easier, but it will not open out-of-the-box and will still require "
 "manual adjustments.\n"
 "\n"
 "IMPORTANT: Make sure to backup your project before converting, as this "
-"operation makes it impossible to open it in older versions of Redot."
+"operation makes it impossible to open it in older versions of Godot."
 msgstr ""
-"이것은 씬이나 리소스, 스크립트를 포함한 프로젝트 전체를 Redot 3에서 Redot 4에 "
+"이것은 씬이나 리소스, 스크립트를 포함한 프로젝트 전체를 Godot 3에서 Godot 4에 "
 "맞게 변환합니다.\n"
 "\n"
 "이것은 가장 힘이 덜 드는 선택지이지만, 그렇다고 해도 프로젝트가 아무 문제 없"
@@ -13291,7 +13440,7 @@ msgstr ""
 "다.\n"
 "\n"
 "중요: 반드시 변환하기 전에 프로젝트를 어딘가에 백업해 두세요. 변환을 수행하면 "
-"이전 버전의 Redot에서 프로젝트를 열지 못하게 됩니다."
+"이전 버전의 Godot에서 프로젝트를 열지 못하게 됩니다."
 
 msgid "Manage Project Tags"
 msgstr "프로젝트 태그 설정"
@@ -13392,12 +13541,12 @@ msgid "Warning: This folder is not empty"
 msgstr "경고: 빈 폴더가 아닙니다"
 
 msgid ""
-"You are about to create a Redot project in a non-empty folder.\n"
+"You are about to create a Godot project in a non-empty folder.\n"
 "The entire contents of this folder will be imported as project resources!\n"
 "\n"
 "Are you sure you wish to continue?"
 msgstr ""
-"비어있지 않은 폴더에 Redot 프로젝트를 만들고 있습니다.\n"
+"비어있지 않은 폴더에 Godot 프로젝트를 만들고 있습니다.\n"
 "그러면, 폴더 내의 모든 내용물들을 프로젝트 리소스로서 가져올 것입니다!\n"
 "\n"
 "정말로 진행하시겠습니까?"
@@ -13444,8 +13593,8 @@ msgstr "버전 컨트롤 메타데이터:"
 msgid "Git"
 msgstr "Git"
 
-msgid "This project was last edited in a different Redot version: "
-msgstr "이 프로젝트는 다른 Redot 버전에서 마지막으로 편집되었습니다: "
+msgid "This project was last edited in a different Godot version: "
+msgstr "이 프로젝트는 다른 Godot 버전에서 마지막으로 편집되었습니다: "
 
 msgid "This project uses features unsupported by the current build:"
 msgstr "이 프로젝트는 현재 빌드에서는 지원하지 않는 기능을 사용합니다:"
@@ -13476,6 +13625,13 @@ msgstr "네트워크 모드"
 
 msgid "Directory Naming Convention"
 msgstr "디렉토리 명명 규정"
+
+msgid ""
+"Settings changed! The project manager must be restarted for changes to take "
+"effect."
+msgstr ""
+"설정이 변경되었습니다! 변경 사항들을 적용하려면 프로젝트 매니저를 재시작해야 "
+"합니다."
 
 msgid "Add Project Setting"
 msgstr "프로젝트 설정 추가"
@@ -14277,6 +14433,9 @@ msgstr ""
 "이 프로젝트는 오래된 형식의 메시를 사용합니다. 출력 패널에서 로그를 확인하세"
 "요."
 
+msgid "Upgrading All Meshes in Project"
+msgstr "프로젝트의 모든 매쉬 업그레이드하기"
+
 msgid "Attempting to re-save "
 msgstr "다시 저장을 시도하고 있습니다. "
 
@@ -14284,26 +14443,26 @@ msgid "Attempting to remove "
 msgstr "제거를 시도하고 있습니다. "
 
 msgid ""
-"The mesh format has changed in Redot 4.2, which affects both imported meshes "
-"and meshes authored inside of Redot. The engine needs to update the format in "
+"The mesh format has changed in Godot 4.2, which affects both imported meshes "
+"and meshes authored inside of Godot. The engine needs to update the format in "
 "order to use those meshes.\n"
 "\n"
-"If your project predates Redot 4.2 and contains meshes, we recommend you run "
+"If your project predates Godot 4.2 and contains meshes, we recommend you run "
 "this one time conversion tool. This update will restart the editor and may "
 "take several minutes. Upgrading will make the meshes incompatible with "
-"previous versions of Redot.\n"
+"previous versions of Godot.\n"
 "\n"
 "You can still use your existing meshes as is. The engine will update each "
 "mesh in memory, but the update will not be saved. Choosing this option will "
 "lead to slower load times every time this project is loaded."
 msgstr ""
-"Redot 4.2에서 메시 포맷이 변경되어, 기존에 불러온 메시와 Redot 내에서 작성한 "
+"Godot 4.2에서 메시 포맷이 변경되어, 기존에 불러온 메시와 Godot 내에서 작성한 "
 "메시를 모두 수정해야 합니다. 엔진은 해당 메시를 사용하기 위해 포맷을 업데이트"
 "해야 합니다. \n"
 "\n"
-"만약 현재 프로젝트가 Redot 4.2 이전 버전에서 작성되었고 메시가 포함되어있다"
+"만약 현재 프로젝트가 Godot 4.2 이전 버전에서 작성되었고 메시가 포함되어있다"
 "면, 이 변환 툴을 추천합니다. 이 업데이트는 에디터를 재시작하며 몇 분의 시간이 "
-"걸립니다. 업그레이드 시 프로젝트 내 메시는 Redot 4.2 이전 버전에서 호환되지 않"
+"걸립니다. 업그레이드 시 프로젝트 내 메시는 Godot 4.2 이전 버전에서 호환되지 않"
 "습니다.\n"
 "\n"
 "메시를 그대로 둘 수 있습니다. 엔진은 각 메시를 메모리에 업데이트하지만 저장을 "
@@ -14833,6 +14992,13 @@ msgstr "플러그인을 사용하려면 \"Gradle 빌드 사용\"이 활성화되
 msgid "OpenXR requires \"Use Gradle Build\" to be enabled"
 msgstr "OpenXR을 사용하려면 \"Gradle 빌드 사용\"이 활성화되어야 합니다"
 
+msgid ""
+"\"Compress Native Libraries\" is only valid when \"Use Gradle Build\" is "
+"enabled."
+msgstr ""
+"\"네이티브 라이브러리 압축하기\"는 \"Gradle 빌드 사용\"이 활성화된 경우에만 유"
+"효합니다."
+
 msgid "\"Export AAB\" is only valid when \"Use Gradle Build\" is enabled."
 msgstr "\"AAB 내보내기\"는 \"Gradle 빌드 사용\"가 활성화된 경우에만 유효합니다."
 
@@ -14846,10 +15012,10 @@ msgstr ""
 "\"최소 SDK\"는 올바른 정수여야 하지만, 다음 값은 올바르지 않습니다(\"%s\")."
 
 msgid ""
-"\"Min SDK\" cannot be lower than %d, which is the version needed by the Redot "
+"\"Min SDK\" cannot be lower than %d, which is the version needed by the Godot "
 "library."
 msgstr ""
-"\"최소 SDK\"는 Redot 라이브러리에 필요한 버전인 %d보다 낮을 수 없습니다."
+"\"최소 SDK\"는 Godot 라이브러리에 필요한 버전인 %d보다 낮을 수 없습니다."
 
 msgid ""
 "\"Target SDK\" can only be overridden when \"Use Gradle Build\" is enabled."
@@ -14921,11 +15087,20 @@ msgstr ""
 msgid "Release keystore incorrectly configured in the export preset."
 msgstr "내보내기 프리셋에 출시 keystorke가 잘못 구성되어 있습니다."
 
+msgid "A valid Java SDK path is required in Editor Settings."
+msgstr "에디터 설정에서 올바른 Jara SDK 경로가 필요합니다."
+
+msgid "Invalid Java SDK path in Editor Settings."
+msgstr "에디터 설정에서 잘못된 Jav SDK 경로입니다."
+
 msgid "Missing 'bin' directory!"
 msgstr "'bin' 디렉토리가 누락되어 있습니다!"
 
 msgid "Unable to find 'java' command using the Java SDK path."
 msgstr "Java SDK 경로에서 'java' 명령어를 찾을 수 없습니다."
+
+msgid "Please check the Java SDK directory specified in Editor Settings."
+msgstr "에디터 설정에서 지정된 Java SDK 디렉토리를 확인해주세요."
 
 msgid "A valid Android SDK path is required in Editor Settings."
 msgstr "에디터 설정에서 올바른 Android SDK 경로가 필요합니다."
@@ -14965,6 +15140,14 @@ msgstr ""
 msgid "\"Min SDK\" should be greater or equal to %d for the \"%s\" renderer."
 msgstr "\"%s\" 렌더러에서 \"최소 SDK\"는 %d보다 크거나 같아야 합니다."
 
+msgid ""
+"The project name does not meet the requirement for the package name format "
+"and will be updated to \"%s\". Please explicitly specify the package name if "
+"needed."
+msgstr ""
+"프로젝트 이름이 패키지 이름 형식의 요구사항에 맞지 않아 \"%s\"로 업데이트됩니"
+"다. 필요하다면 패키지 이름을 명시적으로 지정해 주세요."
+
 msgid "Could not find keystore, unable to export."
 msgstr "keystore를 찾을 수 없어, 내보낼 수 없었습니다."
 
@@ -14980,6 +15163,9 @@ msgid ""
 msgstr ""
 "출력:\n"
 "%s"
+
+msgid "Target folder does not exist or is inaccessible: \"%s\""
+msgstr "대상 폴더가 존재하지 않거나 접근할 수 없습니다: \"%s\""
 
 msgid "Exporting for Android"
 msgstr "Android로 내보내기"
@@ -15083,6 +15269,12 @@ msgstr "최소한 하나의 시스템 부팅 시간 액세스 이유를 선택�
 msgid "Export Icons"
 msgstr "아이콘 내보내기"
 
+msgid "Could not open a directory at path \"%s\"."
+msgstr "디렉토리를 열 수 없음: \"%s\"."
+
+msgid "Could not write to a file at path \"%s\"."
+msgstr "파일에 쓸 수 없음: \"%s\"."
+
 msgid "Exporting for iOS"
 msgstr "IOS로 내보내기"
 
@@ -15109,6 +15301,9 @@ msgstr ""
 msgid "Failed to create the directory: \"%s\""
 msgstr "디렉토리를 만들 수 없음: \"%s\""
 
+msgid "Could not create and open the directory: \"%s\""
+msgstr "디렉토리를 열거나 만들 수 없음: \"%s\""
+
 msgid "Failed to export iOS plugins with code %d. Please check the output log."
 msgstr ""
 "iOS 플러그인을 내보내는 데 실패했습니다. 코드 %d가 반환되었습니다. 출력 로그"
@@ -15121,11 +15316,14 @@ msgstr ""
 "요청한 템플릿 라이브러리 '%s'를 찾을 수 없습니다. 템플릿 아카이브에서 누락되었"
 "을 수 있습니다."
 
-msgid "ARM64 simulator library, generating from device library."
-msgstr "ARM64 시뮬레이터 라이브러리, 디바이스 라이브러리에서 생성 중입니다."
+msgid "Could not copy a file at path \"%s\" to \"%s\"."
+msgstr "\"%s\"에서 \"%s\"로 파일을 복사할 수 없습니다."
 
-msgid "Unable to generate ARM64 simulator library."
-msgstr "ARM64 시뮬레이터 라이브러리를 생성할 수 없습니다."
+msgid "Could not access the filesystem."
+msgstr "파일 시스템에 접근할 수 없습니다."
+
+msgid "Failed to create a file at path \"%s\" with code %d."
+msgstr "파일을 생성할 수 없습니다(코드 %d, 경로:\"%s\")."
 
 msgid "Code signing failed, see editor log for details."
 msgstr "코드 서명에 실패했습니다. 자세한 사항은 에디터 로그를 참조하세요."
@@ -15554,11 +15752,11 @@ msgid "PWA"
 msgstr "프로그레시브 웹 앱"
 
 msgid ""
-"Exporting to Web is currently not supported in Redot 4 when using C#/.NET. "
-"Use Redot 3 to target Web with C#/Mono instead."
+"Exporting to Web is currently not supported in Godot 4 when using C#/.NET. "
+"Use Godot 3 to target Web with C#/Mono instead."
 msgstr ""
-"C#/.NET을 사용하는 Redot 4에서는 아직 웹으로 내보내기를 지원하지 않습니다. 필"
-"요하다면 대신 C#/Mono를 사용하는 Redot 3을 사용하세요."
+"C#/.NET을 사용하는 Godot 4에서는 아직 웹으로 내보내기를 지원하지 않습니다. 필"
+"요하다면 대신 C#/Mono를 사용하는 Godot 3을 사용하세요."
 
 msgid ""
 "If this project does not use C#, use a non-C# editor build to export the "
@@ -16463,10 +16661,10 @@ msgstr ""
 
 msgid ""
 "This node is marked as deprecated and will be removed in future versions.\n"
-"Please check the Redot documentation for information about migration."
+"Please check the Godot documentation for information about migration."
 msgstr ""
 "이 노드는 더 이상 사용되지 않으며 이후 버전에서는 제거될 것입니다.\n"
-"더 자세한 사항은 Redot 문서를 참조해 주세요."
+"더 자세한 사항은 Godot 문서를 참조해 주세요."
 
 msgid ""
 "This node is marked as experimental and may be subject to removal or major "
@@ -16759,9 +16957,6 @@ msgstr "'%s' 유형의 개체를 인덱싱할 수 없습니다."
 
 msgid "Invalid base type for increment/decrement operator."
 msgstr "증분/감소 연산자에 대한 기본 유형이 잘못되었습니다."
-
-msgid "Invalid use of increment/decrement operator in a constant expression."
-msgstr "상수 표현식에 증분/감소 연산자를 사용할 수 없습니다."
 
 msgid "Invalid token for the operator: '%s'."
 msgstr "연산자에 잘못된 토큰이 있습니다: '%s'."

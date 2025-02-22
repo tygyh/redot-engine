@@ -225,7 +225,7 @@ void TextEdit::Text::invalidate_cache(int p_line, bool p_text_changed) {
 	if (p_text_changed) {
 		text_line.data_buf->add_string(text_with_ime, font, font_size, language);
 	}
-	if (bidi_override_with_ime.is_empty()) {
+	if (!bidi_override_with_ime.is_empty()) {
 		TS->shaped_text_set_bidi_override(text_line.data_buf->get_rid(), bidi_override_with_ime);
 	}
 
@@ -1635,9 +1635,15 @@ void TextEdit::_notification(int p_what) {
 
 		case MainLoop::NOTIFICATION_OS_IME_UPDATE: {
 			if (has_focus()) {
+				const String &new_ime_text = DisplayServer::get_singleton()->ime_get_text();
+				const Vector2i &new_ime_selection = DisplayServer::get_singleton()->ime_get_selection();
+				if (ime_text == new_ime_text && ime_selection == new_ime_selection) {
+					break;
+				}
+
 				bool had_ime_text = has_ime_text();
-				ime_text = DisplayServer::get_singleton()->ime_get_text();
-				ime_selection = DisplayServer::get_singleton()->ime_get_selection();
+				ime_text = new_ime_text;
+				ime_selection = new_ime_selection;
 
 				if (!had_ime_text && has_ime_text()) {
 					_cancel_drag_and_drop_text();
@@ -1676,6 +1682,7 @@ void TextEdit::_notification(int p_what) {
 			selection_drag_attempt = false;
 			drag_action = false;
 			drag_caret_force_displayed = false;
+			dragging_selection = false;
 		} break;
 
 		case NOTIFICATION_MOUSE_EXIT_SELF: {
@@ -3114,6 +3121,14 @@ void TextEdit::drop_data(const Point2 &p_point, const Variant &p_data) {
 }
 
 Control::CursorShape TextEdit::get_cursor_shape(const Point2 &p_pos) const {
+	if (dragging_selection) {
+		return get_default_cursor_shape();
+	}
+
+	if (dragging_minimap) {
+		return CURSOR_ARROW;
+	}
+
 	Vector2i current_hovered_gutter = _get_hovered_gutter(p_pos);
 	if (current_hovered_gutter != Vector2i(-1, -1)) {
 		if (gutters[current_hovered_gutter.x].clickable || is_line_gutter_clickable(current_hovered_gutter.y, current_hovered_gutter.x)) {

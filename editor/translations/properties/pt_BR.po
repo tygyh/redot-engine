@@ -1,5 +1,4 @@
-# Portuguese (Brazil) translation of the Redot Engine properties.
-# Copyright (c) 2024-present Redot Engine contributors.
+# Portuguese (Brazil) translation of the Godot Engine properties.
 # Copyright (c) 2014-present Godot Engine contributors.
 # Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
 # This file is distributed under the same license as the Godot source code.
@@ -171,8 +170,8 @@
 # dweob <dweob@c0de.wtf>, 2024.
 msgid ""
 msgstr ""
-"Project-Id-Version: Redot Engine properties\n"
-"Report-Msgid-Bugs-To: https://github.com/Redot-Engine/redot-engine\n"
+"Project-Id-Version: Godot Engine properties\n"
+"Report-Msgid-Bugs-To: https://github.com/godotengine/godot\n"
 "POT-Creation-Date: 2016-05-30\n"
 "PO-Revision-Date: 2024-12-14 01:25+0000\n"
 "Last-Translator: dweob <dweob@c0de.wtf>\n"
@@ -2555,14 +2554,14 @@ msgstr "Deslocamento de Posição da Dica de Ferramenta"
 msgid "Show Image"
 msgstr "Mostrar Imagem"
 
-msgid "Image"
-msgstr "Imagem"
-
 msgid "Fullsize"
 msgstr "Tamanho Inteiro"
 
 msgid "Use Filter"
 msgstr "Usar Filtro"
+
+msgid "Image"
+msgstr "Imagem"
 
 msgid "Minimum Display Time"
 msgstr "Tempo mínimo de exibição"
@@ -2936,8 +2935,8 @@ msgstr "Pontos"
 msgid "Roots"
 msgstr "Raízes"
 
-msgid "Redot Bone Node"
-msgstr "Nó de Osso Redot"
+msgid "Godot Bone Node"
+msgstr "Nó de Osso Godot"
 
 msgid "Skin Root"
 msgstr "Raiz da Skin"
@@ -2948,8 +2947,8 @@ msgstr "Pontos Originais"
 msgid "Non Joints"
 msgstr "Não-Juntas"
 
-msgid "Redot Skin"
-msgstr "Skin Redot"
+msgid "Godot Skin"
+msgstr "Skin Godot"
 
 msgid "Src Image"
 msgstr "Imagem fonte"
@@ -5314,15 +5313,6 @@ msgstr "Cor da Geometria"
 msgid "Anti Aliasing"
 msgstr "Anti Serrilhamento"
 
-msgid "MSAA 2D"
-msgstr "'MSAA 2D'"
-
-msgid "MSAA 3D"
-msgstr "'MSAA 3D'"
-
-msgid "HDR 2D"
-msgstr "HDR 2D(High Dynamic Range 2d / Alto Alcance Dinâmico 2d)"
-
 msgid "Use Debanding"
 msgstr "Usar Debanding"
 
@@ -5364,6 +5354,12 @@ msgstr "Início Automático"
 
 msgid "Transparent BG"
 msgstr "Fundo Transparente"
+
+msgid "MSAA 2D"
+msgstr "'MSAA 2D'"
+
+msgid "MSAA 3D"
+msgstr "'MSAA 3D'"
 
 msgid "Debug Draw"
 msgstr "Desenho da Depuração"
@@ -6534,6 +6530,9 @@ msgstr "Usar Filtro Mipmap Mais Próximo"
 
 msgid "Depth of Field Use Jitter"
 msgstr "Profundidade de campo usando jitter"
+
+msgid "HDR 2D"
+msgstr "HDR 2D(High Dynamic Range 2d / Alto Alcance Dinâmico 2d)"
 
 msgid "Screen Space Roughness Limiter"
 msgstr "Limitador de rugosidade do espaço da tela"

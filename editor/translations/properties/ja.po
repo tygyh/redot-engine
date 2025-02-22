@@ -1,5 +1,4 @@
 # Japanese translation of the Godot Engine properties.
-# Copyright (c) 2024-present Redot Engine contributors.
 # Copyright (c) 2014-present Godot Engine contributors.
 # Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
 # This file is distributed under the same license as the Godot source code.
@@ -59,8 +58,8 @@
 # Binnaga <polycharacter@gmail.com>, 2024.
 msgid ""
 msgstr ""
-"Project-Id-Version: Redot Engine properties\n"
-"Report-Msgid-Bugs-To: https://github.com/Redot-Engine/redot-engine\n"
+"Project-Id-Version: Godot Engine properties\n"
+"Report-Msgid-Bugs-To: https://github.com/godotengine/godot\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2024-12-22 21:02+0000\n"
 "Last-Translator: Binnaga <polycharacter@gmail.com>\n"
@@ -2455,14 +2454,14 @@ msgstr "ツールチップ位置のオフセット"
 msgid "Show Image"
 msgstr "画像を表示"
 
-msgid "Image"
-msgstr "画像"
-
 msgid "Fullsize"
 msgstr "フルサイズ"
 
 msgid "Use Filter"
 msgstr "フィルターを使用"
+
+msgid "Image"
+msgstr "画像"
 
 msgid "Minimum Display Time"
 msgstr "最小表示時間"
@@ -2770,7 +2769,7 @@ msgstr "ジョイント"
 msgid "Roots"
 msgstr "ルート"
 
-msgid "Redot Bone Node"
+msgid "Godot Bone Node"
 msgstr "ボーンノード"
 
 msgid "Skin Root"
@@ -3541,11 +3540,11 @@ msgstr "ノード名の命名規則"
 msgid "Shapes"
 msgstr "シェイプ"
 
-msgid "Anti Aliasing"
-msgstr "アンチエイリアス"
-
 msgid "Viewport"
 msgstr "ビューポート"
+
+msgid "Anti Aliasing"
+msgstr "アンチエイリアス"
 
 msgid "Screen Space AA"
 msgstr "スクリーンスペースAA"

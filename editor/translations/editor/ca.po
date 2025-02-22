@@ -1,5 +1,4 @@
-# Catalan translation of the Redot Engine editor interface.
-# Copyright (c) 2024-present Redot Engine contributors.
+# Catalan translation of the Godot Engine editor interface.
 # Copyright (c) 2014-present Godot Engine contributors.
 # Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
 # This file is distributed under the same license as the Godot source code.
@@ -31,8 +30,8 @@
 # Lukas Tenbrink <lukas.tenbrink@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: Redot Engine editor interface\n"
-"Report-Msgid-Bugs-To: https://github.com/Redot-Engine/redot-engine\n"
+"Project-Id-Version: Godot Engine editor interface\n"
+"Report-Msgid-Bugs-To: https://github.com/godotengine/godot\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2025-01-09 13:44+0000\n"
 "Last-Translator: Lukas Tenbrink <lukas.tenbrink@gmail.com>\n"
@@ -1601,22 +1600,11 @@ msgstr "Posseeix"
 msgid "Resources Without Explicit Ownership:"
 msgstr "Recursos Sense Propietat Explícita:"
 
-<<<<<<< HEAD
-msgid "Could not create folder."
-msgstr "No s'ha pogut crear el directori."
-
-msgid "Create Folder"
-msgstr "Crea un Directori"
-
-msgid "Thanks from the Redot community!"
-msgstr "Gràcies de la part de la Comunitat del Redot!"
-=======
 msgid "Thanks from the Godot community!"
 msgstr "Gràcies de la part de la Comunitat del Godot!"
->>>>>>> ad9abe841d9bb47a397c5e1a314ced1c5abc1ccd
 
-msgid "Redot Engine contributors"
-msgstr "Col·laboradors de Redot Engine"
+msgid "Godot Engine contributors"
+msgstr "Col·laboradors de Godot Engine"
 
 msgid "Project Founders"
 msgstr "Fundadors del Projecte"
@@ -1653,12 +1641,12 @@ msgid "Third-party Licenses"
 msgstr "Llicències de Tercers"
 
 msgid ""
-"Redot Engine relies on a number of third-party free and open source "
+"Godot Engine relies on a number of third-party free and open source "
 "libraries, all compatible with the terms of its MIT license. The following is "
 "an exhaustive list of all such third-party components with their respective "
 "copyright statements and license terms."
 msgstr ""
-"Redot Engine compta amb diverses biblioteques gratuïtes i de codi obert de "
+"Godot Engine compta amb diverses biblioteques gratuïtes i de codi obert de "
 "tercers, totes compatibles amb els termes de la seva llicència MIT. A "
 "continuació, es mostra una llista exhaustiva de tots aquests components de "
 "tercers amb les seves respectives declaracions de copyright i termes de "
@@ -2001,8 +1989,8 @@ msgstr ""
 msgid "New profile name:"
 msgstr "Nom del nou perfil:"
 
-msgid "Redot Feature Profile"
-msgstr "Perfil de les funcionalitats del Redot"
+msgid "Godot Feature Profile"
+msgstr "Perfil de les funcionalitats del Godot"
 
 msgid "Import Profile(s)"
 msgstr "Importar Perfil(s)"
@@ -2496,8 +2484,8 @@ msgstr "Suggerir una Característica"
 msgid "Send Docs Feedback"
 msgstr "Enviar suggeriments sobre la Documentació"
 
-msgid "Support Redot Development"
-msgstr "Contribueix al Desenvolupament de Redot"
+msgid "Support Godot Development"
+msgstr "Contribueix al Desenvolupament de Godot"
 
 msgid "Update Continuously"
 msgstr "Actualitzar contínuament"
@@ -4869,8 +4857,8 @@ msgstr "Desa el Tema com a..."
 msgid "Online Docs"
 msgstr "Documentació en línia"
 
-msgid "Open Redot online documentation."
-msgstr "Obrir la documentació en línia de Redot."
+msgid "Open Godot online documentation."
+msgstr "Obrir la documentació en línia de Godot."
 
 msgid "%s Class Reference"
 msgstr "Referència de Classe %s"
@@ -5645,11 +5633,11 @@ msgstr ""
 "Retorna 0,0 si 'x' és menor que'edge0 ' o 1.0 en cas contrari."
 
 msgid ""
-"Custom Redot Shader Language expression, with custom amount of input and "
+"Custom Godot Shader Language expression, with custom amount of input and "
 "output ports. This is a direct injection of code into the vertex/fragment/"
 "light function, do not use it to write the function declarations inside."
 msgstr ""
-"Expressió personalitzada del llenguatge de Shader de Redot, amb una quantitat "
+"Expressió personalitzada del llenguatge de Shader de Godot, amb una quantitat "
 "de ports d'entrada i sortida personalitzats. Això es una injecció de codi "
 "directa en la funció vertex/fragment/light, no lo utilitzau per a escriure "
 "les declaracions de la funció dins seu."
