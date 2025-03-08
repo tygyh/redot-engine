@@ -35,6 +35,8 @@ jobs:
             artifact: true
             # Validate godot-cpp compatibility on one arbitrary editor build.
             godot-cpp: true
+            # Validate redot-cpp compatibility on one arbitrary editor build.
+            redot-cpp: true
             cache-limit: 2
 
           - name: Editor with doubles and GCC sanitizers (target=editor, tests=yes, dev_build=yes, scu_build=yes, precision=double, use_asan=yes, use_ubsan=yes, linker=gold)
@@ -171,6 +173,13 @@ jobs:
       - name: Compilation (godot-cpp)
         uses: ./.github/actions/godot-cpp-build
         if: matrix.godot-cpp
+        with:
+          bin: ${{ matrix.bin }}
+          scons-flags: target=template_debug dev_build=yes verbose=yes
+
+      - name: Compilation (redot-cpp)
+        uses: ./.github/actions/redot-cpp-build
+        if: matrix.redot-cpp
         with:
           bin: ${{ matrix.bin }}
           scons-flags: target=template_debug dev_build=yes verbose=yes
