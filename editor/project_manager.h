@@ -30,8 +30,7 @@
 /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                 */
 /**************************************************************************/
 
-#ifndef PROJECT_MANAGER_H
-#define PROJECT_MANAGER_H
+#pragma once
 
 #include "scene/gui/dialogs.h"
 #include "scene/gui/scroll_container.h"
@@ -72,7 +71,7 @@ class ProjectManager : public Control {
 
 	Ref<Theme> theme;
 
-	void _update_size_limits(bool p_custom_res);
+	void _update_size_limits();
 	void _update_theme(bool p_skip_creation = false);
 	void _titlebar_resized();
 
@@ -129,6 +128,7 @@ class ProjectManager : public Control {
 	// Project list.
 
 	VBoxContainer *empty_list_placeholder = nullptr;
+	RichTextLabel *empty_list_message = nullptr;
 	Button *empty_list_create_project = nullptr;
 	Button *empty_list_import_project = nullptr;
 	Button *empty_list_open_assetlib = nullptr;
@@ -141,6 +141,7 @@ class ProjectManager : public Control {
 
 	LineEdit *search_box = nullptr;
 	Label *loading_label = nullptr;
+	Label *sort_label = nullptr;
 	OptionButton *filter_option = nullptr;
 	PanelContainer *project_list_panel = nullptr;
 
@@ -233,6 +234,7 @@ class ProjectManager : public Control {
 
 	String version_convert_feature;
 	bool open_in_recovery_mode = false;
+	bool open_in_verbose_mode = false;
 
 #ifndef DISABLE_DEPRECATED
 	void _minor_project_migrate();
@@ -264,8 +266,6 @@ public:
 
 	void add_new_tag(const String &p_tag);
 
-	ProjectManager(bool p_custom_res);
+	ProjectManager();
 	~ProjectManager();
 };
-
-#endif // PROJECT_MANAGER_H

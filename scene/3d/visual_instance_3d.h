@@ -30,8 +30,7 @@
 /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                 */
 /**************************************************************************/
 
-#ifndef VISUAL_INSTANCE_3D_H
-#define VISUAL_INSTANCE_3D_H
+#pragma once
 
 #include "scene/3d/node_3d.h"
 
@@ -215,5 +214,3 @@ VARIANT_ENUM_CAST(GeometryInstance3D::ShadowCastingSetting);
 VARIANT_ENUM_CAST(GeometryInstance3D::GIMode);
 VARIANT_ENUM_CAST(GeometryInstance3D::LightmapScale);
 VARIANT_ENUM_CAST(GeometryInstance3D::VisibilityRangeFadeMode);
-
-#endif // VISUAL_INSTANCE_3D_H

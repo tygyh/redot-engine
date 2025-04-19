@@ -30,8 +30,7 @@
 /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                 */
 /**************************************************************************/
 
-#ifndef TEST_RANDOM_NUMBER_GENERATOR_H
-#define TEST_RANDOM_NUMBER_GENERATOR_H
+#pragma once
 
 #include "core/math/random_number_generator.h"
 #include "tests/test_macros.h"
@@ -273,5 +272,3 @@ TEST_CASE_MAY_FAIL("[RandomNumberGenerator] randi_range bias check") {
 	}
 }
 } // namespace TestRandomNumberGenerator
-
-#endif // TEST_RANDOM_NUMBER_GENERATOR_H

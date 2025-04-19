@@ -30,8 +30,7 @@
 /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                 */
 /**************************************************************************/
 
-#ifndef ZIP_READER_H
-#define ZIP_READER_H
+#pragma once
 
 #include "core/io/file_access.h"
 #include "core/object/ref_counted.h"
@@ -58,5 +57,3 @@ public:
 	ZIPReader();
 	~ZIPReader();
 };
-
-#endif // ZIP_READER_H

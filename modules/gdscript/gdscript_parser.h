@@ -30,8 +30,7 @@
 /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                 */
 /**************************************************************************/
 
-#ifndef GDSCRIPT_PARSER_H
-#define GDSCRIPT_PARSER_H
+#pragma once
 
 #include "gdscript_cache.h"
 #include "gdscript_tokenizer.h"
@@ -1313,6 +1312,11 @@ public:
 		COMPLETION_TYPE_NAME_OR_VOID, // Same as TYPE_NAME, but allows void (in function return type).
 	};
 
+	struct CompletionCall {
+		Node *call = nullptr;
+		int argument = -1;
+	};
+
 	struct CompletionContext {
 		CompletionType type = COMPLETION_NONE;
 		ClassNode *current_class = nullptr;
@@ -1324,11 +1328,7 @@ public:
 		Node *node = nullptr;
 		Object *base = nullptr;
 		GDScriptParser *parser = nullptr;
-	};
-
-	struct CompletionCall {
-		Node *call = nullptr;
-		int argument = -1;
+		CompletionCall call;
 	};
 
 private:
@@ -1375,9 +1375,7 @@ private:
 	SuiteNode *current_suite = nullptr;
 
 	CompletionContext completion_context;
-	CompletionCall completion_call;
 	List<CompletionCall> completion_call_stack;
-	bool passed_cursor = false;
 	bool in_lambda = false;
 	bool lambda_ended = false; // Marker for when a lambda ends, to apply an end of statement if needed.
 
@@ -1455,6 +1453,18 @@ private:
 
 		return node;
 	}
+
+	// Allocates a node for patching up the parse tree when an error occurred.
+	// Such nodes don't track their extents as they don't relate to actual tokens.
+	template <typename T>
+	T *alloc_recovery_node() {
+		T *node = memnew(T);
+		node->next = list;
+		list = node;
+
+		return node;
+	}
+
 	void clear();
 	void push_error(const String &p_message, const Node *p_origin = nullptr);
 #ifdef DEBUG_ENABLED
@@ -1589,7 +1599,6 @@ public:
 	static Variant::Type get_builtin_type(const StringName &p_type); // Excluding `Variant::NIL` and `Variant::OBJECT`.
 
 	CompletionContext get_completion_context() const { return completion_context; }
-	CompletionCall get_completion_call() const { return completion_call; }
 	void get_annotation_list(List<MethodInfo> *r_annotations) const;
 	bool annotation_exists(const String &p_annotation_name) const;
 
@@ -1669,5 +1678,3 @@ public:
 #endif // DEBUG_ENABLED
 	static void cleanup();
 };
-
-#endif // GDSCRIPT_PARSER_H

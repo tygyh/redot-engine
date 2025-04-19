@@ -106,7 +106,8 @@ void ControlPositioningWarning::gui_input(const Ref<InputEvent> &p_event) {
 
 void ControlPositioningWarning::_notification(int p_notification) {
 	switch (p_notification) {
-		case NOTIFICATION_ENTER_TREE:
+		case NOTIFICATION_LAYOUT_DIRECTION_CHANGED:
+		case NOTIFICATION_TRANSLATION_CHANGED:
 		case NOTIFICATION_THEME_CHANGED:
 			_update_warning();
 			_update_toggler();
@@ -331,7 +332,7 @@ void EditorPropertySizeFlags::update_property() {
 void EditorPropertySizeFlags::setup(const Vector<String> &p_options, bool p_vertical) {
 	vertical = p_vertical;
 
-	if (p_options.size() == 0) {
+	if (p_options.is_empty()) {
 		flag_presets->clear();
 		flag_presets->add_item(TTR("Container Default"));
 		flag_presets->set_disabled(true);
@@ -553,6 +554,7 @@ void ControlEditorPresetPicker::_add_row_button(HBoxContainer *p_row, const int 
 	b->set_custom_minimum_size(Size2i(36, 36) * EDSCALE);
 	b->set_icon_alignment(HORIZONTAL_ALIGNMENT_CENTER);
 	b->set_tooltip_text(p_name);
+	b->set_accessibility_name(p_name);
 	b->set_flat(true);
 	p_row->add_child(b);
 	b->connect(SceneStringName(pressed), callable_mp(this, &ControlEditorPresetPicker::_preset_button_pressed).bind(p_preset));
@@ -742,7 +744,7 @@ SizeFlagPresetPicker::SizeFlagPresetPicker(bool p_vertical) {
 
 void ControlEditorToolbar::_anchors_preset_selected(int p_preset) {
 	LayoutPreset preset = (LayoutPreset)p_preset;
-	List<Node *> selection = editor_selection->get_selected_node_list();
+	List<Node *> selection = editor_selection->get_top_selected_node_list();
 
 	EditorUndoRedoManager *undo_redo = EditorUndoRedoManager::get_singleton();
 	undo_redo->create_action(TTR("Change Anchors, Offsets, Grow Direction"));
@@ -763,7 +765,7 @@ void ControlEditorToolbar::_anchors_preset_selected(int p_preset) {
 }
 
 void ControlEditorToolbar::_anchors_to_current_ratio() {
-	List<Node *> selection = editor_selection->get_selected_node_list();
+	List<Node *> selection = editor_selection->get_top_selected_node_list();
 
 	EditorUndoRedoManager *undo_redo = EditorUndoRedoManager::get_singleton();
 	undo_redo->create_action(TTR("Change Anchors, Offsets (Keep Ratio)"));
@@ -814,7 +816,7 @@ void ControlEditorToolbar::_anchor_mode_toggled(bool p_status) {
 }
 
 void ControlEditorToolbar::_container_flags_selected(int p_flags, bool p_vertical) {
-	List<Node *> selection = editor_selection->get_selected_node_list();
+	List<Node *> selection = editor_selection->get_top_selected_node_list();
 
 	EditorUndoRedoManager *undo_redo = EditorUndoRedoManager::get_singleton();
 	if (p_vertical) {
@@ -841,7 +843,7 @@ void ControlEditorToolbar::_container_flags_selected(int p_flags, bool p_vertica
 }
 
 void ControlEditorToolbar::_expand_flag_toggled(bool p_expand, bool p_vertical) {
-	List<Node *> selection = editor_selection->get_selected_node_list();
+	List<Node *> selection = editor_selection->get_top_selected_node_list();
 
 	EditorUndoRedoManager *undo_redo = EditorUndoRedoManager::get_singleton();
 	if (p_vertical) {
@@ -975,7 +977,7 @@ void ControlEditorToolbar::_selection_changed() {
 		int nb_valid_controls = 0;
 		int nb_anchors_mode = 0;
 
-		List<Node *> selection = editor_selection->get_selected_node_list();
+		List<Node *> selection = editor_selection->get_top_selected_node_list();
 		for (Node *E : selection) {
 			Control *control = Object::cast_to<Control>(E);
 			if (!control) {
@@ -1025,7 +1027,7 @@ void ControlEditorToolbar::_selection_changed() {
 		int nb_h_expand = 0;
 		int nb_v_expand = 0;
 
-		List<Node *> selection = editor_selection->get_selected_node_list();
+		List<Node *> selection = editor_selection->get_top_selected_node_list();
 		for (Node *E : selection) {
 			Control *control = Object::cast_to<Control>(E);
 			if (!control) {
@@ -1086,6 +1088,7 @@ ControlEditorToolbar::ControlEditorToolbar() {
 	anchor_mode_button->set_theme_type_variation(SceneStringName(FlatButton));
 	anchor_mode_button->set_toggle_mode(true);
 	anchor_mode_button->set_tooltip_text(TTR("When active, moving Control nodes changes their anchors instead of their offsets."));
+	anchor_mode_button->set_accessibility_name(TTRC("Change Anchors"));
 	add_child(anchor_mode_button);
 	anchor_mode_button->connect(SceneStringName(toggled), callable_mp(this, &ControlEditorToolbar::_anchor_mode_toggled));
 

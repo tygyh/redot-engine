@@ -128,18 +128,18 @@ double Engine::get_unfrozen_time_scale() const {
 
 Dictionary Engine::get_version_info() const {
 	Dictionary dict;
-	dict["major"] = VERSION_MAJOR;
-	dict["minor"] = VERSION_MINOR;
-	dict["patch"] = VERSION_PATCH;
-	dict["hex"] = VERSION_HEX;
-	dict["status"] = VERSION_STATUS;
-	dict["build"] = VERSION_BUILD;
-	dict["status_version"] = VERSION_STATUS_VERSION;
+	dict["major"] = REDOT_VERSION_MAJOR;
+	dict["minor"] = REDOT_VERSION_MINOR;
+	dict["patch"] = REDOT_VERSION_PATCH;
+	dict["hex"] = REDOT_VERSION_HEX;
+	dict["status"] = REDOT_VERSION_STATUS;
+	dict["build"] = REDOT_VERSION_BUILD;
+	dict["status_version"] = REDOT_VERSION_STATUS_VERSION;
 
-	String hash = String(VERSION_HASH);
+	String hash = String(REDOT_VERSION_HASH);
 	dict["hash"] = hash.is_empty() ? String("unknown") : hash;
 
-	dict["timestamp"] = VERSION_TIMESTAMP;
+	dict["timestamp"] = REDOT_VERSION_TIMESTAMP;
 
 	String stringver = String(dict["major"]) + "." + String(dict["minor"]);
 	if ((int)dict["patch"] != 0) {
