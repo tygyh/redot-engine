@@ -3,7 +3,7 @@ on:
   workflow_call:
 
 env:
-  DISABLE_REDOT_GET_CHANGED_FILES: true
+  DISABLE_REDOT_GET_CHANGED_FILES: false
 
 jobs:
   static-checks:
