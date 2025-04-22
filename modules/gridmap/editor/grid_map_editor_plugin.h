@@ -30,10 +30,7 @@
 /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                 */
 /**************************************************************************/
 
-#ifndef GRID_MAP_EDITOR_PLUGIN_H
-#define GRID_MAP_EDITOR_PLUGIN_H
-
-#ifdef TOOLS_ENABLED
+#pragma once
 
 #include "../grid_map.h"
 
@@ -297,11 +294,4 @@ public:
 	Array get_selected_cells() const;
 	void set_selected_palette_item(int p_item) const;
 	int get_selected_palette_item() const;
-
-	GridMapEditorPlugin();
-	~GridMapEditorPlugin();
 };
-
-#endif // TOOLS_ENABLED
-
-#endif // GRID_MAP_EDITOR_PLUGIN_H

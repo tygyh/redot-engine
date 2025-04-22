@@ -30,8 +30,7 @@
 /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                 */
 /**************************************************************************/
 
-#ifndef OPENXR_ACTION_SET_EDITOR_H
-#define OPENXR_ACTION_SET_EDITOR_H
+#pragma once
 
 #include "../action_map/openxr_action_map.h"
 #include "../action_map/openxr_action_set.h"
@@ -96,5 +95,3 @@ public:
 
 	OpenXRActionSetEditor(Ref<OpenXRActionMap> p_action_map, Ref<OpenXRActionSet> p_action_set);
 };
-
-#endif // OPENXR_ACTION_SET_EDITOR_H

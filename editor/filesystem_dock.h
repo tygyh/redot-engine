@@ -30,8 +30,7 @@
 /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                 */
 /**************************************************************************/
 
-#ifndef FILESYSTEM_DOCK_H
-#define FILESYSTEM_DOCK_H
+#pragma once
 
 #include "editor/dependency_editor.h"
 #include "editor/editor_file_system.h"
@@ -154,7 +153,6 @@ private:
 	Button *button_dock_placement = nullptr;
 
 	Button *button_toggle_display_mode = nullptr;
-	Button *button_reload = nullptr;
 	Button *button_file_list_display_mode = nullptr;
 	Button *button_hist_next = nullptr;
 	Button *button_hist_prev = nullptr;
@@ -237,6 +235,7 @@ private:
 	bool import_dock_needs_update = false;
 	TreeItem *resources_item = nullptr;
 	TreeItem *favorites_item = nullptr;
+	Control *had_focus = nullptr;
 
 	bool holding_branch = false;
 	Vector<TreeItem *> tree_items_selected_on_drag_begin;
@@ -424,5 +423,3 @@ public:
 };
 
 VARIANT_ENUM_CAST(FileSystemDock::Overwrite);
-
-#endif // FILESYSTEM_DOCK_H

@@ -30,8 +30,7 @@
 /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                 */
 /**************************************************************************/
 
-#ifndef GDSCRIPT_TOKENIZER_BUFFER_H
-#define GDSCRIPT_TOKENIZER_BUFFER_H
+#pragma once
 
 #include "gdscript_tokenizer.h"
 
@@ -91,5 +90,3 @@ public:
 
 	virtual Token scan() override;
 };
-
-#endif // GDSCRIPT_TOKENIZER_BUFFER_H

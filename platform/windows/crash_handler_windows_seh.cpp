@@ -149,10 +149,10 @@ DWORD CrashHandlerException(EXCEPTION_POINTERS *ep) {
 	print_error(vformat("%s: Program crashed", __FUNCTION__));
 
 	// Print the engine version just before, so that people are reminded to include the version in backtrace reports.
-	if (String(VERSION_HASH).is_empty()) {
-		print_error(vformat("Engine version: %s", VERSION_FULL_NAME));
+	if (String(REDOT_VERSION_HASH).is_empty()) {
+		print_error(vformat("Engine version: %s", REDOT_VERSION_FULL_NAME));
 	} else {
-		print_error(vformat("Engine version: %s (%s)", VERSION_FULL_NAME, VERSION_HASH));
+		print_error(vformat("Engine version: %s (%s)", REDOT_VERSION_FULL_NAME, REDOT_VERSION_HASH));
 	}
 	print_error(vformat("Dumping the backtrace. %s", msg));
 

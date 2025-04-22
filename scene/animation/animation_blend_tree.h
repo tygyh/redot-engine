@@ -30,8 +30,7 @@
 /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                 */
 /**************************************************************************/
 
-#ifndef ANIMATION_BLEND_TREE_H
-#define ANIMATION_BLEND_TREE_H
+#pragma once
 
 #include "scene/animation/animation_tree.h"
 
@@ -487,5 +486,3 @@ public:
 };
 
 VARIANT_ENUM_CAST(AnimationNodeBlendTree::ConnectionError)
-
-#endif // ANIMATION_BLEND_TREE_H
