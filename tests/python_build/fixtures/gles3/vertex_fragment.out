@@ -28,9 +28,9 @@ protected:
 		static const Feedback *_feedbacks = nullptr;
 		static const char _vertex_code[] = {
 R"<!>(
-		precision highp float;
+precision highp float;
 precision highp int;
-
+/* clang-format on */
 layout(location = 0) in highp vec3 vertex;
 
 out highp vec4 position_interp;

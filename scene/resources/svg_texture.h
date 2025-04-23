@@ -1,5 +1,5 @@
 /**************************************************************************/
-/*  touch_actions_panel.h                                                 */
+/*  svg_texture.h                                                         */
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             REDOT ENGINE                               */
@@ -32,63 +32,75 @@
 
 #pragma once
 
-#include "scene/gui/panel_container.h"
+#include "core/templates/lru.h"
+#include "scene/resources/texture.h"
 
-class BoxContainer;
-class Button;
-class TextureRect;
+class BitMap;
 
-class TouchActionsPanel : public PanelContainer {
-	GDCLASS(TouchActionsPanel, PanelContainer);
+class SVGTexture : public Texture2D {
+	GDCLASS(SVGTexture, Texture2D);
 
-private:
-	BoxContainer *box = nullptr;
-	Button *save_button = nullptr;
-	Button *delete_button = nullptr;
-	Button *undo_button = nullptr;
-	Button *redo_button = nullptr;
-	Button *cut_button = nullptr;
-	Button *copy_button = nullptr;
-	Button *paste_button = nullptr;
+	String source;
+	float base_scale = 1.0;
+	float saturation = 1.0;
+	Dictionary color_map;
+	Size2 size_override;
 
-	TextureRect *drag_handle = nullptr;
-	Button *layout_toggle_button = nullptr;
-	Button *lock_panel_button = nullptr;
-	Button *panel_pos_button = nullptr;
-
-	bool locked_panel = false;
-	bool dragging = false;
-	Vector2 drag_offset;
-
-	enum Modifier {
-		MODIFIER_CTRL,
-		MODIFIER_SHIFT,
-		MODIFIER_ALT
+	struct ScalingLevel {
+		HashSet<SVGTexture *> textures;
+		int32_t refcount = 1;
 	};
+	static Mutex mutex;
+	static HashMap<double, ScalingLevel> scaling_levels;
 
-	bool ctrl_btn_pressed = false;
-	bool shift_btn_pressed = false;
-	bool alt_btn_pressed = false;
+	mutable RID base_texture;
+	mutable HashMap<double, RID> texture_cache;
+	mutable Ref<BitMap> alpha_cache;
+	mutable HashMap<Color, Color> cmap;
+	mutable Size2 base_size;
+	mutable Size2 size;
 
-	bool is_floating = false; // Embedded panel mode is default.
-	int embedded_panel_index = 0;
+	void _remove_scale(double p_scale);
+	RID _ensure_scale(double p_scale) const;
+	RID _load_at_scale(double p_scale, bool p_set_size) const;
+	void _update_texture();
+	void _clear();
 
-	void _notification(int p_what);
-	virtual void input(const Ref<InputEvent> &event) override;
-
-	void _simulate_editor_shortcut(const String &p_shortcut_name);
-	void _simulate_key_press(Key p_keycode);
-	void _on_drag_handle_gui_input(const Ref<InputEvent> &p_event);
-	void _switch_layout();
-	void _lock_panel_toggled(bool p_pressed);
-	void _switch_embedded_panel_side();
-
-	Button *_add_new_action_button(const String &p_shortcut, const String &p_name, Key p_keycode = Key::NONE);
-	void _add_new_modifier_button(Modifier p_modifier);
-	void _on_modifier_button_toggled(bool p_pressed, int p_modifier);
-
-	void _hardware_keyboard_connected(bool p_connected);
+protected:
+	static void _bind_methods();
 
 public:
-	TouchActionsPanel();
+	static Ref<SVGTexture> create_from_string(const String &p_source, float p_scale = 1.0, float p_saturation = 1.0, const Dictionary &p_color_map = Dictionary());
+
+	void set_source(const String &p_source);
+	String get_source() const;
+
+	void set_base_scale(float p_scale);
+	float get_base_scale() const;
+
+	void set_color_map(const Dictionary &p_color_map);
+	Dictionary get_color_map() const;
+
+	void set_saturation(float p_saturation);
+	float get_saturation() const;
+
+	Ref<Image> get_image() const override;
+
+	int get_width() const override;
+	int get_height() const override;
+
+	virtual RID get_rid() const override;
+
+	bool has_alpha() const override;
+	virtual void draw(RID p_canvas_item, const Point2 &p_pos, const Color &p_modulate = Color(1, 1, 1), bool p_transpose = false) const override;
+	virtual void draw_rect(RID p_canvas_item, const Rect2 &p_rect, bool p_tile = false, const Color &p_modulate = Color(1, 1, 1), bool p_transpose = false) const override;
+	virtual void draw_rect_region(RID p_canvas_item, const Rect2 &p_rect, const Rect2 &p_src_rect, const Color &p_modulate = Color(1, 1, 1), bool p_transpose = false, bool p_clip_uv = true) const override;
+
+	void set_size_override(const Size2i &p_size);
+	bool is_pixel_opaque(int p_x, int p_y) const override;
+
+	static void reference_scaling_level(double p_scale);
+	static void unreference_scaling_level(double p_scale);
+
+	~SVGTexture();
 };

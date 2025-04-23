@@ -51,7 +51,14 @@ class FileSystemDock;
 class ProjectSettingsEditor : public AcceptDialog {
 	GDCLASS(ProjectSettingsEditor, AcceptDialog);
 
-	static ProjectSettingsEditor *singleton;
+	inline static ProjectSettingsEditor *singleton = nullptr;
+
+	enum {
+		FEATURE_ALL,
+		FEATURE_CUSTOM,
+		FEATURE_FIRST,
+	};
+
 	ProjectSettings *ps = nullptr;
 	Timer *timer = nullptr;
 
