@@ -1,5 +1,5 @@
 /**************************************************************************/
-/*  touch_actions_panel.h                                                 */
+/*  d3d12_hooks.h                                                         */
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             REDOT ENGINE                               */
@@ -32,63 +32,19 @@
 
 #pragma once
 
-#include "scene/gui/panel_container.h"
+#include "rendering_device_driver_d3d12.h"
 
-class BoxContainer;
-class Button;
-class TextureRect;
-
-class TouchActionsPanel : public PanelContainer {
-	GDCLASS(TouchActionsPanel, PanelContainer);
-
+class D3D12Hooks {
 private:
-	BoxContainer *box = nullptr;
-	Button *save_button = nullptr;
-	Button *delete_button = nullptr;
-	Button *undo_button = nullptr;
-	Button *redo_button = nullptr;
-	Button *cut_button = nullptr;
-	Button *copy_button = nullptr;
-	Button *paste_button = nullptr;
-
-	TextureRect *drag_handle = nullptr;
-	Button *layout_toggle_button = nullptr;
-	Button *lock_panel_button = nullptr;
-	Button *panel_pos_button = nullptr;
-
-	bool locked_panel = false;
-	bool dragging = false;
-	Vector2 drag_offset;
-
-	enum Modifier {
-		MODIFIER_CTRL,
-		MODIFIER_SHIFT,
-		MODIFIER_ALT
-	};
-
-	bool ctrl_btn_pressed = false;
-	bool shift_btn_pressed = false;
-	bool alt_btn_pressed = false;
-
-	bool is_floating = false; // Embedded panel mode is default.
-	int embedded_panel_index = 0;
-
-	void _notification(int p_what);
-	virtual void input(const Ref<InputEvent> &event) override;
-
-	void _simulate_editor_shortcut(const String &p_shortcut_name);
-	void _simulate_key_press(Key p_keycode);
-	void _on_drag_handle_gui_input(const Ref<InputEvent> &p_event);
-	void _switch_layout();
-	void _lock_panel_toggled(bool p_pressed);
-	void _switch_embedded_panel_side();
-
-	Button *_add_new_action_button(const String &p_shortcut, const String &p_name, Key p_keycode = Key::NONE);
-	void _add_new_modifier_button(Modifier p_modifier);
-	void _on_modifier_button_toggled(bool p_pressed, int p_modifier);
-
-	void _hardware_keyboard_connected(bool p_connected);
+	static D3D12Hooks *singleton;
 
 public:
-	TouchActionsPanel();
+	D3D12Hooks();
+	virtual ~D3D12Hooks();
+	virtual D3D_FEATURE_LEVEL get_feature_level() const = 0;
+	virtual LUID get_adapter_luid() const = 0;
+	virtual void set_device(ID3D12Device *p_device) = 0;
+	virtual void set_command_queue(ID3D12CommandQueue *p_queue) = 0;
+	virtual void cleanup_device() = 0;
+	static D3D12Hooks *get_singleton() { return singleton; }
 };
