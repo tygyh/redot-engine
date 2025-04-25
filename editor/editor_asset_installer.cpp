@@ -676,6 +676,7 @@ EditorAssetInstaller::EditorAssetInstaller() {
 	asset_status->add_child(asset_label);
 
 	asset_title_label = memnew(Label);
+	asset_title_label->set_focus_mode(Control::FOCUS_ACCESSIBILITY);
 	asset_status->add_child(asset_title_label);
 
 	// File remapping controls.
@@ -707,6 +708,7 @@ EditorAssetInstaller::EditorAssetInstaller() {
 	remapping_tools->add_spacer();
 
 	asset_conflicts_label = memnew(Label);
+	asset_conflicts_label->set_focus_mode(Control::FOCUS_ACCESSIBILITY);
 	asset_conflicts_label->set_theme_type_variation("HeaderSmall");
 	asset_conflicts_label->set_text(TTR("No files conflict with your project"));
 	remapping_tools->add_child(asset_conflicts_label);

@@ -34,6 +34,7 @@
 
 #include "core/io/marshalls.h"
 #include "core/object/ref_counted.h"
+#include "core/object/script_language.h"
 #include "core/os/os.h"
 #include "core/templates/oa_hash_map.h"
 #include "core/templates/rid.h"

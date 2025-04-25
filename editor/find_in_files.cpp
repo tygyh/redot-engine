@@ -595,6 +595,7 @@ FindInFilesPanel::FindInFilesPanel() {
 		hbc->add_child(find_label);
 
 		_search_text_label = memnew(Label);
+		_search_text_label->set_focus_mode(FOCUS_ACCESSIBILITY);
 		hbc->add_child(_search_text_label);
 
 		_progress_bar = memnew(ProgressBar);
@@ -604,6 +605,7 @@ FindInFilesPanel::FindInFilesPanel() {
 		set_progress_visible(false);
 
 		_status_label = memnew(Label);
+		_status_label->set_focus_mode(FOCUS_ACCESSIBILITY);
 		hbc->add_child(_status_label);
 
 		_refresh_button = memnew(Button);
