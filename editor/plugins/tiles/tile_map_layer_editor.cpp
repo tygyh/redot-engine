@@ -2391,6 +2391,7 @@ TileMapLayerEditorTilesPlugin::TileMapLayerEditorTilesPlugin() {
 	tiles_bottom_panel->set_name(TTR("Tiles"));
 
 	missing_source_label = memnew(Label);
+	missing_source_label->set_focus_mode(Control::FOCUS_ACCESSIBILITY);
 	missing_source_label->set_text(TTR("This TileMap's TileSet has no Tile Source configured. Go to the TileSet bottom panel to add one."));
 	missing_source_label->set_autowrap_mode(TextServer::AUTOWRAP_WORD_SMART);
 	missing_source_label->set_h_size_flags(Control::SIZE_EXPAND_FILL);
@@ -2482,6 +2483,7 @@ TileMapLayerEditorTilesPlugin::TileMapLayerEditorTilesPlugin() {
 
 	// Invalid source label.
 	invalid_source_label = memnew(Label);
+	invalid_source_label->set_focus_mode(Control::FOCUS_ACCESSIBILITY);
 	invalid_source_label->set_text(TTR("Invalid source selected."));
 	invalid_source_label->set_h_size_flags(Control::SIZE_EXPAND_FILL);
 	invalid_source_label->set_v_size_flags(Control::SIZE_EXPAND_FILL);
@@ -2511,6 +2513,7 @@ TileMapLayerEditorTilesPlugin::TileMapLayerEditorTilesPlugin() {
 	patterns_bottom_panel->add_child(patterns_item_list);
 
 	patterns_help_label = memnew(Label);
+	patterns_help_label->set_focus_mode(Control::FOCUS_ACCESSIBILITY);
 	patterns_help_label->set_text(TTR("Drag and drop or paste a TileMap selection here to store a pattern."));
 	patterns_help_label->set_autowrap_mode(TextServer::AUTOWRAP_WORD_SMART);
 	patterns_help_label->set_horizontal_alignment(HORIZONTAL_ALIGNMENT_CENTER);
@@ -4554,6 +4557,7 @@ TileMapLayerEditor::TileMapLayerEditor() {
 
 	// A label for editing errors.
 	cant_edit_label = memnew(Label);
+	cant_edit_label->set_focus_mode(Control::FOCUS_ACCESSIBILITY);
 	cant_edit_label->set_autowrap_mode(TextServer::AUTOWRAP_WORD_SMART);
 	cant_edit_label->set_anchors_and_offsets_preset(Control::PRESET_HCENTER_WIDE);
 	cant_edit_label->set_h_size_flags(SIZE_EXPAND_FILL);

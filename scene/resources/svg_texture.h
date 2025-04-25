@@ -39,6 +39,7 @@ class BitMap;
 
 class SVGTexture : public Texture2D {
 	GDCLASS(SVGTexture, Texture2D);
+	RES_BASE_EXTENSION("svgtex");
 
 	String source;
 	float base_scale = 1.0;

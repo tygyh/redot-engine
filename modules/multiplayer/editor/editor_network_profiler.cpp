@@ -334,6 +334,7 @@ EditorNetworkProfiler::EditorNetworkProfiler() {
 
 	Label *lb = memnew(Label);
 	// TRANSLATORS: This is the label for the network profiler's incoming bandwidth.
+	lb->set_focus_mode(FOCUS_ACCESSIBILITY);
 	lb->set_text(TTR("Down", "Network"));
 	hb->add_child(lb);
 
@@ -350,6 +351,7 @@ EditorNetworkProfiler::EditorNetworkProfiler() {
 
 	lb = memnew(Label);
 	// TRANSLATORS: This is the label for the network profiler's outgoing bandwidth.
+	lb->set_focus_mode(FOCUS_ACCESSIBILITY);
 	lb->set_text(TTR("Up", "Network"));
 	hb->add_child(lb);
 

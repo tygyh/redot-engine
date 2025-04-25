@@ -416,11 +416,14 @@ public:
 	// Reserves space for a number of elements, useful to avoid many resizes and rehashes.
 	// If adding a known (possibly large) number of elements at once, must be larger than old capacity.
 	void reserve(uint32_t p_new_capacity) {
-		ERR_FAIL_COND_MSG(p_new_capacity < get_capacity(), "It is impossible to reserve less capacity than is currently available.");
+		ERR_FAIL_COND_MSG(p_new_capacity < size(), "reserve() called with a capacity smaller than the current size. This is likely a mistake.");
 		if (elements == nullptr) {
 			capacity = MAX(4u, p_new_capacity);
 			capacity = next_power_of_2(capacity) - 1;
 			return; // Unallocated yet.
+		}
+		if (p_new_capacity <= get_capacity()) {
+			return;
 		}
 		_resize_and_rehash(p_new_capacity);
 	}
@@ -667,9 +670,7 @@ public:
 	}
 
 	AHashMap(const HashMap<TKey, TValue> &p_other) {
-		if (p_other.size() > get_capacity()) {
-			reserve(p_other.size());
-		}
+		reserve(p_other.size());
 		for (const KeyValue<TKey, TValue> &E : p_other) {
 			uint32_t hash = _hash(E.key);
 			_insert_element(E.key, E.value, hash);
@@ -688,9 +689,7 @@ public:
 
 	void operator=(const HashMap<TKey, TValue> &p_other) {
 		reset();
-		if (p_other.size() > get_capacity()) {
-			reserve(p_other.size());
-		}
+		reserve(p_other.size());
 		for (const KeyValue<TKey, TValue> &E : p_other) {
 			uint32_t hash = _hash(E.key);
 			_insert_element(E.key, E.value, hash);
@@ -707,9 +706,7 @@ public:
 	}
 
 	AHashMap(std::initializer_list<KeyValue<TKey, TValue>> p_init) {
-		if (p_init.size() > get_capacity()) {
-			reserve(p_init.size());
-		}
+		reserve(p_init.size());
 		for (const KeyValue<TKey, TValue> &E : p_init) {
 			insert(E.key, E.value);
 		}
