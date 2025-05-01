@@ -453,8 +453,6 @@ String Engine::get_shader_cache_path() const {
 	return shader_cache_path;
 }
 
-Engine *Engine::singleton = nullptr;
-
 Engine *Engine::get_singleton() {
 	return singleton;
 }

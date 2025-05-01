@@ -160,8 +160,6 @@ void PackedData::clear() {
 	root = memnew(PackedDir);
 }
 
-PackedData *PackedData::singleton = nullptr;
-
 PackedData::PackedData() {
 	singleton = this;
 	root = memnew(PackedDir);

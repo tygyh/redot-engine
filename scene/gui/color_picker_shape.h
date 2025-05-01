@@ -109,7 +109,7 @@ public:
 class ColorPickerShapeWheel : public ColorPickerShape {
 	GDCLASS(ColorPickerShapeWheel, ColorPickerShape);
 
-	inline static constexpr float WHEEL_RADIUS = 0.42;
+	static constexpr float WHEEL_RADIUS = 0.42;
 
 	MarginContainer *wheel_margin = nullptr;
 	Control *wheel = nullptr;

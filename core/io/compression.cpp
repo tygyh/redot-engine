@@ -37,7 +37,6 @@
 
 #include "thirdparty/misc/fastlz.h"
 
-#include <zlib.h>
 #include <zstd.h>
 
 #ifdef BROTLI_ENABLED
@@ -366,10 +365,3 @@ int Compression::decompress_dynamic(Vector<uint8_t> *p_dst_vect, int p_max_dst_s
 		return Z_OK;
 	}
 }
-
-int Compression::zlib_level = Z_DEFAULT_COMPRESSION;
-int Compression::gzip_level = Z_DEFAULT_COMPRESSION;
-int Compression::zstd_level = 3;
-bool Compression::zstd_long_distance_matching = false;
-int Compression::zstd_window_log_size = 27; // ZSTD_WINDOWLOG_LIMIT_DEFAULT
-int Compression::gzip_chunk = 16384;

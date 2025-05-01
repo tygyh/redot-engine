@@ -45,7 +45,7 @@ class EditorContextMenuPlugin : public RefCounted {
 
 	friend class EditorContextMenuPluginManager;
 
-	inline static constexpr int MAX_ITEMS = 100;
+	static constexpr int MAX_ITEMS = 100;
 
 public:
 	enum ContextMenuSlot {
@@ -57,7 +57,7 @@ public:
 		CONTEXT_SLOT_SCENE_TABS,
 		CONTEXT_SLOT_2D_EDITOR,
 	};
-	inline static constexpr int BASE_ID = 2000;
+	static constexpr int BASE_ID = 2000;
 
 private:
 	int slot = -1;
