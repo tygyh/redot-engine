@@ -100,18 +100,18 @@ void Range::Shared::emit_value_changed() {
 	}
 }
 
-void Range::_changed_notify(const char *p_what) {
+void Range::_changed_notify() {
 	emit_signal(CoreStringName(changed));
 	queue_redraw();
 }
 
-void Range::Shared::emit_changed(const char *p_what) {
+void Range::Shared::emit_changed() {
 	for (Range *E : owners) {
 		Range *r = E;
 		if (!r->is_inside_tree()) {
 			continue;
 		}
-		r->_changed_notify(p_what);
+		r->_changed_notify();
 	}
 }
 
@@ -137,10 +137,6 @@ void Range::set_value(double p_val) {
 }
 
 void Range::_set_value_no_signal(double p_val) {
-	if (!Math::is_finite(p_val)) {
-		return;
-	}
-
 	if (shared->step > 0) {
 		p_val = Math::round((p_val - shared->min) / shared->step) * shared->step + shared->min;
 	}
@@ -183,7 +179,7 @@ void Range::set_min(double p_min) {
 	shared->page = CLAMP(shared->page, 0, shared->max - shared->min);
 	set_value(shared->val);
 
-	shared->emit_changed("min");
+	shared->emit_changed();
 
 	update_configuration_warnings();
 
@@ -200,7 +196,7 @@ void Range::set_max(double p_max) {
 	shared->page = CLAMP(shared->page, 0, shared->max - shared->min);
 	set_value(shared->val);
 
-	shared->emit_changed("max");
+	shared->emit_changed();
 
 	queue_accessibility_update();
 }
@@ -211,7 +207,7 @@ void Range::set_step(double p_step) {
 	}
 
 	shared->step = p_step;
-	shared->emit_changed("step");
+	shared->emit_changed();
 
 	queue_accessibility_update();
 }
@@ -225,7 +221,7 @@ void Range::set_page(double p_page) {
 	shared->page = page_validated;
 	set_value(shared->val);
 
-	shared->emit_changed("page");
+	shared->emit_changed();
 
 	queue_accessibility_update();
 }
@@ -260,7 +256,7 @@ void Range::set_as_ratio(double p_value) {
 	} else {
 		double percent = (get_max() - get_min()) * p_value;
 		if (get_step() > 0) {
-			double steps = round(percent / get_step());
+			double steps = std::round(percent / get_step());
 			v = steps * get_step() + get_min();
 		} else {
 			v = percent + get_min();

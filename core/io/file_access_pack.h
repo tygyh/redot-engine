@@ -104,7 +104,7 @@ private:
 
 	PackedDir *root = nullptr;
 
-	static PackedData *singleton;
+	static inline PackedData *singleton = nullptr;
 	bool disabled = false;
 
 	void _free_packed_dirs(PackedDir *p_dir);

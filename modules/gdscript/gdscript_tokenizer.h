@@ -37,12 +37,6 @@
 #include "core/templates/vector.h"
 #include "core/variant/variant.h"
 
-#ifdef MINGW_ENABLED
-#undef CONST
-#undef IN
-#undef VOID
-#endif
-
 class GDScriptTokenizer {
 public:
 	enum CursorPlace {
@@ -119,11 +113,11 @@ public:
 			BREAKPOINT,
 			CLASS,
 			CLASS_NAME,
-			CONST,
+			TK_CONST, // Conflict with WinAPI.
 			ENUM,
 			EXTENDS,
 			FUNC,
-			IN,
+			TK_IN, // Conflict with WinAPI.
 			IS,
 			NAMESPACE,
 			PRELOAD,
@@ -133,7 +127,7 @@ public:
 			SUPER,
 			TRAIT,
 			VAR,
-			VOID,
+			TK_VOID, // Conflict with WinAPI.
 			YIELD,
 			// Punctuation
 			BRACKET_OPEN,

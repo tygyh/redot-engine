@@ -50,10 +50,6 @@
 #include "modules/modules_enabled.gen.h" // For mono.
 #endif // TOOLS_ENABLED
 
-const String ProjectSettings::PROJECT_DATA_DIR_NAME_SUFFIX = "godot";
-
-ProjectSettings *ProjectSettings::singleton = nullptr;
-
 ProjectSettings *ProjectSettings::get_singleton() {
 	return singleton;
 }
@@ -302,6 +298,8 @@ bool ProjectSettings::_set(const StringName &p_name, const Variant &p_value) {
 			for (int i = 0; i < custom_feature_array.size(); i++) {
 				custom_features.insert(custom_feature_array[i]);
 			}
+
+			_version++;
 			_queue_changed();
 			return true;
 		}
@@ -347,6 +345,7 @@ bool ProjectSettings::_set(const StringName &p_name, const Variant &p_value) {
 		}
 	}
 
+	_version++;
 	_queue_changed();
 	return true;
 }
@@ -1412,8 +1411,7 @@ void ProjectSettings::load_scene_groups_cache() {
 	Ref<ConfigFile> cf;
 	cf.instantiate();
 	if (cf->load(get_scene_groups_cache_path()) == OK) {
-		List<String> scene_paths;
-		cf->get_sections(&scene_paths);
+		Vector<String> scene_paths = cf->get_sections();
 		for (const String &E : scene_paths) {
 			Array scene_groups = cf->get_value(E, "groups", Array());
 			HashSet<StringName> cache;

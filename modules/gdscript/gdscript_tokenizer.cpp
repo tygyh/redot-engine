@@ -109,11 +109,11 @@ static const char *token_names[] = {
 	"breakpoint", // BREAKPOINT,
 	"class", // CLASS,
 	"class_name", // CLASS_NAME,
-	"const", // CONST,
+	"const", // TK_CONST,
 	"enum", // ENUM,
 	"extends", // EXTENDS,
 	"func", // FUNC,
-	"in", // IN,
+	"in", // TK_IN,
 	"is", // IS,
 	"namespace", // NAMESPACE
 	"preload", // PRELOAD,
@@ -123,7 +123,7 @@ static const char *token_names[] = {
 	"super", // SUPER,
 	"trait", // TRAIT,
 	"var", // VAR,
-	"void", // VOID,
+	"void", // TK_VOID,
 	"yield", // YIELD,
 	// Punctuation
 	"[", // BRACKET_OPEN,
@@ -223,7 +223,7 @@ bool GDScriptTokenizer::Token::is_node_name() const {
 		case BREAKPOINT:
 		case CLASS_NAME:
 		case CLASS:
-		case CONST:
+		case TK_CONST:
 		case CONST_PI:
 		case CONST_INF:
 		case CONST_NAN:
@@ -236,7 +236,7 @@ bool GDScriptTokenizer::Token::is_node_name() const {
 		case FOR:
 		case FUNC:
 		case IF:
-		case IN:
+		case TK_IN:
 		case IS:
 		case MATCH:
 		case NAMESPACE:
@@ -252,7 +252,7 @@ bool GDScriptTokenizer::Token::is_node_name() const {
 		case TRAIT:
 		case UNDERSCORE:
 		case VAR:
-		case VOID:
+		case TK_VOID:
 		case WHILE:
 		case WHEN:
 		case YIELD:
@@ -507,7 +507,7 @@ GDScriptTokenizer::Token GDScriptTokenizerText::annotation() {
 	KEYWORD_GROUP('c')                       \
 	KEYWORD("class", Token::CLASS)           \
 	KEYWORD("class_name", Token::CLASS_NAME) \
-	KEYWORD("const", Token::CONST)           \
+	KEYWORD("const", Token::TK_CONST)        \
 	KEYWORD("continue", Token::CONTINUE)     \
 	KEYWORD_GROUP('e')                       \
 	KEYWORD("elif", Token::ELIF)             \
@@ -519,7 +519,7 @@ GDScriptTokenizer::Token GDScriptTokenizerText::annotation() {
 	KEYWORD("func", Token::FUNC)             \
 	KEYWORD_GROUP('i')                       \
 	KEYWORD("if", Token::IF)                 \
-	KEYWORD("in", Token::IN)                 \
+	KEYWORD("in", Token::TK_IN)              \
 	KEYWORD("is", Token::IS)                 \
 	KEYWORD_GROUP('m')                       \
 	KEYWORD("match", Token::MATCH)           \
@@ -542,7 +542,7 @@ GDScriptTokenizer::Token GDScriptTokenizerText::annotation() {
 	KEYWORD("trait", Token::TRAIT)           \
 	KEYWORD_GROUP('v')                       \
 	KEYWORD("var", Token::VAR)               \
-	KEYWORD("void", Token::VOID)             \
+	KEYWORD("void", Token::TK_VOID)          \
 	KEYWORD_GROUP('w')                       \
 	KEYWORD("while", Token::WHILE)           \
 	KEYWORD("when", Token::WHEN)             \
