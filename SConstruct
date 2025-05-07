@@ -276,6 +276,7 @@ opts.Add(BoolVariable("builtin_glslang", "Use the built-in glslang library", Tru
 opts.Add(BoolVariable("builtin_graphite", "Use the built-in Graphite library", True))
 opts.Add(BoolVariable("builtin_harfbuzz", "Use the built-in HarfBuzz library", True))
 opts.Add(BoolVariable("builtin_icu4c", "Use the built-in ICU library", True))
+opts.Add(BoolVariable("builtin_libjpeg_turbo", "Use the built-in libjpeg-turbo library", True))
 opts.Add(BoolVariable("builtin_libogg", "Use the built-in libogg library", True))
 opts.Add(BoolVariable("builtin_libpng", "Use the built-in libpng library", True))
 opts.Add(BoolVariable("builtin_libtheora", "Use the built-in libtheora library", True))
@@ -890,21 +891,24 @@ if env.msvc and not methods.using_clang(env):  # MSVC
         env.AppendUnique(LINKFLAGS=["/WX"])
 
 else:  # GCC, Clang
-    common_warnings = ["-Wenum-conversion"]
-
+    common_warnings = []
     if methods.using_gcc(env):
         common_warnings += ["-Wshadow", "-Wno-misleading-indentation"]
         if cc_version_major < 11:
             # Regression in GCC 9/10, spams so much in our variadic templates
             # that we need to outright disable it.
             common_warnings += ["-Wno-type-limits"]
-        if cc_version_major >= 12:  # False positives in our error macros, see GH-58747.
+        if cc_version_major == 12:
+            # Regression in GCC 12, false positives in our error macros, see GH-58747.
             common_warnings += ["-Wno-return-type"]
+        if cc_version_major >= 11:
+            common_warnings += ["-Wenum-conversion"]
     elif methods.using_clang(env) or methods.using_emcc(env):
         common_warnings += ["-Wshadow-field-in-constructor", "-Wshadow-uncaptured-local"]
         # We often implement `operator<` for structs of pointers as a requirement
         # for putting them in `Set` or `Map`. We don't mind about unreliable ordering.
         common_warnings += ["-Wno-ordered-compare-function-pointers"]
+        common_warnings += ["-Wenum-conversion"]
 
     # clang-cl will interpret `-Wall` as `-Weverything`, workaround with compatibility cast.
     env["WARNLEVEL"] = "-Wall" if not env.msvc else "-W3"

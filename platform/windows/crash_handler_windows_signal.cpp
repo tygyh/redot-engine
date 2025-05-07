@@ -42,8 +42,8 @@
 #ifdef CRASH_HANDLER_EXCEPTION
 
 #include <cxxabi.h>
-#include <signal.h>
 #include <algorithm>
+#include <csignal>
 #include <cstdlib>
 #include <iterator>
 #include <string>
@@ -193,7 +193,9 @@ extern void CrashHandlerException(int signal) {
 	}
 	if (!script_backtraces.is_empty()) {
 		for (const Ref<ScriptBacktrace> &backtrace : script_backtraces) {
-			print_error(backtrace->format());
+			if (!backtrace->is_empty()) {
+				print_error(backtrace->format());
+			}
 		}
 		print_error("-- END OF SCRIPT BACKTRACE --");
 		print_error("================================================================");

@@ -39,7 +39,6 @@
 #include "core/version.h"
 #include "main/main.h"
 
-#include <string.h>
 #include <unistd.h>
 
 #if defined(DEBUG_ENABLED)
@@ -50,8 +49,8 @@
 #include <cxxabi.h>
 #include <dlfcn.h>
 #include <execinfo.h>
-#include <signal.h>
-#include <stdlib.h>
+#include <csignal>
+#include <cstdlib>
 
 #import <mach-o/dyld.h>
 #import <mach-o/getsect.h>
@@ -186,7 +185,9 @@ static void handle_crash(int sig) {
 	}
 	if (!script_backtraces.is_empty()) {
 		for (const Ref<ScriptBacktrace> &backtrace : script_backtraces) {
-			print_error(backtrace->format());
+			if (!backtrace->is_empty()) {
+				print_error(backtrace->format());
+			}
 		}
 		print_error("-- END OF SCRIPT BACKTRACE --");
 		print_error("================================================================");

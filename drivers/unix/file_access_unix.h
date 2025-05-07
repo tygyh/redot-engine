@@ -35,7 +35,7 @@
 #include "core/io/file_access.h"
 #include "core/os/memory.h"
 
-#include <stdio.h>
+#include <cstdio>
 
 #if defined(UNIX_ENABLED)
 

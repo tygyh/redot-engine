@@ -34,8 +34,8 @@
 
 #include "core/io/file_access.h"
 
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstdio>
+#include <cstdlib>
 
 namespace {
 

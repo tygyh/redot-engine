@@ -143,6 +143,10 @@ bool NavLink2D::is_dirty() const {
 }
 
 void NavLink2D::sync() {
+	if (link_dirty) {
+		iteration_id = iteration_id % UINT32_MAX + 1;
+	}
+
 	link_dirty = false;
 }
 

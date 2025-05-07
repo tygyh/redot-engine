@@ -40,7 +40,7 @@
 #include "core/templates/list.h"
 #include "core/templates/vector.h"
 
-#include <stdlib.h>
+#include <cstdlib>
 
 class OS {
 	static OS *singleton;

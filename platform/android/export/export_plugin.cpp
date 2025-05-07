@@ -63,8 +63,6 @@
 #include "../os_android.h"
 #endif
 
-#include <string.h>
-
 static const char *ANDROID_PERMS[] = {
 	"ACCESS_CHECKIN_PROPERTIES",
 	"ACCESS_COARSE_LOCATION",
