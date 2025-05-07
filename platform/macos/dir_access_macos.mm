@@ -36,7 +36,7 @@
 
 #include "core/config/project_settings.h"
 
-#include <errno.h>
+#include <cerrno>
 
 #import <AppKit/NSWorkspace.h>
 #import <Foundation/Foundation.h>

@@ -745,7 +745,7 @@ void EditorSettings::_load_defaults(Ref<ConfigFile> p_extra_config) {
 	_initial_set("text_editor/behavior/files/autosave_interval_secs", 0);
 	_initial_set("text_editor/behavior/files/restore_scripts_on_load", true);
 	_initial_set("text_editor/behavior/files/convert_indent_on_save", true);
-	_initial_set("text_editor/behavior/files/auto_reload_scripts_on_external_change", false);
+	_initial_set("text_editor/behavior/files/auto_reload_scripts_on_external_change", true);
 	_initial_set("text_editor/behavior/files/auto_reload_and_parse_scripts_on_save", true);
 	_initial_set("text_editor/behavior/files/open_dominant_script_on_scene_change", false, true);
 	_initial_set("text_editor/behavior/files/drop_preload_resources_as_uid", true, true);
@@ -922,6 +922,7 @@ void EditorSettings::_load_defaults(Ref<ConfigFile> p_extra_config) {
 	_initial_set("editors/panning/simple_panning", false);
 	_initial_set("editors/panning/warped_mouse_panning", true);
 	_initial_set("editors/panning/2d_editor_pan_speed", 20, true);
+	EDITOR_SETTING_BASIC(Variant::INT, PROPERTY_HINT_ENUM, "editors/panning/zoom_style", 0, "Vertical,Horizontal");
 
 	// Tiles editor
 	_initial_set("editors/tiles_editor/display_grid", true);

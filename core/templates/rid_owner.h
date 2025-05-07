@@ -39,7 +39,7 @@
 #include "core/templates/rid.h"
 #include "core/templates/safe_refcount.h"
 
-#include <stdio.h>
+#include <cstdio>
 #include <typeinfo> // IWYU pragma: keep // Used in macro.
 
 #ifdef SANITIZERS_ENABLED

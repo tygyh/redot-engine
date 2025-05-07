@@ -290,5 +290,3 @@ PackedStringArray ShaderGlobalsOverride::get_configuration_warnings() const {
 void ShaderGlobalsOverride::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("_activate"), &ShaderGlobalsOverride::_activate);
 }
-
-ShaderGlobalsOverride::ShaderGlobalsOverride() {}

@@ -154,8 +154,6 @@ public:
 
 	void set_rings(const int p_rings);
 	int get_rings() const;
-
-	CapsuleMesh();
 };
 
 /**
@@ -190,8 +188,6 @@ public:
 
 	void set_subdivide_depth(const int p_divisions);
 	int get_subdivide_depth() const;
-
-	BoxMesh();
 };
 
 /**
@@ -239,8 +235,6 @@ public:
 
 	void set_cap_bottom(bool p_cap_bottom);
 	bool is_cap_bottom() const;
-
-	CylinderMesh();
 };
 
 /*
@@ -284,8 +278,6 @@ public:
 
 	void set_orientation(const Orientation p_orientation);
 	Orientation get_orientation() const;
-
-	PlaneMesh();
 };
 
 VARIANT_ENUM_CAST(PlaneMesh::Orientation)
@@ -337,8 +329,6 @@ public:
 
 	void set_subdivide_depth(const int p_divisions);
 	int get_subdivide_depth() const;
-
-	PrismMesh();
 };
 
 /**
@@ -377,8 +367,6 @@ public:
 
 	void set_is_hemisphere(const bool p_is_hemisphere);
 	bool get_is_hemisphere() const;
-
-	SphereMesh();
 };
 
 /**
@@ -411,8 +399,6 @@ public:
 
 	void set_ring_segments(const int p_ring_segments);
 	int get_ring_segments() const;
-
-	TorusMesh();
 };
 
 /**

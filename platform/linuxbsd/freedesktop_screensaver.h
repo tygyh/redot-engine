@@ -34,7 +34,7 @@
 
 #ifdef DBUS_ENABLED
 
-#include <stdint.h>
+#include <cstdint>
 
 class FreeDesktopScreenSaver {
 private:

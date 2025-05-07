@@ -106,7 +106,6 @@
 #include "editor/plugins/node_3d_editor_gizmos.h"
 #include "editor/plugins/occluder_instance_3d_editor_plugin.h"
 #include "editor/plugins/packed_scene_editor_plugin.h"
-#include "editor/plugins/parallax_background_editor_plugin.h"
 #include "editor/plugins/particles_editor_plugin.h"
 #include "editor/plugins/path_2d_editor_plugin.h"
 #include "editor/plugins/path_3d_editor_plugin.h"
@@ -119,7 +118,6 @@
 #include "editor/plugins/shader_file_editor_plugin.h"
 #include "editor/plugins/skeleton_2d_editor_plugin.h"
 #include "editor/plugins/skeleton_3d_editor_plugin.h"
-#include "editor/plugins/skeleton_ik_3d_editor_plugin.h"
 #include "editor/plugins/sprite_2d_editor_plugin.h"
 #include "editor/plugins/sprite_frames_editor_plugin.h"
 #include "editor/plugins/style_box_editor_plugin.h"
@@ -133,6 +131,10 @@
 #include "editor/plugins/tool_button_editor_plugin.h"
 #include "editor/plugins/voxel_gi_editor_plugin.h"
 #include "editor/register_exporters.h"
+#ifndef DISABLE_DEPRECATED
+#include "editor/plugins/parallax_background_editor_plugin.h"
+#include "editor/plugins/skeleton_ik_3d_editor_plugin.h"
+#endif
 
 void register_editor_types() {
 	OS::get_singleton()->benchmark_begin_measure("Editor", "Register Types");
@@ -244,7 +246,6 @@ void register_editor_types() {
 	EditorPlugins::add_by_type<ShaderEditorPlugin>();
 	EditorPlugins::add_by_type<ShaderFileEditorPlugin>();
 	EditorPlugins::add_by_type<Skeleton3DEditorPlugin>();
-	EditorPlugins::add_by_type<SkeletonIK3DEditorPlugin>();
 	EditorPlugins::add_by_type<SpriteFramesEditorPlugin>();
 	EditorPlugins::add_by_type<StyleBoxEditorPlugin>();
 	EditorPlugins::add_by_type<SubViewportPreviewEditorPlugin>();
@@ -255,6 +256,9 @@ void register_editor_types() {
 	EditorPlugins::add_by_type<ThemeEditorPlugin>();
 	EditorPlugins::add_by_type<ToolButtonEditorPlugin>();
 	EditorPlugins::add_by_type<VoxelGIEditorPlugin>();
+#ifndef DISABLE_DEPREACTED
+	EditorPlugins::add_by_type<SkeletonIK3DEditorPlugin>();
+#endif
 
 	// 2D
 	EditorPlugins::add_by_type<Camera2DEditorPlugin>();
@@ -267,7 +271,6 @@ void register_editor_types() {
 	EditorPlugins::add_by_type<NavigationLink2DEditorPlugin>();
 	EditorPlugins::add_by_type<NavigationObstacle2DEditorPlugin>();
 	EditorPlugins::add_by_type<NavigationPolygonEditorPlugin>();
-	EditorPlugins::add_by_type<ParallaxBackgroundEditorPlugin>();
 	EditorPlugins::add_by_type<Path2DEditorPlugin>();
 	EditorPlugins::add_by_type<Polygon2DEditorPlugin>();
 	EditorPlugins::add_by_type<Cast2DEditorPlugin>();
@@ -275,6 +278,9 @@ void register_editor_types() {
 	EditorPlugins::add_by_type<Sprite2DEditorPlugin>();
 	EditorPlugins::add_by_type<TileSetEditorPlugin>();
 	EditorPlugins::add_by_type<TileMapEditorPlugin>();
+#ifndef DISABLE_DEPRECATED
+	EditorPlugins::add_by_type<ParallaxBackgroundEditorPlugin>();
+#endif
 
 	// For correct doc generation.
 	GLOBAL_DEF("editor/run/main_run_args", "");

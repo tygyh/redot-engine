@@ -80,5 +80,4 @@ class StyleBoxEmpty : public StyleBox {
 
 public:
 	virtual void draw(RID p_canvas_item, const Rect2 &p_rect) const override {}
-	StyleBoxEmpty() {}
 };

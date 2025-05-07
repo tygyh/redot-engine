@@ -32,7 +32,7 @@
 
 #pragma once
 
-#include <stdint.h>
+#include <cstdint>
 
 enum JoltJointWorldNode : int {
 	JOLT_JOINT_WORLD_NODE_A,

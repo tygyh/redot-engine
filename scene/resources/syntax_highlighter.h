@@ -66,7 +66,6 @@ public:
 	void set_text_edit(TextEdit *p_text_edit);
 	TextEdit *get_text_edit() const;
 
-	SyntaxHighlighter() {}
 	virtual ~SyntaxHighlighter() {}
 };
 

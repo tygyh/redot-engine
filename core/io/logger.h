@@ -37,7 +37,7 @@
 #include "core/string/ustring.h"
 #include "core/templates/vector.h"
 
-#include <stdarg.h>
+#include <cstdarg>
 
 class RegEx;
 

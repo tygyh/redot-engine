@@ -48,8 +48,8 @@
 #include <dlfcn.h>
 #include <execinfo.h>
 #include <link.h>
-#include <signal.h>
-#include <stdlib.h>
+#include <csignal>
+#include <cstdlib>
 
 static void handle_crash(int sig) {
 	signal(SIGSEGV, SIG_DFL);
@@ -155,7 +155,9 @@ static void handle_crash(int sig) {
 	}
 	if (!script_backtraces.is_empty()) {
 		for (const Ref<ScriptBacktrace> &backtrace : script_backtraces) {
-			print_error(backtrace->format());
+			if (!backtrace->is_empty()) {
+				print_error(backtrace->format());
+			}
 		}
 		print_error("-- END OF SCRIPT BACKTRACE --");
 		print_error("================================================================");

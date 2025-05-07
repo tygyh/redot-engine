@@ -83,7 +83,6 @@ public:
 
 	virtual void set_path(const String &p_path, bool p_take_over = false) override;
 
-	ImageTexture();
 	~ImageTexture();
 };
 

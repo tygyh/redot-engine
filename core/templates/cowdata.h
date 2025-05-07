@@ -37,7 +37,6 @@
 #include "core/templates/safe_refcount.h"
 #include "core/templates/span.h"
 
-#include <string.h>
 #include <initializer_list>
 #include <type_traits>
 
