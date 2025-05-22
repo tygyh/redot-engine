@@ -304,7 +304,6 @@ public:
 	// ----- QUEUE -----
 private:
 	struct CommandQueue {
-		LocalVector<VkSemaphore> present_semaphores;
 		LocalVector<VkSemaphore> image_semaphores;
 		LocalVector<SwapChain *> image_semaphores_swap_chains;
 		LocalVector<uint32_t> pending_semaphores_for_execute;
@@ -313,7 +312,6 @@ private:
 		LocalVector<Pair<Fence *, uint32_t>> image_semaphores_for_fences;
 		uint32_t queue_family = 0;
 		uint32_t queue_index = 0;
-		uint32_t present_semaphore_index = 0;
 	};
 
 public:
@@ -363,6 +361,7 @@ private:
 		VkColorSpaceKHR color_space = VK_COLOR_SPACE_SRGB_NONLINEAR_KHR;
 		TightLocalVector<VkImage> images;
 		TightLocalVector<VkImageView> image_views;
+		TightLocalVector<VkSemaphore> present_semaphores;
 		TightLocalVector<FramebufferID> framebuffers;
 		LocalVector<CommandQueue *> command_queues_acquired;
 		LocalVector<uint32_t> command_queues_acquired_semaphores;
