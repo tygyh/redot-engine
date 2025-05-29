@@ -120,7 +120,7 @@ Error PCKPacker::add_file_removal(const String &p_target_path) {
 	pf.size = 0;
 	pf.removal = true;
 
-	pf.md5.resize_zeroed(16);
+	pf.md5.resize_initialized(16);
 
 	files.push_back(pf);
 

@@ -37,6 +37,7 @@
 
 class Button;
 class EditorSpinSlider;
+class EditorVariantTypePopupMenu;
 class MarginContainer;
 
 class EditorPropertyArrayObject : public RefCounted {
@@ -110,7 +111,7 @@ class EditorPropertyArray : public EditorProperty {
 		}
 	};
 
-	PopupMenu *change_type = nullptr;
+	EditorVariantTypePopupMenu *change_type = nullptr;
 
 	bool preview_value = false;
 	int page_length = 20;
@@ -223,7 +224,7 @@ class EditorPropertyDictionary : public EditorProperty {
 		}
 	};
 
-	PopupMenu *change_type = nullptr;
+	EditorVariantTypePopupMenu *change_type = nullptr;
 	bool updating = false;
 
 	bool preview_value = false;
