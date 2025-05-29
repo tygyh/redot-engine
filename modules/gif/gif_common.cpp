@@ -109,7 +109,7 @@ Error gif_load_from_buffer_t(T *p_dest, const uint8_t *p_buffer, int p_buffer_le
 
 	int image_size = gif.file_type->SWidth * gif.file_type->SHeight * RGBA_COUNT;
 	Vector<uint8_t> screen;
-	screen.resize_zeroed(image_size);
+	screen.resize_initialized(image_size);
 
 	ColorMapObject *common_map = gif.file_type->SColorMap;
 	int last_undisposed_frame = -1;

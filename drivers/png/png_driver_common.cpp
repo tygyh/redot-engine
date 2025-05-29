@@ -346,7 +346,7 @@ Error apng_to_image_frames(const uint8_t *p_source, size_t p_size, bool p_force_
 	};
 
 	Vector<uint8_t> screen;
-	screen.resize_zeroed(width * height * pixel_size);
+	screen.resize_initialized(width * height * pixel_size);
 	if (is_animated) {
 		// Skip first frame
 		if (is_first_frame_hidden) {
@@ -380,7 +380,7 @@ Error apng_to_image_frames(const uint8_t *p_source, size_t p_size, bool p_force_
 
 			frame.delay = float(delay_num) / float(delay_den == 0 ? 100.0 : delay_den);
 
-			frame.buffer.resize_zeroed(frame.width * frame.height * pixel_size);
+			frame.buffer.resize_initialized(frame.width * frame.height * pixel_size);
 			read_image(frame.buffer, frame.width, frame.height);
 			return frame;
 		};

@@ -262,7 +262,7 @@ Error webp_load_image_frames_from_buffer(ImageFrames *p_frames, const uint8_t *p
 	const uint64_t rgba_size = anim_info.canvas_width * NUM_CHANNELS * anim_info.canvas_height;
 
 	Vector<uint8_t> screen;
-	screen.resize_zeroed(rgba_size);
+	screen.resize_initialized(rgba_size);
 
 	const uint32_t frame_count = p_max_frames > 0 ? MIN(anim_info.frame_count, (uint32_t)p_max_frames) : anim_info.frame_count;
 	p_frames->set_frame_count(frame_count);
